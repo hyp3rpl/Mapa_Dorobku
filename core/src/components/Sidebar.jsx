@@ -1,14 +1,21 @@
-function Sidebar() {
+function Sidebar({ activeGroup, setActiveGroup }) {
+  const grupy = [1, 2, 3, 4]
+
   return (
     <aside className="sidebar">
-
       <h3>Grupy</h3>
-
-      <button>Grupa 1</button>
-      <button>Grupa 2</button>
-      <button>Grupa 3</button>
-      <button>Grupa 4</button>
-
+      {grupy.map(n => (
+        <button
+          key={n}
+          onClick={() => setActiveGroup(n)}
+          style={{
+            fontWeight: activeGroup === n ? "bold" : "normal",
+            outline: activeGroup === n ? "2px solid currentColor" : "none"
+          }}
+        >
+          Grupa {n}
+        </button>
+      ))}
     </aside>
   )
 }
