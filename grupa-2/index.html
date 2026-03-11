@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Równoległe Osie - Asynchroniczność Modernizmów</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdfaf5;
+            --text: #1a1a1a;
+            --accent: #c0392b;
+            --c-osw: #95a5a6; --c-rom: #c0392b; --c-poz: #34495e;
+            --c-mp:  #d35400; --c-20:  #2980b9; --c-woj: #000000; --c-wsp: #16a085;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0; padding: 40px; overflow-x: hidden;
+        }
+
+        /* --- NOWY PIĘKNY TYTUŁ --- */
+        .modernist-header {
+            max-width: 1400px;
+            margin: 0 auto 100px auto;
+            position: relative;
+            padding-top: 20px;
+        }
+
+        .header-top-line {
+            width: 80px; height: 8px; background: var(--text); margin-bottom: 15px;
+        }
+
+        .main-title {
+            font-weight: 900;
+            font-size: 5rem;
+            line-height: 0.8;
+            text-transform: uppercase;
+            letter-spacing: -4px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-title span.first-row {
+            display: block;
+        }
+
+        .main-title span.second-row {
+            display: block;
+            margin-left: 60px;
+            color: var(--accent);
+            font-size: 4.5rem;
+            position: relative;
+        }
+
+        .main-title span.second-row::after {
+            content: '';
+            position: absolute;
+            bottom: 10px; left: -100px;
+            width: 100vw; height: 1px;
+            background: rgba(0,0,0,0.1);
+            z-index: -1;
+        }
+
+        .subtitle-box {
+            margin-left: 65px;
+            max-width: 500px;
+            margin-top: 20px;
+            border-left: 3px solid var(--text);
+            padding-left: 20px;
+        }
+
+        .subtitle-box p {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #444;
+            margin: 0;
+        }
+
+        /* --- KONSTRUKCJA WYKRESU --- */
+        .infographic-area {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .axis-container {
+            position: relative;
+            height: 140px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .axis-header {
+            position: absolute;
+            top: -20px; left: 0;
+            font-size: 0.75rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 3px;
+            color: #999;
+        }
+
+        .base-line {
+            position: absolute; width: 100%; height: 1px;
+            background: rgba(0,0,0,0.1); z-index: 1;
+        }
+
+        /* EPOKI */
+        .epoch {
+            position: absolute; height: 50px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; font-size: 0.65rem; font-weight: 700;
+            cursor: pointer; transition: 0.3s; z-index: 10;
+            border-radius: 2px;
+        }
+        .epoch:hover { transform: translateY(-5px); filter: brightness(1.1); z-index: 20; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .epoch span { font-size: 0.5rem; opacity: 0.8; }
+
+        /* PUNKTY */
+        .dot {
+            position: absolute; width: 14px; height: 14px;
+            background: var(--text); border-radius: 50%;
+            z-index: 30; transform: translate(-50%, -50%);
+            cursor: crosshair; transition: 0.2s;
+        }
+        .dot:hover { transform: translate(-50%, -50%) scale(1.6); background: var(--accent); }
+        .dot::after {
+            content: attr(data-label);
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: #000; color: #fff; padding: 5px 10px;
+            font-size: 0.7rem; border-radius: 3px; white-space: nowrap;
+            opacity: 0; pointer-events: none; transition: 0.2s;
+        }
+        .dot:hover::after { opacity: 1; }
+
+        /* LINIE ŁĄCZĄCE (SVG) */
+        #svg-layer {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 5;
+        }
+        .conn-line {
+            fill: none; stroke: #000; stroke-width: 1;
+            stroke-dasharray: 4; opacity: 0.1;
+            transition: 0.5s;
+        }
+        .conn-line.active { opacity: 1; stroke-dasharray: 0; stroke: var(--accent); stroke-width: 3; }
+
+        /* MODAL */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: none;
+            justify-content: center; align-items: center; z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .modal-box {
+            background: white; padding: 50px; max-width: 700px; width: 90%;
+            border-radius: 4px; position: relative;
+        }
+        .modal-box h2 { text-transform: uppercase; font-weight: 900; font-size: 2rem; border-bottom: 8px solid var(--accent); display: inline-block; margin: 0 0 20px 0; }
+        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 3rem; cursor: pointer; border: none; background: none; line-height: 1; }
+        .books-box { background: #f0f0f0; padding: 25px; border-left: 8px solid var(--text); margin-top: 30px; }
+
+        /* SKALA LAT */
+        .timeline-footer {
+            position: relative; width: 100%; height: 60px;
+            border-top: 3px solid #222; margin-top: 30px;
+        }
+        .year-tag { position: absolute; font-size: 0.8rem; font-weight: 900; transform: translateX(-50%); top: 15px; }
+
+    </style>
+</head>
+<body>
+
+    <header class="modernist-header">
+        <div class="header-top-line"></div>
+        <h1 class="main-title">
+            <span class="first-row">Równoległe Osie</span>
+            <span class="second-row">Asynchroniczność Modernizmów</span>
+        </h1>
+        <div class="subtitle-box">
+            <p>Wizualizacja zderzenia różnych wymiarów czasu: od globalnych przełomów technicznych, przez polskie epoki narodowe, aż po subiektywny czas literatury.</p>
+        </div>
+    </header>
+
+<div class="infographic-area" id="main-chart">
+    <svg id="svg-layer"></svg>
+
+    <!-- OŚ 1: KONTEKST ŚWIATOWY -->
+    <div class="axis-container">
+        <div class="axis-header">Wymiar Globalny / Techniczny</div>
+        <div class="base-line"></div>
+        <div class="dot" style="left: 5%" id="watt" data-label="1769: Maszyna Parowa"></div>
+        <div class="dot" style="left: 20%" id="rev" data-label="1789: Wielka Rewolucja"></div>
+        <div class="dot" style="left: 38%" id="darwin" data-label="1859: Darwin 'O powstawaniu gatunków'"></div>
+        <div class="dot" style="left: 52%" id="lumiere" data-label="1895: Pierwszy film"></div>
+        <div class="dot" style="left: 60%" id="einstein" data-label="1905: Teoria Względności"></div>
+        <div class="dot" style="left: 82%" id="atomic" data-label="1945: Era Atomowa"></div>
+        <div class="dot" style="left: 92%" id="internet" data-label="1990: Narodziny WWW"></div>
+    </div>
+
+    <!-- OŚ 2: POLSKA (KLIKALNA) -->
+    <div class="axis-container">
+        <div class="axis-header">Polska: Epoki i Kultura</div>
+        <div class="base-line"></div>
+        <div class="epoch" id="osw" style="left:0%; width:18%; background:var(--c-osw);">OŚWIECENIE<span>1764-1822</span></div>
+        <div class="epoch" id="rom" style="left:18%; width:16%; background:var(--c-rom);">ROMANTYZM<span>1822-1864</span></div>
+        <div class="epoch" id="poz" style="left:34%; width:10%; background:var(--c-poz);">POZYTYWIZM<span>1864-1890</span></div>
+        <div class="epoch" id="mp"  style="left:44%; width:11%; background:var(--c-mp);">MŁODA POLSKA<span>1890-1918</span></div>
+        <div class="epoch" id="d20" style="left:55%; width:8%; background:var(--c-20);">20-LECIE<span>1918-1939</span></div>
+        <div class="epoch" id="woj" style="left:63%; width:3%; background:var(--c-woj);">WOJNA<span>1939-45</span></div>
+        <div class="epoch" id="wsp" style="left:66%; width:34%; background:var(--c-wsp);">WSPÓŁCZESNOŚĆ<span>Od 1945</span></div>
+    </div>
+
+    <!-- OŚ 3: LITERATURA / PSYCHOLOGIA -->
+    <div class="axis-container">
+        <div class="axis-header">Czas Subiektywny / Lektury</div>
+        <div class="base-line"></div>
+        <div class="dot" style="left: 25%" id="dziady" data-label="Mickiewicz: 'Dziady'"></div>
+        <div class="dot" style="left: 41%" id="lalka" data-label="Prus: 'Lalka'"></div>
+        <div class="dot" style="left: 48%" id="wesele" data-label="Wyspiański: 'Wesele'"></div>
+        <div class="dot" style="left: 58%" id="proust" data-label="Proust: Modernizm Światowy"></div>
+        <div class="dot" style="left: 62%" id="schulz" data-label="Schulz: Mitologizacja czasu"></div>
+        <div class="dot" style="left: 78%" id="mrozek" data-label="Mrożek: 'Tango'"></div>
+        <div class="dot" style="left: 95%" id="tokarczuk" data-label="Tokarczuk: 'Bieguni'"></div>
+    </div>
+
+    <div class="timeline-footer">
+        <div class="year-tag" style="left:0%">1764</div>
+        <div class="year-tag" style="left:18%">1822</div>
+        <div class="year-tag" style="left:44%">1890</div>
+        <div class="year-tag" style="left:55%">1918</div>
+        <div class="year-tag" style="left:66%">1945</div>
+        <div class="year-tag" style="left:100%">DZISIAJ</div>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="infoModal">
+    <div class="modal-box">
+        <button class="close-btn" id="close">&times;</button>
+        <h2 id="mTitle">Tytuł</h2>
+        <p id="mDesc" style="font-size: 1.1rem; line-height: 1.8;">Opis...</p>
+        <div class="books-box">
+            <strong>Kluczowe lektury i teksty:</strong>
+            <ul id="mBooks" style="margin-top: 10px; font-weight: 700;"></ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const data = {
+        osw: { t: "Oświecenie", d: "Wiek rozumu i reform. Polska walczy o byt państwowy, tworząc Komisję Edukacji Narodowej i Konstytucję 3 Maja. W literaturze dominuje dydaktyzm i klasycyzm.", b: ["Ignacy Krasicki - Satyry", "Józef Wybicki - Mazurek Dąbrowskiego", "Franciszek Karpiński - Sielanki"] },
+        rom: { t: "Romantyzm", d: "Czas buntu, emocji i mesjanizmu. Literatura stała się duchową ojczyzną dla Polaków pod zaborami. Modernizm ma tu swoje korzenie w kulcie jednostki i wyobraźni.", b: ["Adam Mickiewicz - Dziady cz. III", "Juliusz Słowacki - Kordian", "Cyprian Kamil Norwid - Vade-mecum"] },
+        poz: { t: "Pozytywizm", d: "Reakcja na klęskę powstania styczniowego. Kult nauki, pracy organicznej i realizmu. Próba dogonienia nowoczesnej Europy poprzez gospodarkę i edukację.", b: ["Bolesław Prus - Lalka", "Eliza Orzeszkowa - Nad Niemnem", "Henryk Sienkiewicz - Trylogia"] },
+        mp:  { t: "Młoda Polska", d: "Prawdziwy początek modernizmu w Polsce. Symbolizm, neoromantyzm, dekadentyzm. Odkrycie podświadomości i kryzys wartości mieszczańskich.", b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi", "Stefan Żeromski - Ludzie bezdomni"] },
+        d20: { t: "Dwudziestolecie", d: "Radość z wolności zderzona z lękiem przed totalitaryzmami. Eksperymenty Gombrowicza, Schulza i Witkacego wyznaczają szczyt polskiej awangardy.", b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe", "Zofia Nałkowska - Granica"] },
+        woj: { t: "Wojna i Okupacja", d: "Literatura czasu apokalipsy. Przewartościowanie wszystkich pojęć humanizmu w obliczu Holokaustu i obozów koncentracyjnych.", b: ["Krzysztof Kamil Baczyński - Wybór poezji", "Tadeusz Borowski - Pożegnanie z Marią", "Gustaw Herling-Grudziński - Inny świat"] },
+        wsp: { t: "Współczesność", d: "Okres od 1945 roku. Zmagania z cenzurą PRL, rozwój poezji Różewicza i Szymborskiej, aż po współczesną prozę Olgi Tokarczuk.", b: ["Sławomir Mrożek - Tango", "Wisława Szymborska - Poezje", "Olga Tokarczuk - Bieguni"] }
+    };
+
+    const connections = [
+        ['watt', 'osw'], ['rev', 'rom'], ['darwin', 'poz'], ['poz', 'lalka'],
+        ['lumiere', 'mp'], ['einstein', 'proust'], ['proust', 'schulz'],
+        ['wesele', 'mp'], ['schulz', 'd20'], ['atomic', 'wsp'], ['internet', 'tokarczuk'],
+        ['dziady', 'rom'], ['einstein', 'schulz'], ['atomic', 'mrozek']
+    ];
+
+    const svg = document.getElementById('svg-layer');
+    const chart = document.getElementById('main-chart');
+
+    function draw() {
+        svg.innerHTML = '';
+        const rect = chart.getBoundingClientRect();
+        connections.forEach(c => {
+            const e1 = document.getElementById(c[0]);
+            const e2 = document.getElementById(c[1]);
+            if(e1 && e2) {
+                const r1 = e1.getBoundingClientRect();
+                const r2 = e2.getBoundingClientRect();
+                const x1 = r1.left + r1.width/2 - rect.left;
+                const y1 = r1.top + r1.height/2 - rect.top;
+                const x2 = r2.left + r2.width/2 - rect.left;
+                const y2 = r2.top + r2.height/2 - rect.top;
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", `M ${x1} ${y1} C ${x1} ${(y1+y2)/2}, ${x2} ${(y1+y2)/2}, ${x2} ${y2}`);
+                path.setAttribute("class", "conn-line");
+                path.dataset.ids = `${c[0]}-${c[1]}`;
+                svg.appendChild(path);
+            }
+        });
+    }
+
+    document.addEventListener('mouseover', e => {
+        if(e.target.classList.contains('dot') || e.target.classList.contains('epoch')) {
+            const id = e.target.id;
+            document.querySelectorAll('.conn-line').forEach(l => {
+                if(l.dataset.ids.includes(id)) l.classList.add('active');
+            });
+        }
+    });
+
+    document.addEventListener('mouseout', () => {
+        document.querySelectorAll('.conn-line').forEach(l => l.classList.remove('active'));
+    });
+
+    document.querySelectorAll('.epoch').forEach(ep => {
+        ep.onclick = () => {
+            const epData = data[ep.id];
+            document.getElementById('mTitle').innerText = epData.t;
+            document.getElementById('mDesc').innerText = epData.d;
+            document.getElementById('mBooks').innerHTML = epData.b.map(b => `<li>${b}</li>`).join('');
+            document.getElementById('infoModal').style.display = 'flex';
+        };
+    });
+
+    document.getElementById('close').onclick = () => document.getElementById('infoModal').style.display = 'none';
+    window.onclick = e => { if(e.target.id === 'infoModal') e.target.style.display = 'none'; }
+
+    window.onresize = draw;
+    window.onload = draw;
+</script>
+
+</body>
+</html>
