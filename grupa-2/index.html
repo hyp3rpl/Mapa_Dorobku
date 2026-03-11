@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Równoległe Osie - Asynchroniczność Modernizmów</title>
+    <title>Pełna Panorama Epok - Asynchroniczność Modernizmów</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fdfaf5;
             --text: #1a1a1a;
             --accent: #c0392b;
+            /* Kolory epok historycznych */
+            --c-sre: #4b4b4b; --c-ren: #27ae60; --c-bar: #8e44ad;
+            /* Kolory modernizmu */
             --c-osw: #95a5a6; --c-rom: #c0392b; --c-poz: #34495e;
             --c-mp:  #d35400; --c-20:  #2980b9; --c-woj: #000000; --c-wsp: #16a085;
         }
@@ -21,55 +24,37 @@
             margin: 0; padding: 40px; overflow-x: hidden;
         }
 
-        /* --- NOWY PIĘKNY TYTUŁ --- */
+        /* --- MODERNISTYCZNY TYTUŁ --- */
         .modernist-header {
             max-width: 1400px;
-            margin: 0 auto 100px auto;
+            margin: 0 auto 80px auto;
             position: relative;
-            padding-top: 20px;
         }
 
-        .header-top-line {
-            width: 80px; height: 8px; background: var(--text); margin-bottom: 15px;
+        .header-decoration {
+            width: 120px; height: 12px; background: var(--text); margin-bottom: 20px;
         }
 
         .main-title {
             font-weight: 900;
-            font-size: 5rem;
-            line-height: 0.8;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 0.85;
             text-transform: uppercase;
-            letter-spacing: -4px;
+            letter-spacing: -3px;
             margin: 0;
-            display: flex;
-            flex-direction: column;
         }
 
-        .main-title span.first-row {
-            display: block;
-        }
-
-        .main-title span.second-row {
-            display: block;
-            margin-left: 60px;
+        .main-title span.highlight {
             color: var(--accent);
-            font-size: 4.5rem;
-            position: relative;
-        }
-
-        .main-title span.second-row::after {
-            content: '';
-            position: absolute;
-            bottom: 10px; left: -100px;
-            width: 100vw; height: 1px;
-            background: rgba(0,0,0,0.1);
-            z-index: -1;
+            display: block;
+            margin-left: 50px;
         }
 
         .subtitle-box {
-            margin-left: 65px;
-            max-width: 500px;
-            margin-top: 20px;
-            border-left: 3px solid var(--text);
+            margin-left: 55px;
+            max-width: 650px;
+            margin-top: 25px;
+            border-left: 4px solid var(--accent);
             padding-left: 20px;
         }
 
@@ -81,27 +66,28 @@
             margin: 0;
         }
 
-        /* --- KONSTRUKCJA WYKRESU --- */
+        /* --- WYKRES --- */
         .infographic-area {
             position: relative;
-            max-width: 1400px;
+            max-width: 1450px;
             margin: 0 auto;
+            padding-top: 50px;
         }
 
         .axis-container {
             position: relative;
-            height: 140px;
-            margin-bottom: 50px;
+            height: 150px;
+            margin-bottom: 60px;
             display: flex;
             align-items: center;
         }
 
         .axis-header {
             position: absolute;
-            top: -20px; left: 0;
-            font-size: 0.75rem; font-weight: 900;
+            top: -25px; left: 0;
+            font-size: 0.7rem; font-weight: 900;
             text-transform: uppercase; letter-spacing: 3px;
-            color: #999;
+            color: #aaa;
         }
 
         .base-line {
@@ -109,16 +95,17 @@
             background: rgba(0,0,0,0.1); z-index: 1;
         }
 
-        /* EPOKI */
+        /* EPOKI (SKALA OD 966 ROKU) */
         .epoch {
-            position: absolute; height: 50px;
+            position: absolute; height: 55px;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; font-size: 0.65rem; font-weight: 700;
+            color: white; font-size: 0.55rem; font-weight: 700;
             cursor: pointer; transition: 0.3s; z-index: 10;
-            border-radius: 2px;
+            border-radius: 2px; text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        .epoch:hover { transform: translateY(-5px); filter: brightness(1.1); z-index: 20; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .epoch span { font-size: 0.5rem; opacity: 0.8; }
+        .epoch:hover { transform: translateY(-8px); filter: brightness(1.1); z-index: 20; box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .epoch span { font-size: 0.45rem; opacity: 0.8; margin-top: 3px; }
 
         /* PUNKTY */
         .dot {
@@ -130,45 +117,45 @@
         .dot:hover { transform: translate(-50%, -50%) scale(1.6); background: var(--accent); }
         .dot::after {
             content: attr(data-label);
-            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-            background: #000; color: #fff; padding: 5px 10px;
-            font-size: 0.7rem; border-radius: 3px; white-space: nowrap;
+            position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%);
+            background: #000; color: #fff; padding: 6px 12px;
+            font-size: 0.75rem; border-radius: 4px; white-space: nowrap;
             opacity: 0; pointer-events: none; transition: 0.2s;
         }
         .dot:hover::after { opacity: 1; }
 
-        /* LINIE ŁĄCZĄCE (SVG) */
+        /* SVG */
         #svg-layer {
             position: absolute; top: 0; left: 0;
             width: 100%; height: 100%;
             pointer-events: none; z-index: 5;
         }
         .conn-line {
-            fill: none; stroke: #000; stroke-width: 1;
-            stroke-dasharray: 4; opacity: 0.1;
-            transition: 0.5s;
+            fill: none; stroke: #000; stroke-width: 1.2;
+            stroke-dasharray: 4; opacity: 0.1; transition: 0.5s;
         }
-        .conn-line.active { opacity: 1; stroke-dasharray: 0; stroke: var(--accent); stroke-width: 3; }
+        .conn-line.active { opacity: 0.8; stroke-dasharray: 0; stroke: var(--accent); stroke-width: 3; }
 
         /* MODAL */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); display: none;
+            background: rgba(0,0,0,0.92); display: none;
             justify-content: center; align-items: center; z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
         }
         .modal-box {
-            background: white; padding: 50px; max-width: 700px; width: 90%;
+            background: white; padding: 50px; max-width: 750px; width: 90%;
             border-radius: 4px; position: relative;
         }
-        .modal-box h2 { text-transform: uppercase; font-weight: 900; font-size: 2rem; border-bottom: 8px solid var(--accent); display: inline-block; margin: 0 0 20px 0; }
-        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 3rem; cursor: pointer; border: none; background: none; line-height: 1; }
-        .books-box { background: #f0f0f0; padding: 25px; border-left: 8px solid var(--text); margin-top: 30px; }
+        .modal-box h2 { text-transform: uppercase; font-weight: 900; font-size: 2.2rem; border-bottom: 10px solid var(--accent); display: inline-block; margin-bottom: 25px; }
+        .close-btn { position: absolute; top: 20px; right: 20px; font-size: 3.5rem; cursor: pointer; border: none; background: none; line-height: 1; color: #ccc; }
+        .close-btn:hover { color: var(--accent); }
+        .books-box { background: #f4f4f4; padding: 30px; border-left: 10px solid var(--text); margin-top: 35px; }
 
         /* SKALA LAT */
         .timeline-footer {
             position: relative; width: 100%; height: 60px;
-            border-top: 3px solid #222; margin-top: 30px;
+            border-top: 3px solid #000; margin-top: 40px;
         }
         .year-tag { position: absolute; font-size: 0.8rem; font-weight: 900; transform: translateX(-50%); top: 15px; }
 
@@ -177,13 +164,13 @@
 <body>
 
     <header class="modernist-header">
-        <div class="header-top-line"></div>
+        <div class="header-decoration"></div>
         <h1 class="main-title">
-            <span class="first-row">Równoległe Osie</span>
-            <span class="second-row">Asynchroniczność Modernizmów</span>
+            <span>Równoległe Osie</span>
+            <span class="highlight">Asynchroniczność Modernizmów</span>
         </h1>
         <div class="subtitle-box">
-            <p>Wizualizacja zderzenia różnych wymiarów czasu: od globalnych przełomów technicznych, przez polskie epoki narodowe, aż po subiektywny czas literatury.</p>
+            <p>Pełna panorama polskiej kultury od Chrztu w 966 roku po współczesność. Kliknij w epokę, aby zobaczyć opis i lektury.</p>
         </div>
     </header>
 
@@ -192,50 +179,55 @@
 
     <!-- OŚ 1: KONTEKST ŚWIATOWY -->
     <div class="axis-container">
-        <div class="axis-header">Wymiar Globalny / Techniczny</div>
+        <div class="axis-header">Przełomy Globalne</div>
         <div class="base-line"></div>
-        <div class="dot" style="left: 5%" id="watt" data-label="1769: Maszyna Parowa"></div>
-        <div class="dot" style="left: 20%" id="rev" data-label="1789: Wielka Rewolucja"></div>
-        <div class="dot" style="left: 38%" id="darwin" data-label="1859: Darwin 'O powstawaniu gatunków'"></div>
-        <div class="dot" style="left: 52%" id="lumiere" data-label="1895: Pierwszy film"></div>
-        <div class="dot" style="left: 60%" id="einstein" data-label="1905: Teoria Względności"></div>
-        <div class="dot" style="left: 82%" id="atomic" data-label="1945: Era Atomowa"></div>
-        <div class="dot" style="left: 92%" id="internet" data-label="1990: Narodziny WWW"></div>
+        <div class="dot" style="left: 14%" id="druk" data-label="1450: Wynalazek Druku"></div>
+        <div class="dot" style="left: 22%" id="columb" data-label="1492: Odkrycie Ameryki"></div>
+        <div class="dot" style="left: 35%" id="newton" data-label="1687: Zasady Dynamiki Newtona"></div>
+        <div class="dot" style="left: 45%" id="watt" data-label="1769: Maszyna Parowa"></div>
+        <div class="dot" style="left: 65%" id="einstein" data-label="1905: Teoria Względności"></div>
+        <div class="dot" style="left: 85%" id="moon" data-label="1969: Lądowanie na Księżycu"></div>
     </div>
 
-    <!-- OŚ 2: POLSKA (KLIKALNA) -->
+    <!-- OŚ 2: WSZYSTKIE EPOKI POLSKI (Skala od 966 do 2024) -->
     <div class="axis-container">
-        <div class="axis-header">Polska: Epoki i Kultura</div>
+        <div class="axis-header">Polska: Panorama Wszystkich Epok</div>
         <div class="base-line"></div>
-        <div class="epoch" id="osw" style="left:0%; width:18%; background:var(--c-osw);">OŚWIECENIE<span>1764-1822</span></div>
-        <div class="epoch" id="rom" style="left:18%; width:16%; background:var(--c-rom);">ROMANTYZM<span>1822-1864</span></div>
-        <div class="epoch" id="poz" style="left:34%; width:10%; background:var(--c-poz);">POZYTYWIZM<span>1864-1890</span></div>
-        <div class="epoch" id="mp"  style="left:44%; width:11%; background:var(--c-mp);">MŁODA POLSKA<span>1890-1918</span></div>
-        <div class="epoch" id="d20" style="left:55%; width:8%; background:var(--c-20);">20-LECIE<span>1918-1939</span></div>
-        <div class="epoch" id="woj" style="left:63%; width:3%; background:var(--c-woj);">WOJNA<span>1939-45</span></div>
-        <div class="epoch" id="wsp" style="left:66%; width:34%; background:var(--c-wsp);">WSPÓŁCZESNOŚĆ<span>Od 1945</span></div>
+        
+        <div class="epoch" id="sre" style="left:0%; width:14%; background:var(--c-sre);">ŚREDNIOWIECZE<span>X-XV w.</span></div>
+        <div class="epoch" id="ren" style="left:14%; width:10%; background:var(--c-ren);">RENESANS<span>XVI w.</span></div>
+        <div class="epoch" id="bar" style="left:24%; width:12%; background:var(--c-bar);">BAROK<span>XVII-XVIII w.</span></div>
+        <div class="epoch" id="osw" style="left:36%; width:8%; background:var(--c-osw);">OŚWIECENIE<span>1764-1822</span></div>
+        <div class="epoch" id="rom" style="left:44%; width:9%; background:var(--c-rom);">ROMANTYZM<span>1822-1864</span></div>
+        <div class="epoch" id="poz" style="left:53%; width:6%; background:var(--c-poz);">POZYTYWIZM<span>1864-1890</span></div>
+        <div class="epoch" id="mp"  style="left:59%; width:7%; background:var(--c-mp);">MŁODA POLSKA<span>1890-1918</span></div>
+        <div class="epoch" id="d20" style="left:66%; width:5%; background:var(--c-20);">20-LECIE<span>1918-1939</span></div>
+        <div class="epoch" id="woj" style="left:71%; width:2%; background:var(--c-woj);">WOJNA</div>
+        <div class="epoch" id="wsp" style="left:73%; width:27%; background:var(--c-wsp);">WSPÓŁCZESNOŚĆ<span>Od 1945</span></div>
     </div>
 
-    <!-- OŚ 3: LITERATURA / PSYCHOLOGIA -->
+    <!-- OŚ 3: LITERATURA / MYŚL -->
     <div class="axis-container">
-        <div class="axis-header">Czas Subiektywny / Lektury</div>
+        <div class="axis-header">Kluczowe Dzieła i Nurty</div>
         <div class="base-line"></div>
-        <div class="dot" style="left: 25%" id="dziady" data-label="Mickiewicz: 'Dziady'"></div>
-        <div class="dot" style="left: 41%" id="lalka" data-label="Prus: 'Lalka'"></div>
-        <div class="dot" style="left: 48%" id="wesele" data-label="Wyspiański: 'Wesele'"></div>
-        <div class="dot" style="left: 58%" id="proust" data-label="Proust: Modernizm Światowy"></div>
-        <div class="dot" style="left: 62%" id="schulz" data-label="Schulz: Mitologizacja czasu"></div>
-        <div class="dot" style="left: 78%" id="mrozek" data-label="Mrożek: 'Tango'"></div>
-        <div class="dot" style="left: 95%" id="tokarczuk" data-label="Tokarczuk: 'Bieguni'"></div>
+        <div class="dot" style="left: 5%" id="boguro" data-label="Bogurodzica (Najstarsza pieśń)"></div>
+        <div class="dot" style="left: 18%" id="kochan" data-label="Kochanowski: 'Treny'"></div>
+        <div class="dot" style="left: 28%" id="pasek" data-label="Pasek: 'Pamiętniki'"></div>
+        <div class="dot" style="left: 47%" id="mick" data-label="Mickiewicz: 'Dziady'"></div>
+        <div class="dot" style="left: 60%" id="wesele" data-label="Wyspiański: 'Wesele'"></div>
+        <div class="dot" style="left: 68%" id="schulz" data-label="Schulz: 'Sklepy cynamonowe'"></div>
+        <div class="dot" style="left: 90%" id="tokar" data-label="Tokarczuk: 'Bieguni'"></div>
     </div>
 
     <div class="timeline-footer">
-        <div class="year-tag" style="left:0%">1764</div>
-        <div class="year-tag" style="left:18%">1822</div>
-        <div class="year-tag" style="left:44%">1890</div>
-        <div class="year-tag" style="left:55%">1918</div>
-        <div class="year-tag" style="left:66%">1945</div>
-        <div class="year-tag" style="left:100%">DZISIAJ</div>
+        <div class="year-tag" style="left:0%">966</div>
+        <div class="year-tag" style="left:14%">1500</div>
+        <div class="year-tag" style="left:24%">1620</div>
+        <div class="year-tag" style="left:36%">1764</div>
+        <div class="year-tag" style="left:44%">1822</div>
+        <div class="year-tag" style="left:59%">1890</div>
+        <div class="year-tag" style="left:73%">1945</div>
+        <div class="year-tag" style="left:100%">DZIŚ</div>
     </div>
 </div>
 
@@ -244,30 +236,33 @@
     <div class="modal-box">
         <button class="close-btn" id="close">&times;</button>
         <h2 id="mTitle">Tytuł</h2>
-        <p id="mDesc" style="font-size: 1.1rem; line-height: 1.8;">Opis...</p>
+        <p id="mDesc" style="font-size: 1.15rem; line-height: 1.7;">Opis...</p>
         <div class="books-box">
-            <strong>Kluczowe lektury i teksty:</strong>
-            <ul id="mBooks" style="margin-top: 10px; font-weight: 700;"></ul>
+            <strong>Najważniejsze lektury i teksty:</strong>
+            <ul id="mBooks" style="margin-top: 15px; font-weight: 700; font-size: 1.1rem;"></ul>
         </div>
     </div>
 </div>
 
 <script>
     const data = {
-        osw: { t: "Oświecenie", d: "Wiek rozumu i reform. Polska walczy o byt państwowy, tworząc Komisję Edukacji Narodowej i Konstytucję 3 Maja. W literaturze dominuje dydaktyzm i klasycyzm.", b: ["Ignacy Krasicki - Satyry", "Józef Wybicki - Mazurek Dąbrowskiego", "Franciszek Karpiński - Sielanki"] },
-        rom: { t: "Romantyzm", d: "Czas buntu, emocji i mesjanizmu. Literatura stała się duchową ojczyzną dla Polaków pod zaborami. Modernizm ma tu swoje korzenie w kulcie jednostki i wyobraźni.", b: ["Adam Mickiewicz - Dziady cz. III", "Juliusz Słowacki - Kordian", "Cyprian Kamil Norwid - Vade-mecum"] },
-        poz: { t: "Pozytywizm", d: "Reakcja na klęskę powstania styczniowego. Kult nauki, pracy organicznej i realizmu. Próba dogonienia nowoczesnej Europy poprzez gospodarkę i edukację.", b: ["Bolesław Prus - Lalka", "Eliza Orzeszkowa - Nad Niemnem", "Henryk Sienkiewicz - Trylogia"] },
-        mp:  { t: "Młoda Polska", d: "Prawdziwy początek modernizmu w Polsce. Symbolizm, neoromantyzm, dekadentyzm. Odkrycie podświadomości i kryzys wartości mieszczańskich.", b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi", "Stefan Żeromski - Ludzie bezdomni"] },
-        d20: { t: "Dwudziestolecie", d: "Radość z wolności zderzona z lękiem przed totalitaryzmami. Eksperymenty Gombrowicza, Schulza i Witkacego wyznaczają szczyt polskiej awangardy.", b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe", "Zofia Nałkowska - Granica"] },
-        woj: { t: "Wojna i Okupacja", d: "Literatura czasu apokalipsy. Przewartościowanie wszystkich pojęć humanizmu w obliczu Holokaustu i obozów koncentracyjnych.", b: ["Krzysztof Kamil Baczyński - Wybór poezji", "Tadeusz Borowski - Pożegnanie z Marią", "Gustaw Herling-Grudziński - Inny świat"] },
-        wsp: { t: "Współczesność", d: "Okres od 1945 roku. Zmagania z cenzurą PRL, rozwój poezji Różewicza i Szymborskiej, aż po współczesną prozę Olgi Tokarczuk.", b: ["Sławomir Mrożek - Tango", "Wisława Szymborska - Poezje", "Olga Tokarczuk - Bieguni"] }
+        sre: { t: "Średniowiecze", d: "Najdłuższa epoka w historii, trwająca w Polsce od Chrztu (966) do końca XV wieku. Dominacja teocentryzmu, łaciny i wzorców osobowych takich jak rycerz i asceta.", b: ["Bogurodzica", "Lament świętokrzyski", "Gall Anonim - Kronika polska", "Rozmowa Mistrza Polikarpa ze Śmiercią"] },
+        ren: { t: "Renesans (Odrodzenie)", d: "Wiek Złoty kultury polskiej. Antropocentryzm ('człowiek miarą wszechrzeczy'), rozwój polszczyzny literackiej, humanizm i reformacja.", b: ["Jan Kochanowski - Treny", "Jan Kochanowski - Odprawa posłów greckich", "Mikołaj Rej - Krótka rozprawa...", "Andrzej Frycz Modrzewski - O poprawie Rzeczypospolitej"] },
+        bar: { t: "Barok", d: "Czas kontrastów, niepokoju i przepychu. W Polsce związany z kulturą sarmacką, ale też z głęboką religijnością i metafizyką.", b: ["Jan Chryzostom Pasek - Pamiętniki", "Jan Andrzej Morsztyn - Wybór poezji", "Daniel Naborowski - Krótkość żywota", "Wacław Potocki - Wojna chocimska"] },
+        osw: { t: "Oświecenie", d: "Wiek rozumu i reform. Próba ratowania państwa przez edukację (KEN) i kulturę. Powstanie teatru narodowego i pierwszej nowoczesnej konstytucji.", b: ["Ignacy Krasicki - Satyry i Bajki", "Julian Ursyn Niemcewicz - Powrót posła", "Józef Wybicki - Mazurek Dąbrowskiego"] },
+        rom: { t: "Romantyzm", d: "Epoka walki o wolność, mesjanizmu i prymatu czucia nad rozumem. Literatura staje się duchową siłą narodu pozbawionego państwa.", b: ["Adam Mickiewicz - Dziady cz. III", "Adam Mickiewicz - Pan Tadeusz", "Juliusz Słowacki - Kordian", "Cyprian Kamil Norwid - Vade-mecum"] },
+        poz: { t: "Pozytywizm", d: "Czas pracy u podstaw i pracy organicznej po klęsce powstania styczniowego. Realizm i naturalizm służące analizie społeczeństwa.", b: ["Bolesław Prus - Lalka", "Eliza Orzeszkowa - Nad Niemnem", "Henryk Sienkiewicz - Potop", "Maria Konopnicka - Mendel Gdański"] },
+        mp:  { t: "Młoda Polska", d: "Modernizm w polskim wydaniu. Symbolizm, neoromantyzm, kult sztuki i badanie mroków duszy (dekadentyzm).", b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi", "Stefan Żeromski - Ludzie bezdomni"] },
+        d20: { t: "Dwudziestolecie", d: "Odzyskanie niepodległości, rozkwit awangardy i eksperymentu. Zderzenie optymizmu wolności z lękiem przed nadchodzącym katastrofizmem.", b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe", "Zofia Nałkowska - Granica"] },
+        woj: { t: "Wojna i Okupacja", d: "Czas 'apokalipsy spełnionej'. Zagłada wartości humanistycznych i próba ich ocalenia poprzez tragiczne świadectwo literatury.", b: ["Tadeusz Borowski - Opowiadania", "Krzysztof Kamil Baczyński - Poezje", "Gustaw Herling-Grudziński - Inny świat"] },
+        wsp: { t: "Współczesność", d: "Od 1945 roku. Literatura zmagająca się z systemem komunistycznym, emigracją, aż po postmodernistyczną wolność po 1989 roku.", b: ["Sławomir Mrożek - Tango", "Wisława Szymborska - Poezje", "Czesław Miłosz - Traktat moralny", "Olga Tokarczuk - Bieguni"] }
     };
 
     const connections = [
-        ['watt', 'osw'], ['rev', 'rom'], ['darwin', 'poz'], ['poz', 'lalka'],
-        ['lumiere', 'mp'], ['einstein', 'proust'], ['proust', 'schulz'],
-        ['wesele', 'mp'], ['schulz', 'd20'], ['atomic', 'wsp'], ['internet', 'tokarczuk'],
-        ['dziady', 'rom'], ['einstein', 'schulz'], ['atomic', 'mrozek']
+        ['druk', 'ren'], ['columb', 'ren'], ['newton', 'osw'], ['watt', 'poz'], 
+        ['einstein', 'schulz'], ['moon', 'tokar'], ['boguro', 'sre'],
+        ['kochan', 'ren'], ['pasek', 'bar'], ['mick', 'rom'], ['wesele', 'mp'],
+        ['einstein', 'proust'], ['druk', 'kochan']
     ];
 
     const svg = document.getElementById('svg-layer');
