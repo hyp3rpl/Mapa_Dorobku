@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+.projekt-kontener {
+  min-height: 100vh;
+  padding: 40px;
+  font-family: 'Lora', serif;
+  color: #2c2c2c;
+}
+
+.naglowek-glowny { text-align: center; margin-bottom: 40px; }
+.nadtytul { font-size: 0.7rem; letter-spacing: 4px; color: #888; text-transform: uppercase; }
+.naglowek-glowny h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 10px 0 30px; }
+
+/* PRZYCISKI EPOK */
+.nawigacja-epok { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.przycisk-epoki {
+  padding: 8px 18px; border: 1px solid #ddd; background: #fff; cursor: pointer;
+  border-radius: 20px; font-size: 0.85rem; transition: 0.3s;
+}
+.przycisk-epoki.aktywny { background: var(--kolor-akcentu); color: #fff; border-color: var(--kolor-akcentu); transform: scale(1.05); }
+
+/* OBSZAR OSI CZASU */
+.pomaranczowa-ramka {
+  border: 4px solid transparent; /* Kolor ustawiany przez JSX */
+  border-radius: 25px;
+  background: rgba(255,255,255,0.8);
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto 50px;
+  position: relative;
+}
+
+/* Linia przechodząca przez środek kropek */
+.linia-osi-tlo {
+  position: absolute;
+  height: 2px;
+  /* Kolor tła ustawiany przez JSX */
+  width: 90%;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.rzed-epok {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* Wyrównanie elementów do dołu kolumny */
+  position: relative;
+  z-index: 2;
+}
+
+.wezel-epoki {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.wezel-epoki.aktywny {
+  transform: translateY(-5px);
+}
+
+.ikona-nad-kropka {
+  font-size: 2.2rem;
+  transition: 0.5s;
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+
+.wezel-epoki.aktywny .ikona-nad-kropka {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.2);
+}
+
+.kropka-osi {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 3px solid transparent;
+  z-index: 3;
+}
+
+.kropka-osi.wybrana {
+  transform: scale(1.3);
+  border: 3px solid #fff;
+}
+
+.etykieta-daty {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #777;
+  font-family: sans-serif;
+}
+
+/* PANEL INFORMACYJNY */
+.panel-szczegolow {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px;
+  max-width: 1100px; margin: 0 auto;
+}
+.karta-glowna, .karta-boczna { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
+
+.info-czasowe { color: #888; font-style: italic; margin-bottom: 20px; font-size: 1rem; }
+.opis-tekstowy { font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 30px; }
+
+.sekcja-danych h4 { font-size: 0.7rem; letter-spacing: 2px; color: #aaa; margin-bottom: 15px; }
+.chmura-tagow { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag-autora { padding: 5px 14px; border-radius: 6px; color: #fff; font-size: 0.9rem; font-weight: 600; }
+
+/* POJĘCIA I DYMKI */
+.kontener-pojecia { position: relative; display: inline-block; }
+.tag-pojecia { 
+    display: inline-block; padding: 6px 14px; border: 1px solid #eee; 
+    border-radius: 20px; color: #666; font-size: 0.85rem; 
+    cursor: help; transition: all 0.3s ease;
+}
+.tag-pojecia:hover {
+    background: var(--kolor-aktywny);
+    color: #fff;
+    border-color: var(--kolor-aktywny);
+    transform: translateY(-2px);
+}
+.dymek-opisowy {
+    position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%);
+    width: 220px; background: #2c2c2c; color: #fff; padding: 14px;
+    border-radius: 10px; font-size: 0.8rem; line-height: 1.5;
+    z-index: 100; box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    animation: wjazdZdolu 0.3s ease-out;
+}
+
+@keyframes wjazdZdolu {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.pole-przelomu { padding: 25px; margin-top: 35px; border-radius: 0 12px 12px 0; }
