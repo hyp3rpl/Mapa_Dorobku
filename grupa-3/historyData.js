@@ -11,10 +11,11 @@ export const historyData = [
       { name: "Logos", desc: "Rozum jako siła rządząca światem i źródło wiedzy." },
       { name: "Mimesis", desc: "Naśladowanie rzeczywistości w sztuce zgodnie z zasadą prawdopodobieństwa." },
       { name: "Katharsis", desc: "Oczyszczenie uczuć widza poprzez przeżycie litości i trwogi." },
-      { name: "Fatum", desc: "Nieodwołalne przeznaczenie rządzące losem ludzkim, przed którym nie ma ucieczki." }
+      { name: "Fatum", desc: "Nieodwołalne przeznaczenie rządzące losem ludzkim." }
     ],
     shift: "Upadek Cesarstwa Zachodniorzymskiego",
-    shiftNote: "Koniec porządku pogańskiego i przejście do uniwersalizmu chrześcijańskiego."
+    shiftNote: "Koniec porządku pogańskiego i przejście do uniwersalizmu chrześcijańskiego.",
+    quote: { text: "Poznaj samego siebie.", author: "Sokrates" }
   },
   {
     id: "sredniowiecze",
@@ -26,12 +27,13 @@ export const historyData = [
     authors: ["Dante Alighieri", "Św. Augustyn", "Gall Anonim", "Wincenty Kadłubek"],
     keywords: [
       { name: "Teocentryzm", desc: "Bóg jako najwyższa wartość i ośrodek wszystkich działań ludzkich." },
-      { name: "Asceza", desc: "Ćwiczenie ducha poprzez dobrowolne umartwianie ciała i rezygnację z dóbr ziemskich." },
-      { name: "Memento Mori", desc: "Łacińskie: 'Pamiętaj o śmierci'. Hasło przypominające o nietrwałości życia." },
-      { name: "Scholastyka", desc: "Metoda filozoficzna polegająca na racjonalnym uzasadnianiu prawd wiary." }
+      { name: "Asceza", desc: "Ćwiczenie ducha poprzez dobrowolne umartwianie ciała." },
+      { name: "Memento Mori", desc: "Łacińskie: 'Pamiętaj o śmierci'." },
+      { name: "Scholastyka", desc: "Filozoficzne uzasadnianie prawd wiary." }
     ],
     shift: "Wynalazek druku Gutenberga",
-    shiftNote: "Rewolucja w przepływie informacji, koniec ery rękopisów."
+    shiftNote: "Rewolucja w przepływie informacji, koniec ery rękopisów.",
+    quote: { text: "Bogurodzica dziewica, Bogiem sławiena Maryja!", author: "Autor nieznany" }
   },
   {
     id: "renesans",
@@ -42,13 +44,14 @@ export const historyData = [
     description: "Odrodzenie kultury antycznej i narodziny humanizmu, który postawił człowieka w centrum zainteresowania. Hasło Terencjusza 'Człowiekiem jestem i nic co ludzkie nie jest mi obce' stało się dewizą epoki. Literatura renesansowa zaczęła dynamicznie rozwijać się w językach narodowych, a twórcy tacy jak Jan Kochanowski wprowadzili do polszczyzny kunsztowne formy poetyckie. To czas optymizmu życiowego, wiary w potęgę ludzkiego umysłu i harmonii z naturą. Reformacja przyniosła rozłam w Kościele, ale też wzmogła debaty intelektualne i walkę o wolność sumienia.",
     authors: ["Jan Kochanowski", "Mikołaj Rej", "William Szekspir", "Mikołaj Kopernik"],
     keywords: [
-      { name: "Humanizm", desc: "Ruch umysłowy skupiony na godności, potrzebach i możliwościach człowieka." },
-      { name: "Antropocentryzm", desc: "Pogląd stawiający człowieka jako najważniejszy punkt odniesienia w świecie." },
-      { name: "Carpe Diem", desc: "Chwytaj dzień – radosna afirmacja życia i korzystanie z każdej chwili." },
-      { name: "Irenizm", desc: "Postawa dążąca do zgody i pokoju między różnymi wyznaniami." }
+      { name: "Humanizm", desc: "Ruch umysłowy skupiony na godności i potrzebach człowieka." },
+      { name: "Antropocentryzm", desc: "Pogląd stawiający człowieka jako najważniejszy punkt odniesienia." },
+      { name: "Carpe Diem", desc: "Chwytaj dzień – radosna afirmacja życia." },
+      { name: "Irenizm", desc: "Postawa dążąca do zgody i pokoju między wyznaniami." }
     ],
     shift: "Kryzys ideałów humanizmu",
-    shiftNote: "Wojny religijne i narastający niepokój egzystencjalny kończą złoty wiek odrodzenia."
+    shiftNote: "Wojny religijne i narastający niepokój egzystencjalny kończą złoty wiek odrodzenia.",
+    quote: { text: "Człowiekiem jestem i nic co ludzkie nie jest mi obce.", author: "Terencjusz (Dewiza Humanistów)" }
   },
   {
     id: "barok",
@@ -59,13 +62,14 @@ export const historyData = [
     description: "Epoka kontrastów, paradoksów i niepokoju. Barok odrzucił renesansowy ład na rzecz dynamizmu i skomplikowanych form (marinizm). Świadomość marności świata (vanitas) współistniała z uwielbieniem dla przepychu i konceptu artystycznego. W Polsce to czas sarmatyzmu – specyficznej kultury szlacheckiej łączącej tradycje wschodnie z zachodnimi. Człowiek baroku czuł się rozdarty między pokusami doczesności a lękiem przed nieskończonością Boga i wszechświata, co znajdowało wyraz w pełnej metafor, gęstej poezji metafizycznej.",
     authors: ["Jan Andrzej Morsztyn", "Wacław Potocki", "Daniel Naborowski", "Molier"],
     keywords: [
-      { name: "Vanitas", desc: "Motyw religijno-artystyczny związany z przemijaniem i kruchością życia." },
-      { name: "Konceptyzm", desc: "Kierunek literacki stawiający na niezwykły pomysł i zaskoczenie czytelnika." },
-      { name: "Kontrreformacja", desc: "Ruch w Kościele katolickim mający na celu odzyskanie wpływów po reformacji." },
-      { name: "Sarmatyzm", desc: "Ideologia i styl życia polskiej szlachty oparty na dumie rodowej i tradycji." }
+      { name: "Vanitas", desc: "Motyw religijno-artystyczny związany z przemijaniem." },
+      { name: "Konceptyzm", desc: "Kierunek literacki stawiający na niezwykły pomysł." },
+      { name: "Kontrreformacja", desc: "Ruch w Kościele katolickim mający na celu odzyskanie wpływów." },
+      { name: "Sarmatyzm", desc: "Ideologia i styl życia polskiej szlachty." }
     ],
     shift: "Oświeceniowa wiara w rozum",
-    shiftNote: "Krytyka zabobonów baroku na rzecz wiedzy opartej na dowodach naukowych."
+    shiftNote: "Krytyka zabobonów baroku na rzecz wiedzy opartej na dowodach.",
+    quote: { text: "Krótka rozprawa: Śmierć, czas, marność...", author: "Daniel Naborowski" }
   },
   {
     id: "oswiecenie",
@@ -76,13 +80,14 @@ export const historyData = [
     description: "Wiek rozumu i światła, w którym wierzono, że nauka i krytyczne myślenie wyzwolą ludzkość z ciemnoty. Literatura miała przede wszystkim bawiąc, uczyć – dominowały satyry, bajki i powieści o charakterze dydaktycznym. W Polsce epoka ta wiąże się z próbami ratowania niepodległości, działalnością Sejmu Wielkiego i uchwaleniem Konstytucji 3 Maja. Król Stanisław August Poniatowski, mecenas sztuki, skupił wokół siebie intelektualistów, tworząc fundamenty nowoczesnego szkolnictwa i teatru narodowego.",
     authors: ["Ignacy Krasicki", "Wolter", "Jean-Jacques Rousseau", "Adam Naruszewicz"],
     keywords: [
-      { name: "Racjonalizm", desc: "Kierunek filozoficzny uznający rozum za główne narzędzie poznania świata." },
-      { name: "Empiryzm", desc: "Przekonanie, że jedynym wiarygodnym źródłem wiedzy jest doświadczenie zmysłowe." },
-      { name: "Deizm", desc: "Nurt religijny zakładający istnienie Boga, który jednak nie ingeruje w losy świata." },
-      { name: "Utylitaryzm", desc: "Pogląd głoszący, że działanie jest moralne, jeśli przynosi korzyść ogółowi." }
+      { name: "Racjonalizm", desc: "Uznanie rozumu za główne narzędzie poznania świata." },
+      { name: "Empiryzm", desc: "Przekonanie, że jedynym źródłem wiedzy jest doświadczenie." },
+      { name: "Deizm", desc: "Bóg stworzył świat, ale nie ingeruje w jego losy." },
+      { name: "Utylitaryzm", desc: "Działanie jest moralne, jeśli przynosi korzyść ogółowi." }
     ],
     shift: "Rewolucja Francuska",
-    shiftNote: "Wybuch emocji narodowych i społecznych, których chłodny rozum nie potrafił opanować."
+    shiftNote: "Wybuch emocji narodowych i społecznych, których rozum nie potrafił opanować.",
+    quote: { text: "Prawdziwa cnota krytyk się nie boi.", author: "Ignacy Krasicki" }
   },
   {
     id: "romantyzm",
@@ -93,13 +98,14 @@ export const historyData = [
     description: "Bunt przeciwko oświeceniowemu porządkowi świata. Romantycy gloryfikowali uczucie, wyobraźnię i wiarę w zjawiska nadprzyrodzone. W polskiej literaturze to najważniejsza epoka dla tożsamości narodowej – Mickiewicz, Słowacki i Krasiński (wieszcze) stali się duchowymi przywódcami narodu pod zaborami. Rozwinął się mesjanizm (Polska jako Chrystus Narodów) oraz kult wielkiego indywidualisty – bohatera romantycznego, który w imię wolności potrafi rzucić wyzwanie samemu Bogu i historii.",
     authors: ["Adam Mickiewicz", "Juliusz Słowacki", "Zygmunt Krasiński", "Cyprian Kamil Norwid"],
     keywords: [
-      { name: "Mesjanizm", desc: "Idea przypisująca narodowi polskiemu szczególną rolę w odkupieniu ludzkości." },
-      { name: "Prometeizm", desc: "Postawa buntu i poświęcenia się jednostki dla dobra narodu lub ludzkości." },
-      { name: "Irracjonalizm", desc: "Przekonanie, że rzeczywistości nie można poznać samym rozumem, lecz sercem." },
-      { name: "Ludowość", desc: "Zainteresowanie kulturą ludu, podaniami i baśniami jako źródłem prawdy o świecie." }
+      { name: "Mesjanizm", desc: "Idea przypisująca narodowi polskiemu szczególną rolę." },
+      { name: "Prometeizm", desc: "Postawa buntu i poświęcenia się jednostki dla dobra narodu." },
+      { name: "Irracjonalizm", desc: "Przekonanie, że rzeczywistość poznaje się sercem." },
+      { name: "Ludowość", desc: "Zainteresowanie kulturą ludu, podaniami i baśniami." }
     ],
     shift: "Klęska Powstania Styczniowego",
-    shiftNote: "Tragiczny koniec powstańczych marzeń i narodziny trzeźwego pozytywizmu."
+    shiftNote: "Tragiczny koniec powstańczych marzeń i narodziny trzeźwego pozytywizmu.",
+    quote: { text: "Miej serce i patrzaj w serce!", author: "Adam Mickiewicz" }
   },
   {
     id: "pozytywizm",
@@ -110,13 +116,14 @@ export const historyData = [
     description: "Odpowiedź na klęskę romantycznych powstań. Twórcy odrzucili marzenia o szybkiej niepodległości na rzecz 'pracy u podstaw' – edukowania ludu i 'pracy organicznej' – wzmacniania gospodarki. Literatura stała się narzędziem opisu rzeczywistości społecznej, dominował realizm i naturalizm. Bolesław Prus w swojej twórczości pokazywał mechanizmy rządzące Warszawą, a Eliza Orzeszkowa walczyła o emancypację kobiet. Sienkiewicz pisał 'ku pokrzepieniu serc', przypominając o dawnej potędze Polski w obliczu zaborów.",
     authors: ["Bolesław Prus", "Eliza Orzeszkowa", "Henryk Sienkiewicz", "Maria Konopnicka"],
     keywords: [
-      { name: "Praca u podstaw", desc: "Działalność na rzecz edukacji i poprawy bytu najniższych warstw społecznych." },
-      { name: "Scjentyzm", desc: "Zaufanie do metod nauk przyrodniczych jako jedynej drogi poznania prawdy." },
-      { name: "Emancypacja", desc: "Dążenie do równego statusu kobiet w życiu społecznym i zawodowym." },
-      { name: "Realizm", desc: "Metoda przedstawiania świata w literaturze w sposób obiektywny i prawdopodobny." }
+      { name: "Praca u podstaw", desc: "Działalność na rzecz edukacji najniższych warstw." },
+      { name: "Scjentyzm", desc: "Zaufanie do metod nauk przyrodniczych." },
+      { name: "Emancypacja", desc: "Dążenie do równego statusu kobiet." },
+      { name: "Realizm", desc: "Przedstawianie świata w sposób obiektywny." }
     ],
-    shift: "Kryzys cywilizacyjny przełomu wieków",
-    shiftNote: "Rozczarowanie brakiem postępu duchowego i narastający pesymizm końca wieku."
+    shift: "Dekadentyzm końca wieku",
+    shiftNote: "Rozczarowanie brakiem postępu duchowego i pesymizm.",
+    quote: { text: "Najpiękniejszą rzeczą na świecie jest życie.", author: "Bolesław Prus" }
   },
   {
     id: "mlodapolska",
@@ -127,13 +134,14 @@ export const historyData = [
     description: "Czas dekadentyzmu, modernizmu i symbolizmu. Artyści, czując schyłek dotychczasowego świata (fin de siècle), odrzucili pożyteczność sztuki na rzecz hasła 'sztuka dla sztuki'. Poezja stała się zapisem nastrojów, lęków i fascynacji podświadomością. Stanisław Wyspiański w 'Weselu' dokonał bezlitosnego rozrachunku z polską psychiką narodową. Epoka ta to także kult Tatr, fascynacja folklorem (chłopomania) oraz dynamiczny rozwój nowych form wyrazu w malarstwie i teatrze (secesja).",
     authors: ["Stanisław Wyspiański", "Kazimierz Przerwa-Tetmajer", "Stefan Żeromski", "Władysław Reymont"],
     keywords: [
-      { name: "Dekadentyzm", desc: "Nurt charakteryzujący się pesymizmem, apatią i poczuciem bezsensu istnienia." },
-      { name: "Symbolizm", desc: "Kierunek artystyczny posługujący się symbolem do wyrażenia treści niewyrażalnych wprost." },
-      { name: "Chłopomania", desc: "Fascynacja życiem wiejskim i upatrywanie w chłopach siły odrodzenia narodu." },
-      { name: "Secesja", desc: "Styl w sztuce i architekturze charakteryzujący się płynną linią i bogatą ornamentyką." }
+      { name: "Dekadentyzm", desc: "Nurt charakteryzujący się pesymizmem i apatią." },
+      { name: "Symbolizm", desc: "Wyrażanie treści niewyrażalnych wprost." },
+      { name: "Chłopomania", desc: "Fascynacja życiem wiejskim i siłą chłopów." },
+      { name: "Secesja", desc: "Styl charakteryzujący się płynną linią i ornamentyką." }
     ],
-    shift: "Odzyskanie niepodległości w 1918 roku",
-    shiftNote: "Nagle wolny kraj potrzebuje nowej literatury, odciętej od obowiązku walki o wolność."
+    shift: "Odzyskanie niepodległości 1918",
+    shiftNote: "Nagle wolny kraj potrzebuje nowej literatury.",
+    quote: { text: "Polska to jest wielka rzecz.", author: "Stanisław Wyspiański (Wesele)" }
   },
   {
     id: "20lecie",
@@ -144,12 +152,13 @@ export const historyData = [
     description: "Krótka, lecz niezwykle dynamiczna epoka eksplozji wolności. Pisarze grupy Skamander (Tuwim) postawili na radość życia i codzienność, odcinając się od 'wieszczów'. Jednocześnie rozwijała się awangarda, poszukująca zupełnie nowych form językowych (Peiper). Bruno Schulz i Witold Gombrowicz zrewolucjonizowali prozę, badając psychikę człowieka i absurd rzeczywistości. Pod koniec epoki optymizm ustąpił miejsca katastrofizmowi – przeczuciu nadchodzącej zagłady, która ostatecznie nadeszła wraz z wybuchem II wojny światowej.",
     authors: ["Julian Tuwim", "Bruno Schulz", "Witold Gombrowicz", "Bolesław Leśmian"],
     keywords: [
-      { name: "Awangarda", desc: "Nurt dążący do całkowitego zerwania z tradycją i stworzenia nowoczesnego języka sztuki." },
-      { name: "Futuryzm", desc: "Kierunek zachwycony nowoczesnością, prędkością, maszyną i odrzucający przeszłość." },
-      { name: "Katastrofizm", desc: "Nurt wyrażający przekonanie o bliskim upadku całej cywilizacji europejskiej." },
-      { name: "Psychologizm", desc: "Skupienie literatury na badaniu głębokich i skomplikowanych mechanizmów psychiki." }
+      { name: "Awangarda", desc: "Zerwanie z tradycją i stworzenie nowego języka sztuki." },
+      { name: "Futuryzm", desc: "Fascynacja prędkością, maszyną i odrzucenie przeszłości." },
+      { name: "Katastrofizm", desc: "Przekonanie o bliskim upadku cywilizacji europejskiej." },
+      { name: "Psychologizm", desc: "Badanie skomplikowanych mechanizmów ludzkiej psychiki." }
     ],
     shift: "II Wojna Światowa",
-    shiftNote: "Koniec cywilizowanego świata i wielka trauma, która zmieniła literaturę na zawsze."
+    shiftNote: "Koniec cywilizowanego świata i wielka trauma.",
+    quote: { text: "A ja ci powiem: żyj!", author: "Julian Tuwim" }
   }
 ];

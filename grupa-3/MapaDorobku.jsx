@@ -120,6 +120,15 @@ const MapaDorobku = () => {
             <p><strong>{aktywnaEpoka.shift}</strong></p>
             <small>{aktywnaEpoka.shiftNote}</small>
           </div>
+
+          {/* NOWA SEKCJA CYTATU */}
+          <div className="sekcja-cytatu">
+             <h4>CYTAT EPOKI:</h4>
+             <blockquote style={{ borderLeft: `3px solid ${aktywnaEpoka.color}` }}>
+                "{aktywnaEpoka.quote.text}"
+                <footer>— {aktywnaEpoka.quote.author}</footer>
+             </blockquote>
+          </div>
         </div>
       </section>
 
