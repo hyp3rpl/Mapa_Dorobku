@@ -1,0 +1,300 @@
+/* GŁÓWNY KONTENER TWOJEJ GRUPY */
+.asyn-root {
+  --bg: #fdfaf5;
+  --text: #1a1a1a;
+  --accent: #c0392b;
+  /* Kolory epok */
+  --c-sre: #4b4b4b; --c-ren: #27ae60; --c-bar: #8e44ad;
+  --c-osw: #95a5a6; --c-rom: #c0392b; --c-poz: #34495e;
+  --c-mp:  #d35400; --c-20:  #2980b9; --c-woj: #000000; --c-wsp: #16a085;
+
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  padding: 40px;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* NAGŁÓWEK */
+.modernist-header {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.header-decoration {
+  width: 100px;
+  height: 10px;
+  background: var(--text);
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.85;
+  text-transform: uppercase;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+.main-title .highlight {
+  color: var(--accent);
+  display: block;
+  margin-left: 40px;
+}
+
+.subtitle-box {
+  margin-left: 45px;
+  max-width: 650px;
+  margin-top: 25px;
+  border-left: 5px solid var(--accent);
+  padding-left: 20px;
+}
+
+.subtitle-box p {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* OBSZAR WYKRESU */
+.infographic-area {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.axis-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.axis-header {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+.base-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+/* EPOKI (KAFELKI) */
+.epoch {
+  position: absolute;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 10px;
+  box-sizing: border-box;
+  line-height: 1.1;
+}
+
+.epoch:hover {
+  transform: translateY(-8px) scale(1.02);
+  filter: brightness(1.15);
+  z-index: 50;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.epoch span {
+  font-size: 0.65rem;
+  opacity: 0.9;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* KROPKI I ETYKIETY (PRZYWRÓCONE) */
+.dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--text);
+  border-radius: 50%;
+  z-index: 60;
+  transform: translate(-50%, -50%);
+  cursor: crosshair;
+  transition: 0.2s;
+}
+
+.dot:hover {
+  transform: translate(-50%, -50%) scale(1.6);
+  background: var(--accent);
+}
+
+/* To odpowiada za napisy nad kropkami */
+.dot::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dot:hover::after {
+  opacity: 1;
+}
+
+/* LINIE SVG */
+#svg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.conn-line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5;
+  stroke-dasharray: 4;
+  opacity: 0.15;
+  transition: 0.5s;
+}
+
+.conn-line.active {
+  opacity: 0.8;
+  stroke: var(--accent);
+  stroke-width: 3.5;
+  stroke-dasharray: 0;
+}
+
+/* MODAL (PRZYWRÓCONY I POPRAWIONY) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.modal-box {
+  background: white;
+  padding: 50px;
+  max-width: 750px;
+  width: 90%;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.modal-box h2 {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.2rem;
+  border-bottom: 10px solid var(--accent);
+  display: inline-block;
+  margin: 0 0 25px 0;
+  color: #000;
+}
+
+.modal-box p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.books-box {
+  background: #f4f4f4;
+  padding: 30px;
+  border-left: 10px solid var(--text);
+  margin-top: 35px;
+}
+
+.books-box strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.books-box ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.books-box li {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #ccc;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--accent);
+}
+
+/* STOPKA OSI CZASU */
+.timeline-footer {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  border-top: 3px solid #000;
+  margin-top: 60px;
+}
+
+.year-tag {
+  position: absolute;
+  font-size: 0.9rem;
+  font-weight: 900;
+  transform: translateX(-50%);
+  top: 15px;
+}
