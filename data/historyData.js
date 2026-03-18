@@ -1,8 +1,6 @@
 export const historyData = [
 
-  // =============================================
-  // EPOKI / EPOCHS
-  // =============================================
+  // EPOKI 
 
   {
     id: "romantyzm-europa",
@@ -154,9 +152,7 @@ export const historyData = [
     description: "Oświecenie było europejskim ruchem intelektualnym i kulturalnym trwającym od końca XVII do końca XVIII wieku. Jego fundamentem była wiara w potęgę ludzkiego rozumu, nauki i postępu. Filozofowie oświecenia – Wolter, Rousseau, Monteskiusz, Locke, Hume – kwestionowali autorytet religii i tradycji, propagując racjonalne myślenie i prawa człowieka. Oświecenie przygotowało grunt pod Rewolucję Francuską oraz późniejszy romantyzm, który stanowił jego częściowe odrzucenie."
   },
 
-  // =============================================
   // WYDARZENIA HISTORYCZNE
-  // =============================================
 
   {
     id: "rewolucja-francuska",
@@ -461,5 +457,212 @@ export const historyData = [
     },
 
     description: "Powstanie Listopadowe wybuchło w nocy z 29 na 30 listopada 1830 roku w Warszawie. Spiskowcy zaatakowali Belweder – siedzibę wielkiego księcia Konstantego. Przyczyną były rosnące represje rosyjskie, łamanie konstytucji i plany wysłania wojska polskiego do tłumienia rewolucji we Francji i Belgii. Sejm detronizował cara w grudniu 1830 roku. Mimo bohaterskiej walki, powstanie zostało stłumione przez wojska rosyjskie w 1831 roku. Klęska przyniosła masowe represje, zniesienie konstytucji i wielką falę emigracji polskiej inteligencji – tzw. Wielką Emigrację."
+  },
+
+  {
+    id: "wielka-emigracja",
+    type: "event",
+
+    title: {
+      full: "Wielka Emigracja",
+      short: "WE"
+    },
+
+    time: {
+      start: "1831",
+      end: "1870",
+      label: "1831–ok. 1870"
+    },
+
+    country: "Polska/Francja",
+
+    categories: ["historia", "kultura", "emigracja"],
+    tags: ["emigracja", "Paryż", "Polska", "twórczość", "Mickiewicz", "Słowacki", "Chopin"],
+
+    layers: {
+      geographic: 4,
+      social: 4,
+      economic: 2,
+      mental: 5
+    },
+
+    dimensions: {
+      psychologicalTime: "Tęsknota i mesjanizm – twórczość na wygnaniu jako misja ocalenia narodu",
+      technicalLevel: "Paryż jako centrum kultury i wydawnictw polskich na emigracji",
+      globalContext: "Polska diaspora intelektualna i artystyczna kształtuje europejski romantyzm"
+    },
+
+    media: {
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Artur_Grottger_-_Polonia_-_Google_Art_Project.jpg/800px-Artur_Grottger_-_Polonia_-_Google_Art_Project.jpg",
+      video: ""
+    },
+
+    relations: [
+      { targetId: "powstanie-listopadowe", type: "influenced_by" },
+      { targetId: "adam-mickiewicz", type: "part_of" },
+      { targetId: "juliusz-slowacki", type: "part_of" },
+      { targetId: "fryderyk-chopin", type: "part_of" }
+    ],
+
+    tree: {
+      parentId: null
+    },
+
+    description: "Wielka Emigracja to masowy exodus polskiej inteligencji, wojskowych i artystów po klęsce Powstania Listopadowego w 1831 roku. Głównym centrum skupienia emigrantów był Paryż, gdzie tworzyli najważniejsi polscy romantycy: Adam Mickiewicz, Juliusz Słowacki, Zygmunt Krasiński oraz Fryderyk Chopin. Na emigracji powstały arcydzieła polskiej literatury i muzyki. Emigracja wykształciła specyficzną filozofię mesjanistyczną, głoszącą, że Polska cierpi jak Chrystus, aby przez swą ofiarę odkupić i wyzwolić inne narody Europy."
+  },
+
+  {
+    id: "wiosna-ludow",
+    type: "event",
+
+    title: {
+      full: "Wiosna Ludów",
+      short: "WL"
+    },
+
+    time: {
+      start: "1848",
+      end: "1849",
+      label: "1848–1849"
+    },
+
+    country: "Europa",
+
+    categories: ["historia", "polityka", "rewolucja"],
+    tags: ["Wiosna Ludów", "Europa", "rewolucja", "narodowość", "liberalizm"],
+
+    layers: {
+      geographic: 5,
+      social: 5,
+      economic: 4,
+      mental: 4
+    },
+
+    dimensions: {
+      psychologicalTime: "Fala nadziei i rozczarowania – rewolucje niemal wszędzie, ale wszędzie stłumione",
+      technicalLevel: "Rewolucja przemysłowa tworzy nową klasę robotniczą żądającą praw",
+      globalContext: "Rewolucje w Paryżu, Wiedniu, Berlinie, Budapeszcie, Pradze, Mediolanie"
+    },
+
+    media: {
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Horace_Vernet_-_Barricade_rue_Soufflot.jpg/1280px-Horace_Vernet_-_Barricade_rue_Soufflot.jpg",
+      video: ""
+    },
+
+    relations: [
+      { targetId: "romantyzm-europa", type: "influenced_by" }
+    ],
+
+    tree: {
+      parentId: null
+    },
+
+    description: "Wiosna Ludów (1848–1849) była falą rewolucji i powstań, które ogarnęły niemal całą Europę. Zaczęła się we Francji w lutym 1848 roku, a następnie rozszerzyła na Niemcy, Austro-Węgry, Włochy i inne kraje. Rewolucjoniści żądali konstytucji, wolności obywatelskich, zjednoczenia narodowego i zniesienia resztek feudalizmu. Polacy w Galicji, Poznańskiem i na Śląsku próbowali walczyć o niepodległość. Ostatecznie wszystkie rewolucje zostały stłumione, ale przyspieszyły reformy społeczne w wielu krajach europejskich."
+  },
+
+  {
+    id: "powstanie-styczniowe",
+    type: "event",
+
+    title: {
+      full: "Powstanie Styczniowe",
+      short: "PS"
+    },
+
+    time: {
+      start: "1863-01-22",
+      end: "1864-05",
+      label: "1863–1864"
+    },
+
+    country: "Polska",
+
+    categories: ["historia", "polityka", "powstanie"],
+    tags: ["Powstanie Styczniowe", "Polska", "Rosja", "koniec romantyzmu", "pozytywizm"],
+
+    layers: {
+      geographic: 4,
+      social: 5,
+      economic: 2,
+      mental: 5
+    },
+
+    dimensions: {
+      psychologicalTime: "Kres romantycznych złudzeń – po klęsce Polacy porzucają wiarę w zbrojny zryw",
+      technicalLevel: "Walki partyzanckie w lasach, asymetryczna wojna z regularną armią rosyjską",
+      globalContext: "Ostatnie wielkie powstanie polskie przed I wojną światową"
+    },
+
+    media: {
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/January_Uprising_Artur_Grottger.jpg/1280px-January_Uprising_Artur_Grottger.jpg",
+      video: ""
+    },
+
+    relations: [
+      { targetId: "romantyzm-polska", type: "influenced_by" }
+    ],
+
+    tree: {
+      parentId: null
+    },
+
+    description: "Powstanie Styczniowe wybuchło 22 stycznia 1863 roku i było największym polskim powstaniem narodowym XIX wieku. Trwało ponad rok i obejmowało tereny dawnej Rzeczypospolitej. Polacy walczyli metodami partyzanckimi przeciwko regularnej armii rosyjskiej. Mimo heroicznego oporu, zostało krwawo stłumione. Klęska Powstania Styczniowego oznaczała symboliczny koniec epoki romantyzmu w Polsce – społeczeństwo polskie odrzuciło ideał walki zbrojnej na rzecz programu pozytywistycznego: pracy organicznej i pracy u podstaw."
+  },
+
+  // TWÓRCY
+
+  {
+    id: "adam-mickiewicz",
+    type: "event",
+
+    title: {
+      full: "Adam Mickiewicz – życie i twórczość",
+      short: "Mickiewicz"
+    },
+
+    time: {
+      start: "1798",
+      end: "1855",
+      label: "1798–1855"
+    },
+
+    country: "Polska",
+
+    categories: ["literatura", "romantyzm", "biografia"],
+    tags: ["Mickiewicz", "romantyzm", "Polska", "poezja", "emigracja", "mesjanizm"],
+
+    layers: {
+      geographic: 3,
+      social: 4,
+      economic: 1,
+      mental: 5
+    },
+
+    dimensions: {
+      psychologicalTime: "Poeta-wieszcz – poczucie narodowej misji i proroczy charakter twórczości",
+      technicalLevel: "Twórczość na emigracji w Paryżu, publikacje w prasie i książkach",
+      globalContext: "Jeden z najważniejszych poetów europejskiego romantyzmu"
+    },
+
+    media: {
+      image: "https://rynekisztuka.pl/wp-content/uploads/2014/09/adam_mickiewicz.png",
+      video: ""
+    },
+
+    relations: [
+      { targetId: "romantyzm-polska", type: "part_of" },
+      { targetId: "wielka-emigracja", type: "part_of" },
+      { targetId: "powstanie-listopadowe", type: "influenced_by" },
+      { targetId: "ballady-i-romanse", type: "influenced" },
+      { targetId: "dziady-czesc-iii", type: "influenced" },
+      { targetId: "pan-tadeusz", type: "influenced" },
+      { targetId: "konrad-wallenrod", type: "influenced" }
+    ],
+
+    tree: {
+      parentId: null
+    },
+
+    description: "Adam Mickiewicz (1798–1855) był największym polskim poetą doby romantyzmu i jednym z najwybitniejszych poetów europejskich XIX wieku. Urodził się w Nowogródku na Litwie. Studiował w Wilnie, gdzie związał się z Towarzystwem Filomatów. W 1823 roku został aresztowany przez władze rosyjskie i zesłany w głąb Rosji. Od 1829 roku przebywał na emigracji – głównie w Paryżu, gdzie wykładał literaturę słowiańską w Collège de France. W swojej twórczości łączył patriotyzm z liryką miłosną, filozofią i mistyką. Jest autorem Ballad i romansów (1822), Dziadów, Konrada Wallenroda i Pana Tadeusza – epopei uznawanej za największe dzieło polskiej literatury. Zginął w Konstantynopolu w 1855 roku podczas organizowania oddziałów polskich do walki z Rosją w wojnie krymskiej."
   }
 ]
