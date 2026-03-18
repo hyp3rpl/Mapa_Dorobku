@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import { historyData } from './historyData';
+import { historyData } from '../data/historyData';
 import './MapaDorobku.css';
 
 const MapaDorobku = () => {
-  const [wybraneId, setWybraneId] = useState(historyData[0].id);
+  const mojeDane = historyData.filter(d => d.id && d.id.endsWith("-3"));
+
+  const [wybraneId, setWybraneId] = useState(mojeDane[0]?.id);
   const [aktywnePojecie, setAktywnePojecie] = useState(null);
   
-  const aktywnaEpoka = historyData.find(d => d.id === wybraneId);
+  const aktywnaEpoka = mojeDane.find(d => d.id === wybraneId);
+
+  if (!aktywnaEpoka) return <div className="p-10">Ładowanie danych grupy 3...</div>;
 
   return (
     <div className="projekt-kontener" style={{ backgroundColor: aktywnaEpoka.bg, transition: 'background 0.8s ease' }}>
@@ -16,7 +20,7 @@ const MapaDorobku = () => {
         <h1>Mapa Dorobku Ludzkości</h1>
         
         <div className="nawigacja-epok">
-          {historyData.map(ep => (
+          {mojeDane.map(ep => (
             <button 
               key={ep.id} 
               className={`przycisk-epoki ${wybraneId === ep.id ? 'aktywny' : ''}`}
@@ -30,19 +34,17 @@ const MapaDorobku = () => {
       </header>
 
       <main className="obszar-infografiki">
-        {/* Dynamiczna ramka - kolor zmienia się wraz z epoką */}
         <div 
           className="pomaranczowa-ramka" 
           style={{ borderColor: aktywnaEpoka.color, transition: 'border-color 0.8s ease' }}
         >
-          {/* Dynamiczna linia osi */}
           <div 
             className="linia-osi-tlo" 
             style={{ backgroundColor: aktywnaEpoka.color, transition: 'background-color 0.8s ease' }}
           ></div>
 
           <div className="rzed-epok">
-            {historyData.map(ep => (
+            {mojeDane.map(ep => (
               <div 
                 key={ep.id} 
                 className={`wezel-epoki ${wybraneId === ep.id ? 'aktywny' : ''}`}
@@ -64,7 +66,7 @@ const MapaDorobku = () => {
                 />
 
                 <span className="etykieta-daty">
-                  {ep.id === 'antyk' ? 'Początki' : ep.period.split(' – ')[0].trim()}
+                  {ep.id.includes('antyk') ? 'Początki' : ep.period.split(' – ')[0].trim()}
                 </span>
               </div>
             ))}
@@ -121,7 +123,6 @@ const MapaDorobku = () => {
             <small>{aktywnaEpoka.shiftNote}</small>
           </div>
 
-          {/* NOWA SEKCJA CYTATU */}
           <div className="sekcja-cytatu">
              <h4>CYTAT EPOKI:</h4>
              <blockquote style={{ borderLeft: `3px solid ${aktywnaEpoka.color}` }}>
