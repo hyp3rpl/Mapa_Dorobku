@@ -1,0 +1,384 @@
+/* ============================================================
+   CZCIONKI
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ============================================================
+   RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   ANIMACJE
+   ============================================================ */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 1000px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   STRONA
+   ============================================================ */
+
+.strona {
+  min-height: 100vh;
+  background: #F5EFE2;
+  font-family: Georgia, serif;
+}
+
+/* ============================================================
+   NAGŁÓWEK
+   ============================================================ */
+
+.naglowek {
+  text-align: center;
+  padding: 56px 24px 32px;
+  background: linear-gradient(180deg, #EDE0C4 0%, #F5EFE2 100%);
+  border-bottom: 1px solid #DDD0B0;
+}
+
+.naglowek__podtytul {
+  font-size: 10px;
+  letter-spacing: 0.6em;
+  color: #A07840;
+  text-transform: uppercase;
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 12px;
+}
+
+.naglowek__h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  color: #1A1208;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.naglowek__opis {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  color: #9A8660;
+  margin-top: 10px;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   LEGENDA
+   ============================================================ */
+
+.legenda {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.legenda__element {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legenda__kwadrat {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legenda__etykieta {
+  font-size: 12px;
+  color: #6A5A38;
+  font-family: 'Crimson Text', serif;
+  letter-spacing: 0.07em;
+}
+
+/* ============================================================
+   OŚ CZASU
+   ============================================================ */
+
+.os-czasu {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 52px 20px 100px;
+  position: relative;
+}
+
+.os-czasu__linia {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #C8B898 6%, #C8B898 94%, transparent);
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.os-czasu__epoka {
+  position: relative;
+  z-index: 1;
+}
+
+.os-czasu__karta-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================================
+   KARTA EPOKI
+   ============================================================ */
+
+.karta-epoki {
+  width: 100%;
+  border-radius: 4px;
+  padding: 20px 24px 18px;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.22s ease, transform 0.18s ease, border-color 0.2s;
+}
+
+.karta-epoki:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.13) !important;
+}
+
+.karta-epoki__wiersz {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.karta-epoki__lewa {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.karta-epoki__ikona {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: serif;
+  transition: all 0.22s;
+}
+
+.karta-epoki__typ {
+  font-size: 9px;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 2px;
+}
+
+.karta-epoki__nazwa {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  color: #1A1208;
+  letter-spacing: 0.01em;
+}
+
+.karta-epoki__okres {
+  font-family: 'Crimson Text', serif;
+  font-size: 13px;
+  color: #9A8660;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.karta-epoki__przycisk {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.18s, transform 0.22s ease;
+}
+
+.karta-epoki__przycisk:hover {
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   ROZWINIĘTA TREŚĆ KARTY
+   ============================================================ */
+
+.rozwieta-tresc {
+  animation: slideDown 0.3s ease both;
+  overflow: hidden;
+}
+
+.rozwieta-tresc__separator {
+  height: 1px;
+  margin: 16px 0;
+}
+
+.rozwieta-tresc__opis {
+  font-family: 'Crimson Text', serif;
+  font-size: 15px;
+  line-height: 1.88;
+  color: #3A2E14;
+  margin-bottom: 18px;
+}
+
+.rozwieta-tresc__sekcja {
+  margin-bottom: 14px;
+}
+
+.rozwieta-tresc__etykieta {
+  font-size: 8.5px;
+  letter-spacing: 0.45em;
+  color: #A09070;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.rozwieta-tresc__tagi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-autor {
+  padding: 3px 11px;
+  border-radius: 2px;
+  font-size: 12.5px;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.tag-pojecie {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-family: 'Crimson Text', serif;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* ============================================================
+   PRZEJŚCIE MIĘDZY EPOKAMI
+   ============================================================ */
+
+.przejscie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.przejscie__kreska {
+  width: 1px;
+  height: 14px;
+  background: #C8B898;
+}
+
+.przejscie__ramka {
+  background: #FFFDF8;
+  border: 1px solid #DDD0B0;
+  border-radius: 3px;
+  padding: 7px 16px;
+  text-align: center;
+  max-width: 340px;
+  position: relative;
+}
+
+.przejscie__tytul {
+  font-size: 10.5px;
+  color: #6A5A38;
+  font-family: 'Crimson Text', serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.przejscie__notatka {
+  font-size: 10px;
+  color: #A09070;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.przejscie__grot {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #C8B898;
+}
+
+/* ============================================================
+   PUNKT KOŃCOWY OSI
+   ============================================================ */
+
+.koniec-osi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.koniec-osi__kreska {
+  width: 1px;
+  height: 16px;
+  background: #C8B898;
+}
+
+.koniec-osi__grodek {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #C8B898;
+  border: 2px solid #F5EFE2;
+  box-shadow: 0 0 0 2px #C8B898;
+}
