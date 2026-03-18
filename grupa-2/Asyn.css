@@ -1,9 +1,13 @@
-/* GŁÓWNY KONTENER TWOJEJ GRUPY */
+/* IMPORT CZCIONEK */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;700;900&display=swap');
+
 .asyn-root {
+  /* ZMIENNE KOLORÓW */
   --bg: #fdfaf5;
   --text: #1a1a1a;
-  --accent: #c0392b;
-  /* Kolory epok */
+  --accent: #c0392b; /* Czerwony - Przełomy Globalne */
+  
+  /* Kolory poszczególnych epok */
   --c-sre: #4b4b4b; --c-ren: #27ae60; --c-bar: #8e44ad;
   --c-osw: #95a5a6; --c-rom: #c0392b; --c-poz: #34495e;
   --c-mp:  #d35400; --c-20:  #2980b9; --c-woj: #000000; --c-wsp: #16a085;
@@ -16,12 +20,26 @@
   width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* EFEKT TEKSTURY PAPIERU W TLE */
+.asyn-root::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* NAGŁÓWEK */
 .modernist-header {
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 10;
 }
 
 .header-decoration {
@@ -61,17 +79,43 @@
   color: #444;
 }
 
-/* OBSZAR WYKRESU */
+/* LEGENDA KOLORÓW */
+.legend {
+  margin-left: 45px;
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  z-index: 10;
+  position: relative;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.l-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* OBSZAR INFOGRAFIKI */
 .infographic-area {
   position: relative;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 50px;
+  z-index: 5;
 }
 
 .axis-container {
   position: relative;
   width: 100%;
-  height: 150px;
+  height: 140px;
   margin-bottom: 50px;
   display: flex;
   align-items: center;
@@ -114,7 +158,6 @@
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   padding: 10px;
-  box-sizing: border-box;
   line-height: 1.1;
 }
 
@@ -132,12 +175,11 @@
   font-weight: 400;
 }
 
-/* KROPKI I ETYKIETY (PRZYWRÓCONE) */
+/* KROPKI I ICH KOLORY */
 .dot {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  background: var(--text);
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   z-index: 60;
   transform: translate(-50%, -50%);
@@ -145,12 +187,36 @@
   transition: 0.2s;
 }
 
-.dot:hover {
-  transform: translate(-50%, -50%) scale(1.6);
+/* Kropka Globalna = Czerwona */
+.dot.global {
   background: var(--accent);
 }
 
-/* To odpowiada za napisy nad kropkami */
+/* Kropka Literacka = Czarna */
+.dot.text {
+  background: var(--text);
+}
+
+/* ANIMACJA PULSOWANIA KROPEK */
+.dot-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  animation: pulse-ring 2s infinite;
+  opacity: 0.5;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+.dot:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
 .dot::after {
   content: attr(data-label);
   position: absolute;
@@ -165,22 +231,18 @@
   border-radius: 4px;
   white-space: nowrap;
   opacity: 0;
-  pointer-events: none;
   transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  pointer-events: none;
 }
 
 .dot:hover::after {
   opacity: 1;
 }
 
-/* LINIE SVG */
+/* LINIE SVG I ANIMACJA PRZEPŁYWU */
 #svg-layer {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none;
   z-index: 5;
 }
@@ -190,7 +252,7 @@
   stroke: #000;
   stroke-width: 1.5;
   stroke-dasharray: 4;
-  opacity: 0.15;
+  opacity: 0.1;
   transition: 0.5s;
 }
 
@@ -198,16 +260,19 @@
   opacity: 0.8;
   stroke: var(--accent);
   stroke-width: 3.5;
-  stroke-dasharray: 0;
+  stroke-dasharray: 8;
+  animation: dash-flow 0.6s linear infinite;
 }
 
-/* MODAL (PRZYWRÓCONY I POPRAWIONY) */
+@keyframes dash-flow {
+  from { stroke-dashoffset: 16; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* OKNO MODALNE (POPUP) */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.9);
   display: flex;
   justify-content: center;
@@ -219,50 +284,78 @@
 .modal-box {
   background: white;
   padding: 50px;
-  max-width: 750px;
+  max-width: 850px;
   width: 90%;
   border-radius: 8px;
   position: relative;
   box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  animation: modal-appear 0.4s ease-out;
+}
+
+@keyframes modal-appear {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOTTO EPOKI W MODALU */
+.modal-motto {
+  display: block;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--accent);
+  margin-bottom: 15px;
 }
 
 .modal-box h2 {
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   border-bottom: 10px solid var(--accent);
   display: inline-block;
-  margin: 0 0 25px 0;
-  color: #000;
+  margin: 0 0 20px 0;
 }
 
-.modal-box p {
+.modal-description {
   font-size: 1.15rem;
   line-height: 1.7;
   color: #333;
 }
 
-.books-box {
-  background: #f4f4f4;
-  padding: 30px;
-  border-left: 10px solid var(--text);
-  margin-top: 35px;
+/* DWUKOLUMNOWY UKŁAD W MODALU */
+.modal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
 }
 
-.books-box strong {
+.books-box {
+  background: #f4f4f4;
+  padding: 25px;
+  border-left: 10px solid var(--text);
+}
+
+.fact-box {
+  background: #fff5f4;
+  padding: 25px;
+  border-left: 10px solid var(--accent);
+}
+
+.books-box strong, .fact-box strong {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .books-box ul {
-  margin: 0;
   padding-left: 20px;
+  margin: 0;
 }
 
 .books-box li {
   font-weight: 700;
-  font-size: 1.1rem;
   margin-bottom: 5px;
 }
 
@@ -275,7 +368,6 @@
   border: none;
   background: none;
   color: #ccc;
-  line-height: 1;
 }
 
 .close-btn:hover {

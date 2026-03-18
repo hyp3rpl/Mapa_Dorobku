@@ -2,23 +2,103 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Asyn.css';
 
 const DATA = {
-    sre: { t: "Średniowiecze", d: "Najdłuższa epoka w historii, trwająca w Polsce od Chrztu (966) do końca XV wieku. Dominacja teocentryzmu, łaciny i wzorców osobowych takich jak rycerz i asceta.", b: ["Bogurodzica", "Lament świętokrzyski", "Gall Anonim - Kronika polska", "Rozmowa Mistrza Polikarpa ze Śmiercią"] },
-    ren: { t: "Renesans (Odrodzenie)", d: "Wiek Złoty kultury polskiej. Antropocentryzm ('człowiek miarą wszechrzeczy'), rozwój polszczyzny literackiej, humanizm i reformacja.", b: ["Jan Kochanowski - Treny", "Jan Kochanowski - Odprawa posłów greckich", "Mikołaj Rej - Krótka rozprawa...", "Andrzej Frycz Modrzewski - O poprawie Rzeczypospolitej"] },
-    bar: { t: "Barok", d: "Czas kontrastów, niepokoju i przepychu. W Polsce związany z kulturą sarmacką, ale też z głęboką religijnością i metafizyką.", b: ["Jan Chryzostom Pasek - Pamiętniki", "Jan Andrzej Morsztyn - Wybór poezji", "Daniel Naborowski - Krótkość żywota", "Wacław Potocki - Wojna chocimska"] },
-    osw: { t: "Oświecenie", d: "Wiek rozumu i reform. Próba ratowania państwa przez edukację (KEN) i kulturę. Powstanie teatru narodowego i pierwszej nowoczesnej konstytucji.", b: ["Ignacy Krasicki - Satyry i Bajki", "Julian Ursyn Niemcewicz - Powrót posła", "Józef Wybicki - Mazurek Dąbrowskiego"] },
-    rom: { t: "Romantyzm", d: "Epoka walki o wolność, mesjanizmu i prymatu czucia nad rozumem. Literatura staje się duchową siłą narodu pozbawionego państwa.", b: ["Adam Mickiewicz - Dziady cz. III", "Adam Mickiewicz - Pan Tadeusz", "Juliusz Słowacki - Kordian", "Cyprian Kamil Norwid - Vade-mecum"] },
-    poz: { t: "Pozytywizm", d: "Czas pracy u podstaw i pracy organicznej po klęsce powstania styczniowego. Realizm i naturalizm służące analizie społeczeństwa.", b: ["Bolesław Prus - Lalka", "Eliza Orzeszkowa - Nad Niemnem", "Henryk Sienkiewicz - Potop", "Maria Konopnicka - Mendel Gdański"] },
-    mp:  { t: "Młoda Polska", d: "Modernizm w polskim wydaniu. Symbolizm, neoromantyzm, kult sztuki i badanie mroków duszy (dekadentyzm).", b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi", "Stefan Żeromski - Ludzie bezdomni"] },
-    d20: { t: "Dwudziestolecie", d: "Odzyskanie niepodległości, rozkwit awangardy i eksperymentu. Zderzenie optymizmu wolności z lękiem przed nadchodzącym katastrofizmem.", b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe", "Zofia Nałkowska - Granica"] },
-    woj: { t: "Wojna i Okupacja", d: "Czas 'apokalipsy spełnionej'. Zagłada wartości humanistycznych i próba ich ocalenia poprzez tragiczne świadectwo literatury.", b: ["Tadeusz Borowski - Opowiadania", "Krzysztof Kamil Baczyński - Poezje", "Gustaw Herling-Grudziński - Inny świat"] },
-    wsp: { t: "Współczesność", d: "Od 1945 roku. Literatura zmagająca się z systemem komunistycznym, emigracją, aż po postmodernistyczną wolność po 1989 roku.", b: ["Sławomir Mrożek - Tango", "Wisława Szymborska - Poezje", "Czesław Miłosz - Traktat moralny", "Olga Tokarczuk - Bieguni"] }
+    sre: { 
+        t: "Średniowiecze", m: "Memento Mori", 
+        d: "Najdłuższa epoka w historii Polski (966-XV w.). Dominacja teocentryzmu, wzorce rycerza i ascety.", 
+        b: ["Bogurodzica", "Lament świętokrzyski", "Gall Anonim - Kronika polska"],
+        fact: "Polska nazwa 'Średniowiecze' utrwaliła się dopiero w XIX wieku."
+    },
+    ren: { 
+        t: "Renesans", m: "Człowiekiem jestem...", 
+        d: "Złoty wiek kultury polskiej. Antropocentryzm, rozwój polszczyzny, humanizm i reformacja.", 
+        b: ["Jan Kochanowski - Treny", "Mikołaj Rej - Krótka rozprawa..."],
+        fact: "Jan Kochanowski stworzył polski język literacki niemal od zera."
+    },
+    bar: { 
+        t: "Barok", m: "Vanitas vanitatum", 
+        d: "Czas kontrastów, przepychu i niepokoju. Kultura sarmacka i głęboka religijność.", 
+        b: ["Jan Chryzostom Pasek - Pamiętniki", "Jan Andrzej Morsztyn - Poezje"],
+        fact: "Polski sarmatyzm łączył kulturę Zachodu z orientalnym stylem Wschodu."
+    },
+    osw: { 
+        t: "Oświecenie", m: "Sapere Aude", 
+        d: "Wiek rozumu i reform. Powstanie KEN i pierwszej nowoczesnej konstytucji w Europie.", 
+        b: ["Ignacy Krasicki - Satyry i Bajki", "Józef Wybicki - Mazurek Dąbrowskiego"],
+        fact: "Polska Komisja Edukacji Narodowej była pierwszym ministerstwem oświaty w Europie."
+    },
+    rom: { 
+        t: "Romantyzm", m: "Miej serce i patrzaj w serce", 
+        d: "Walka o wolność, mesjanizm i prymat czucia nad rozumem. Literatura siłą narodu.", 
+        b: ["Adam Mickiewicz - Dziady cz. III", "Juliusz Słowacki - Kordian"],
+        fact: "Mickiewicz pisał 'Pana Tadeusza', by uciec od kłótni polskiej emigracji."
+    },
+    poz: { 
+        t: "Pozytywizm", m: "Praca u podstaw", 
+        d: "Czas pracy organicznej po klęsce powstania. Realizm służący analizie społeczeństwa.", 
+        b: ["Bolesław Prus - Lalka", "Henryk Sienkiewicz - Potop"],
+        fact: "Sienkiewicz pisał 'Trylogię' w odcinkach, na które ludzie czekali jak na serial."
+    },
+    mp:  { 
+        t: "Młoda Polska", m: "Sztuka dla sztuki", 
+        d: "Modernizm, symbolizm i dekadentyzm. Kult sztuki i badanie mroków duszy.", 
+        b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi"],
+        fact: "Akcja 'Wesela' oparta jest na prawdziwym weselu, na którym był Wyspiański."
+    },
+    d20: { 
+        t: "Dwudziestolecie", m: "Odzyskany śmietnik", 
+        d: "Odzyskanie niepodległości, rozkwit awangardy i eksperymentu literackiego.", 
+        b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe"],
+        fact: "Polska awangarda lat 20. była jedną z najciekawszych w Europie."
+    },
+    woj: { 
+        t: "Wojna i Okupacja", m: "Pokolenie Kolumbów", 
+        d: "Czas 'apokalipsy spełnionej'. Tragiczne świadectwo literatury w obliczu zagłady.", 
+        b: ["Tadeusz Borowski - Opowiadania", "Krzysztof Kamil Baczyński - Poezje"],
+        fact: "Kamil Baczyński zginął w 4. dniu Powstania Warszawskiego."
+    },
+    wsp: { 
+        t: "Współczesność", m: "Postmodernizm", 
+        d: "Literatura powojenna, emigracyjna i wolność po 1989 roku. Czas Noblistów.", 
+        b: ["Wisława Szymborska - Poezje", "Olga Tokarczuk - Bieguni"],
+        fact: "Polska posiada aż pięciu laureatów Literackiej Nagrody Nobla."
+    }
 };
 
+// DEFINICJA POŁĄCZEŃ (Góra -> Środek oraz Dół -> Środek)
 const CONNECTIONS = [
-    ['g2-druk', 'g2-ren'], ['g2-columb', 'g2-ren'], ['g2-newton', 'g2-osw'], ['g2-watt', 'g2-poz'], 
-    ['g2-einstein', 'g2-schulz'], ['g2-moon', 'g2-tokar'], ['g2-boguro', 'g2-sre'],
-    ['g2-kochan', 'g2-ren'], ['g2-pasek', 'g2-bar'], ['g2-mick', 'g2-rom'], ['g2-wesele', 'g2-mp'],
-    ['g2-druk', 'g2-kochan']
+    // ŚREDNIOWIECZE
+    ['g2-boguro', 'g2-sre'], 
+
+    // RENESANS
+    ['g2-druk', 'g2-ren'],      // Góra -> Środek
+    ['g2-kochan', 'g2-ren'],     // Dół -> Środek
+    ['g2-columb', 'g2-ren'],
+
+    // BAROK
+    ['g2-pasek', 'g2-bar'],
+
+    // OŚWIECENIE
+    ['g2-newton', 'g2-osw'],
+
+    // ROMANTYZM
+    ['g2-mick', 'g2-rom'],
+
+    // POZYTYWIZM
+    ['g2-watt', 'g2-poz'],
+
+    // MŁODA POLSKA
+    ['g2-wesele', 'g2-mp'],
+
+    // DWUDZIESTOLECIE
+    ['g2-einstein', 'g2-d20'],   // Góra -> Środek
+    ['g2-schulz', 'g2-d20'],     // Dół -> Środek
+
+    // WOJNA
+    ['g2-einstein', 'g2-woj'],
+
+    // WSPÓŁCZESNOŚĆ
+    ['g2-moon', 'g2-wsp'],       // Góra -> Środek
+    ['g2-tokar', 'g2-wsp']       // Dół -> Środek
 ];
 
 const Asyn = () => {
@@ -30,7 +110,6 @@ const Asyn = () => {
     const drawConnections = () => {
         if (!chartRef.current) return;
         const rect = chartRef.current.getBoundingClientRect();
-        
         const newPaths = CONNECTIONS.map(conn => {
             const e1 = document.getElementById(conn[0]);
             const e2 = document.getElementById(conn[1]);
@@ -52,7 +131,7 @@ const Asyn = () => {
     };
 
     useEffect(() => {
-        const timer = setTimeout(drawConnections, 300);
+        const timer = setTimeout(drawConnections, 400);
         window.addEventListener('resize', drawConnections);
         return () => {
             window.removeEventListener('resize', drawConnections);
@@ -68,12 +147,21 @@ const Asyn = () => {
                 <div className="header-decoration"></div>
                 <h1 className="main-title">
                     <span>Równoległe Osie</span>
-                    <span className="highlight">Modernizmów</span>
+                    <span className="highlight">Kultury</span>
                 </h1>
                 <div className="subtitle-box">
-                    <p>Pełna panorama polskiej kultury od 966 roku. Kliknij w epokę, aby zobaczyć szczegóły.</p>
+                    <p>Tysiąc lat historii zamknięte na jednej osi. Odkryj powiązania między polskim słowem a światową nauką.</p>
                 </div>
             </header>
+
+            <div className="legend">
+                <div className="legend-item">
+                    <span className="l-dot" style={{background: 'var(--accent)'}}></span> Przełomy Globalne
+                </div>
+                <div className="legend-item">
+                    <span className="l-dot" style={{background: 'var(--text)'}}></span> Literatura Polska
+                </div>
+            </div>
 
             <main className="infographic-area" ref={chartRef}>
                 <svg id="svg-layer">
@@ -87,17 +175,17 @@ const Asyn = () => {
                 </svg>
 
                 <div className="axis-container">
-                    <div className="axis-header">Przełomy Globalne</div>
+                    <div className="axis-header">Świat: Nauka i Przełomy</div>
                     <div className="base-line"></div>
-                    <Dot id="g2-druk" left="14%" label="1450: Wynalazek Druku" onActive={setActiveId} />
-                    <Dot id="g2-columb" left="22%" label="1492: Odkrycie Ameryki" onActive={setActiveId} />
-                    <Dot id="g2-newton" left="35%" label="1687: Zasady Dynamiki Newtona" onActive={setActiveId} />
-                    <Dot id="g2-watt" left="45%" label="1769: Maszyna Parowa" onActive={setActiveId} />
-                    <Dot id="g2-einstein" left="65%" label="1905: Teoria Względności" onActive={setActiveId} />
-                    <Dot id="g2-moon" left="85%" label="1969: Lądowanie na Księżycu" onActive={setActiveId} />
+                    <Dot id="g2-druk" left="14%" label="1450: Wynalazek Druku" onActive={setActiveId} type="global" />
+                    <Dot id="g2-columb" left="22%" label="1492: Odkrycie Ameryki" onActive={setActiveId} type="global" />
+                    <Dot id="g2-newton" left="35%" label="1687: Dynamika Newtona" onActive={setActiveId} type="global" />
+                    <Dot id="g2-watt" left="45%" label="1769: Maszyna Parowa" onActive={setActiveId} type="global" />
+                    <Dot id="g2-einstein" left="65%" label="1905: Teoria Względności" onActive={setActiveId} type="global" />
+                    <Dot id="g2-moon" left="85%" label="1969: Lądowanie na Księżycu" onActive={setActiveId} type="global" />
                 </div>
 
-                <div className="axis-container">
+                <div className="axis-container main-axis">
                     <div className="axis-header">Polska: Epoki Literackie</div>
                     <div className="base-line"></div>
                     <Epoch id="g2-sre" left="0%" width="14%" color="var(--c-sre)" title="ŚREDNIOWIECZE" sub="X-XV w." onOpen={setSelectedEpoch} onActive={setActiveId} />
@@ -113,15 +201,15 @@ const Asyn = () => {
                 </div>
 
                 <div className="axis-container">
-                    <div className="axis-header">Kluczowe Teksty</div>
+                    <div className="axis-header">Polska: Kluczowe Teksty</div>
                     <div className="base-line"></div>
-                    <Dot id="g2-boguro" left="5%" label="Bogurodzica" onActive={setActiveId} />
-                    <Dot id="g2-kochan" left="18%" label="Kochanowski: Treny" onActive={setActiveId} />
-                    <Dot id="g2-pasek" left="28%" label="Pasek: Pamiętniki" onActive={setActiveId} />
-                    <Dot id="g2-mick" left="47%" label="Mickiewicz: Dziady" onActive={setActiveId} />
-                    <Dot id="g2-wesele" left="60%" label="Wyspiański: Wesele" onActive={setActiveId} />
-                    <Dot id="g2-schulz" left="68%" label="Schulz: Sklepy cynamonowe" onActive={setActiveId} />
-                    <Dot id="g2-tokar" left="90%" label="Tokarczuk: Bieguni" onActive={setActiveId} />
+                    <Dot id="g2-boguro" left="5%" label="Bogurodzica" onActive={setActiveId} type="text" />
+                    <Dot id="g2-kochan" left="18%" label="Kochanowski: Treny" onActive={setActiveId} type="text" />
+                    <Dot id="g2-pasek" left="28%" label="Pasek: Pamiętniki" onActive={setActiveId} type="text" />
+                    <Dot id="g2-mick" left="47%" label="Mickiewicz: Dziady" onActive={setActiveId} type="text" />
+                    <Dot id="g2-wesele" left="60%" label="Wyspiański: Wesele" onActive={setActiveId} type="text" />
+                    <Dot id="g2-schulz" left="68%" label="Schulz: Sklepy cynamonowe" onActive={setActiveId} type="text" />
+                    <Dot id="g2-tokar" left="90%" label="Tokarczuk: Bieguni" onActive={setActiveId} type="text" />
                 </div>
 
                 <div className="timeline-footer">
@@ -138,13 +226,18 @@ const Asyn = () => {
                 <div className="modal-overlay" onClick={() => setSelectedEpoch(null)}>
                     <div className="modal-box" onClick={e => e.stopPropagation()}>
                         <button className="close-btn" onClick={() => setSelectedEpoch(null)}>&times;</button>
+                        <span className="modal-motto">„{currentEpochData.m}”</span>
                         <h2>{currentEpochData.t}</h2>
-                        <p style={{ fontSize: '1.1rem', lineHeight: '1.6', margin: '15px 0' }}>{currentEpochData.d}</p>
-                        <div className="books-box">
-                            <strong>Najważniejsze teksty:</strong>
-                            <ul style={{ marginTop: '10px' }}>
-                                {currentEpochData.b.map((item, i) => <li key={i}>{item}</li>)}
-                            </ul>
+                        <p className="modal-description">{currentEpochData.d}</p>
+                        <div className="modal-details">
+                            <div className="books-box">
+                                <strong>Najważniejsze teksty:</strong>
+                                <ul>{currentEpochData.b.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                            </div>
+                            <div className="fact-box">
+                                <strong>Czy wiesz, że?</strong>
+                                <p>{currentEpochData.fact}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,9 +253,11 @@ const Epoch = ({ id, left, width, color, title, sub, onOpen, onActive }) => (
     </div>
 );
 
-const Dot = ({ id, left, label, onActive }) => (
-    <div className="dot" id={id} style={{ left }} data-label={label}
-        onMouseEnter={() => onActive(id)} onMouseLeave={() => onActive(null)} />
+const Dot = ({ id, left, label, onActive, type }) => (
+    <div className={`dot ${type}`} id={id} style={{ left }} data-label={label}
+        onMouseEnter={() => onActive(id)} onMouseLeave={() => onActive(null)}>
+        <div className="dot-pulse"></div>
+    </div>
 );
 
 export default Asyn;
