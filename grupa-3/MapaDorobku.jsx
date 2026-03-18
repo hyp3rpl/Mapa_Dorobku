@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
-import { historyData } from './historyData';
+import { historyData } from '../data/historyData'; // Import z głównego folderu
 import './MapaDorobku.css';
 
 const MapaDorobku = () => {
-  const [wybraneId, setWybraneId] = useState(historyData[0].id);
+  const mojeDane = historyData.filter(d => d.id && d.id.endsWith("-3"));
+  const [wybraneId, setWybraneId] = useState(mojeDane[0]?.id);
   const [aktywnePojecie, setAktywnePojecie] = useState(null);
   
-  const aktywnaEpoka = historyData.find(d => d.id === wybraneId);
+
+  const [wybranyAutor, setWybranyAutor] = useState(null);
+
+  const aktywnaEpoka = mojeDane.find(d => d.id === wybraneId);
+
+  const pobierzCytat = () => {
+    if (!aktywnaEpoka.quotes) return null;
+    const znaleziony = aktywnaEpoka.quotes.find(q => q.author === wybranyAutor);
+    return znaleziony || aktywnaEpoka.quotes[0];
+  };
+
+  const wyswietlanyCytat = pobierzCytat();
+
+  if (!aktywnaEpoka) return <div>Ładowanie danych...</div>;
 
   return (
-    <div className="projekt-kontener" style={{ backgroundColor: aktywnaEpoka.bg, transition: 'background 0.8s ease' }}>
+    <div className="projekt-kontener" style={{ backgroundColor: aktywnaEpoka.bg }}>
       
       <header className="naglowek-glowny">
         <span className="nadtytul">Syntetyczna Historia Literatury</span>
         <h1>Mapa Dorobku Ludzkości</h1>
         
         <div className="nawigacja-epok">
-          {historyData.map(ep => (
+          {mojeDane.map(ep => (
             <button 
               key={ep.id} 
               className={`przycisk-epoki ${wybraneId === ep.id ? 'aktywny' : ''}`}
@@ -30,19 +44,17 @@ const MapaDorobku = () => {
       </header>
 
       <main className="obszar-infografiki">
-        {/* Dynamiczna ramka - kolor zmienia się wraz z epoką */}
         <div 
           className="pomaranczowa-ramka" 
           style={{ borderColor: aktywnaEpoka.color, transition: 'border-color 0.8s ease' }}
         >
-          {/* Dynamiczna linia osi */}
           <div 
             className="linia-osi-tlo" 
             style={{ backgroundColor: aktywnaEpoka.color, transition: 'background-color 0.8s ease' }}
           ></div>
 
           <div className="rzed-epok">
-            {historyData.map(ep => (
+            {mojeDane.map(ep => (
               <div 
                 key={ep.id} 
                 className={`wezel-epoki ${wybraneId === ep.id ? 'aktywny' : ''}`}
@@ -64,7 +76,7 @@ const MapaDorobku = () => {
                 />
 
                 <span className="etykieta-daty">
-                  {ep.id === 'antyk' ? 'Początki' : ep.period.split(' – ')[0].trim()}
+                  {ep.id.includes('antyk') ? 'Początki' : ep.period.split(' – ')[0].trim()}
                 </span>
               </div>
             ))}
@@ -79,12 +91,21 @@ const MapaDorobku = () => {
           <p className="opis-tekstowy">{aktywnaEpoka.description}</p>
           
           <div className="sekcja-danych">
-            <h4>KLUCZOWI TWÓRCY:</h4>
+            <h4>KLUCZOWI TWÓRCY: <small>(Kliknij autora, by zobaczyć cytat)</small></h4>
             <div className="chmura-tagow">
               {aktywnaEpoka.authors.map(autor => (
-                <span key={autor} className="tag-autora" style={{ background: aktywnaEpoka.color }}>
+                <button 
+                  key={autor} 
+                  className={`tag-autora przycisk-interaktywny ${wybranyAutor === autor ? 'aktywny' : ''}`}
+                  style={{ 
+                    background: wybranyAutor === autor ? aktywnaEpoka.color : `${aktywnaEpoka.color}20`,
+                    color: wybranyAutor === autor ? '#fff' : aktywnaEpoka.color,
+                    border: `1px solid ${aktywnaEpoka.color}`
+                  }}
+                  onClick={() => setWybranyAutor(autor)}
+                >
                   {autor}
-                </span>
+                </button>
               ))}
             </div>
           </div>
@@ -115,23 +136,24 @@ const MapaDorobku = () => {
             </div>
           </div>
 
-          <div className="pole-przelomu" style={{ borderLeft: `4px solid ${aktywnaEpoka.color}`, background: `${aktywnaEpoka.color}08` }}>
+          <div className="pole-przelomu" style={{ borderLeft: `4px solid ${aktywnaEpoka.color}` }}>
             <h4>MOMENT PRZEŁOMU:</h4>
             <p><strong>{aktywnaEpoka.shift}</strong></p>
             <small>{aktywnaEpoka.shiftNote}</small>
           </div>
 
-          {/* NOWA SEKCJA CYTATU */}
-          <div className="sekcja-cytatu">
-             <h4>CYTAT EPOKI:</h4>
-             <blockquote style={{ borderLeft: `3px solid ${aktywnaEpoka.color}` }}>
-                "{aktywnaEpoka.quote.text}"
-                <footer>— {aktywnaEpoka.quote.author}</footer>
-             </blockquote>
-          </div>
+          {/* ZAKTUALIZOWANA SEKCJA CYTATU */}
+          {wyswietlanyCytat && (
+            <div className="sekcja-cytatu animacja-pojawiania" key={wyswietlanyCytat.author}>
+               <h4>CYTAT DNIA / AUTORA:</h4>
+               <blockquote style={{ borderLeft: `3px solid ${aktywnaEpoka.color}` }}>
+                  "{wyswietlanyCytat.text}"
+                  <footer>— {wyswietlanyCytat.author}</footer>
+               </blockquote>
+            </div>
+          )}
         </div>
       </section>
-
     </div>
   );
 };
