@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import './Asyn.css';
 
 const DATA = {
@@ -175,16 +175,16 @@ const Asyn = () => {
                 <div className="axis-container main-axis">
                     <div className="axis-header">Polska: Epoki Literackie</div>
                     <div className="base-line"></div>
-                    <Epoch id="g2-sre" left="0%" width="14%" color="var(--c-sre)" title="ŚREDNIOWIECZE" sub="X-XV w." onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-ren" left="14%" width="10%" color="var(--c-ren)" title="RENESANS" sub="XVI w." onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-bar" left="24%" width="12%" color="var(--c-bar)" title="BAROK" sub="XVII w." onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-osw" left="36%" width="8%" color="var(--c-osw)" title="OŚWIECE." sub="1764" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-rom" left="44%" width="9%" color="var(--c-rom)" title="ROMANTYZM" sub="1822" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-poz" left="53%" width="6%" color="var(--c-poz)" title="POZYTYW." sub="1864" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-mp"  left="59%" width="7%" color="var(--c-mp)" title="MŁODA PL" sub="1890" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-d20" left="66%" width="5%" color="var(--c-20)" title="20-LECIE" sub="1918" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-woj" left="71%" width="4%" color="var(--c-woj)" title="WOJNA" sub="" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-wsp" left="75%" width="25%" color="var(--c-wsp)" title="WSPÓŁCZESNOŚĆ" sub="Od 1945" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-sre" left="0%" width="14%" title="ŚREDNIOWIECZE" sub="X-XV w." onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-ren" left="14%" width="10%" title="RENESANS" sub="XVI w." onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-bar" left="24%" width="12%" title="BAROK" sub="XVII w." onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-osw" left="36%" width="8%" title="OŚWIECE." sub="1764" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-rom" left="44%" width="9%" title="ROMANTYZM" sub="1822" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-poz" left="53%" width="6%" title="POZYTYW." sub="1864" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-mp"  left="59%" width="7%" title="MŁODA PL" sub="1890" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-d20" left="66%" width="5%" title="20-LECIE" sub="1918" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-woj" left="71%" width="4%" title="WOJNA" sub="" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-wsp" left="75%" width="25%" title="WSPÓŁCZESNOŚĆ" sub="Od 1945" onOpen={setSelectedEpoch} onActive={setActiveId} />
                 </div>
 
                 <div className="axis-container">
@@ -200,12 +200,17 @@ const Asyn = () => {
                 </div>
 
                 <div className="timeline-footer">
-                    <div className="year-tag" style={{ left: '0%' }}>966</div>
-                    <div className="year-tag" style={{ left: '14%' }}>1500</div>
-                    <div className="year-tag" style={{ left: '24%' }}>1620</div>
-                    <div className="year-tag" style={{ left: '44%' }}>1822</div>
-                    <div className="year-tag" style={{ left: '73%' }}>1945</div>
-                    <div className="year-tag" style={{ left: '100%' }}>DZIŚ</div>
+                    <div className="year-tag" style={{ left: '0%' }} data-info="Początek Średniowiecza (Chrzest Polski)">966</div>
+                    <div className="year-tag" style={{ left: '14%' }} data-info="Koniec Średniowiecza / Początek Renesansu">1500</div>
+                    <div className="year-tag" style={{ left: '24%' }} data-info="Koniec Renesansu / Początek Baroku">1620</div>
+                    <div className="year-tag" style={{ left: '36%' }} data-info="Koniec Baroku / Początek Oświecenia">1764</div>
+                    <div className="year-tag" style={{ left: '44%' }} data-info="Koniec Oświecenia / Początek Romantyzmu">1822</div>
+                    <div className="year-tag" style={{ left: '53%' }} data-info="Koniec Romantyzmu / Początek Pozytywizmu">1864</div>
+                    <div className="year-tag" style={{ left: '59%' }} data-info="Koniec Pozytywizmu / Początek Młodej Polski">1890</div>
+                    <div className="year-tag" style={{ left: '66%' }} data-info="Koniec Młodej Polski / Początek 20-lecia">1918</div>
+                    <div className="year-tag" style={{ left: '71%' }} data-info="Koniec 20-lecia / Wybuch II Wojny Światowej">1939</div>
+                    <div className="year-tag" style={{ left: '75%' }} data-info="Koniec Wojny / Początek Współczesności">1945</div>
+                    <div className="year-tag" style={{ left: '100%' }} data-info="Współczesność - Epoka trwająca">DZIŚ</div>
                 </div>
             </main>
 
@@ -233,10 +238,11 @@ const Asyn = () => {
     );
 };
 
-const Epoch = ({ id, left, width, color, title, sub, onOpen, onActive }) => (
-    <div className="epoch" id={id} style={{ left, width, background: color }}
+const Epoch = ({ id, left, width, title, sub, onOpen, onActive }) => (
+    <div className="epoch" id={id} style={{ left, width }}
         onClick={() => onOpen(id)} onMouseEnter={() => onActive(id)} onMouseLeave={() => onActive(null)}>
-        {title} {sub && <span>{sub}</span>}
+        <strong>{title}</strong>
+        {sub && <span>{sub}</span>}
     </div>
 );
 
