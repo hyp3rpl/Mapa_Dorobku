@@ -682,7 +682,13 @@ export const historyData = [
     ],
     shift: "Upadek Cesarstwa Zachodniorzymskiego",
     shiftNote: "Koniec porządku pogańskiego i przejście do uniwersalizmu chrześcijańskiego.",
-    quote: { text: "Poznaj samego siebie.", author: "Sokrates" }
+    quotes: [
+      { author: "Homer", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
+      { author: "Sofokles", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
+      { author: "Platon", text: "Poznaj samego siebie." },
+      { author: "Horacy", text: "Carpe diem – chwytaj dzień." },
+      { author: "Arystoteles", text: "Carpe diem – chwytaj dzień." }
+    ],
   },
   {
     id: "sredniowiecze-3",
@@ -700,7 +706,12 @@ export const historyData = [
     ],
     shift: "Wynalazek druku Gutenberga",
     shiftNote: "Rewolucja w przepływie informacji, koniec ery rękopisów.",
-    quote: { text: "Bogurodzica dziewica, Bogiem sławiena Maryja!", author: "Autor nieznany" }
+    quotes: [
+      { author: "Dante Alighieri", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
+      { author: "Św. Augustyn", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
+      { author: "Gall Anonim", text: "Poznaj samego siebie." },
+      { author: "Wincenty Kadłubek", text: "Carpe diem – chwytaj dzień." },
+    ],
   },
   {
     id: "renesans-3",
@@ -718,7 +729,12 @@ export const historyData = [
     ],
     shift: "Kryzys ideałów humanizmu",
     shiftNote: "Wojny religijne i narastający niepokój egzystencjalny kończą złoty wiek odrodzenia.",
-    quote: { text: "Człowiekiem jestem i nic co ludzkie nie jest mi obce.", author: "Terencjusz (Dewiza Humanistów)" }
+    quotes: [
+      { author: "Jan Kochanowski", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
+      { author: "Mikołaj Rej", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
+      { author: "William Szekspir", text: "Poznaj samego siebie." },
+      { author: "Mikołaj Kopernik", text: "Carpe diem – chwytaj dzień." },
+    ],
   },
   {
     id: "barok-3",
@@ -736,7 +752,12 @@ export const historyData = [
     ],
     shift: "Oświeceniowa wiara w rozum",
     shiftNote: "Krytyka zabobonów baroku na rzecz wiedzy opartej na dowodach.",
-    quote: { text: "Krótka rozprawa: Śmierć, czas, marność...", author: "Daniel Naborowski" }
+    quotes: [
+      { author: "Jan Andrzej Morsztyn", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
+      { author: "Wacław Potocki", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
+      { author: "Daniel Naborowski", text: "Poznaj samego siebie." },
+      { author: "Molier", text: "Carpe diem – chwytaj dzień." },
+    ],
   },
   {
     id: "oswiecenie-3",
@@ -754,7 +775,12 @@ export const historyData = [
     ],
     shift: "Rewolucja Francuska",
     shiftNote: "Wybuch emocji narodowych i społecznych, których rozum nie potrafił opanować.",
-    quote: { text: "Prawdziwa cnota krytyk się nie boi.", author: "Ignacy Krasicki" }
+    quotes: [
+      { author: "Ignacy Krasicki", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
+      { author: "Wolter", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
+      { author: "Jean-Jacques Rousseau", text: "Poznaj samego siebie." },
+      { author: "Adam Naruszewicz", text: "Carpe diem – chwytaj dzień." },
+    ],
   },
   {
     id: "romantyzm-3",
@@ -772,7 +798,12 @@ export const historyData = [
     ],
     shift: "Klęska Powstania Styczniowego",
     shiftNote: "Tragiczny koniec powstańczych marzeń i narodziny trzeźwego pozytywizmu.",
-    quote: { text: "Miej serce i patrzaj w serce!", author: "Adam Mickiewicz" }
+    quotes: [
+      { author: "Adam Mickiewicz", text: "Miej serce i patrzaj w serce!" },
+      { author: "Juliusz Słowacki", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
+      { author: "Zygmunt Krasiński", text: "Z ruin i zgliszcz powstanie Polska nowa." },
+      { author: "Cyprian Kamil Norwid", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+    ],
   },
   {
     id: "pozytywizm-3",
@@ -790,7 +821,12 @@ export const historyData = [
     ],
     shift: "Dekadentyzm końca wieku",
     shiftNote: "Rozczarowanie brakiem postępu duchowego i pesymizm.",
-    quote: { text: "Najpiękniejszą rzeczą na świecie jest życie.", author: "Bolesław Prus" }
+    quotes: [
+      { author: "Bolesław Prus", text: "Miej serce i patrzaj w serce!" },
+      { author: "Eliza Orzeszkowa", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
+      { author: "Henryk Sienkiewicz", text: "Z ruin i zgliszcz powstanie Polska nowa." },
+      { author: "Maria Konopnicka", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+    ],
   },
   {
     id: "mlodapolska-3",
@@ -808,7 +844,12 @@ export const historyData = [
     ],
     shift: "Odzyskanie niepodległości 1918",
     shiftNote: "Nagle wolny kraj potrzebuje nowej literatury.",
-    quote: { text: "Polska to jest wielka rzecz.", author: "Stanisław Wyspiański (Wesele)" }
+    quotes: [
+      { author: "Stanisław Wyspiański", text: "Miej serce i patrzaj w serce!" },
+      { author: "Kazimierz Przerwa-Tetmajer", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
+      { author: "Stefan Żeromski", text: "Z ruin i zgliszcz powstanie Polska nowa." },
+      { author: "Władysław Reymont", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+    ],
   },
   {
     id: "20lecie-3",
@@ -826,6 +867,11 @@ export const historyData = [
     ],
     shift: "II Wojna Światowa",
     shiftNote: "Koniec cywilizowanego świata i wielka trauma.",
-    quote: { text: "A ja ci powiem: żyj!", author: "Julian Tuwim" }
+    quotes: [
+      { author: "Julian Tuwim", text: "Miej serce i patrzaj w serce!" },
+      { author: "Bruno Schulz", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
+      { author: "Witold Gombrowicz", text: "Z ruin i zgliszcz powstanie Polska nowa." },
+      { author: "Bolesław Leśmian", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+    ],
   }
 ]
