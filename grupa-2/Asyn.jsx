@@ -1,104 +1,90 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import './Asyn.css';
 
 const DATA = {
     sre: { 
-        t: "Średniowiecze", m: "Memento Mori", 
-        d: "Najdłuższa epoka w historii Polski (966-XV w.). Dominacja teocentryzmu, wzorce rycerza i ascety.", 
-        b: ["Bogurodzica", "Lament świętokrzyski", "Gall Anonim - Kronika polska"],
-        fact: "Polska nazwa 'Średniowiecze' utrwaliła się dopiero w XIX wieku."
+        t: "Średniowiecze", 
+        m: "Memento Mori (Pamiętaj o śmierci)", 
+        d: "Najdłuższa epoka w historii, trwająca w Polsce od Chrztu (966) do końca XV wieku. Dominacja teocentryzmu, łaciny i wzorców osobowych takich jak rycerz i asceta. Kultura skupiona na przygotowaniu człowieka do życia wiecznego.", 
+        b: ["Bogurodzica", "Lament świętokrzyski", "Gall Anonim - Kronika polska", "Rozmowa Mistrza Polikarpa ze Śmiercią"],
+        fact: "Polska nazwa 'Średniowiecze' utrwaliła się dopiero w XIX wieku. Wcześniej używano łacińskiego 'Medium Aevum'."
     },
     ren: { 
-        t: "Renesans", m: "Człowiekiem jestem...", 
-        d: "Złoty wiek kultury polskiej. Antropocentryzm, rozwój polszczyzny, humanizm i reformacja.", 
-        b: ["Jan Kochanowski - Treny", "Mikołaj Rej - Krótka rozprawa..."],
-        fact: "Jan Kochanowski stworzył polski język literacki niemal od zera."
+        t: "Renesans (Odrodzenie)", 
+        m: "Człowiekiem jestem i nic co ludzkie nie jest mi obce", 
+        d: "Wiek Złoty kultury polskiej. Antropocentryzm ('człowiek miarą wszechrzeczy'), rozwój polszczyzny literackiej, humanizm i reformacja. Czas rozkwitu nauki, sztuki i odkryć geograficznych.", 
+        b: ["Jan Kochanowski - Treny", "Jan Kochanowski - Odprawa posłów greckich", "Mikołaj Rej - Krótka rozprawa...", "Andrzej Frycz Modrzewski - O poprawie Rzeczypospolitej"],
+        fact: "Jan Kochanowski stworzył polski język literacki niemal od zera, wprowadzając tysiące nowych słów do polszczyzny."
     },
     bar: { 
-        t: "Barok", m: "Vanitas vanitatum", 
-        d: "Czas kontrastów, przepychu i niepokoju. Kultura sarmacka i głęboka religijność.", 
-        b: ["Jan Chryzostom Pasek - Pamiętniki", "Jan Andrzej Morsztyn - Poezje"],
-        fact: "Polski sarmatyzm łączył kulturę Zachodu z orientalnym stylem Wschodu."
+        t: "Barok", 
+        m: "Vanitas vanitatum et omnia vanitas (Marność nad marnościami)", 
+        d: "Czas kontrastów, niepokoju i przepychu. W Polsce związany z kulturą sarmacką, ale też z głęboką religijnością i metafizyką. Literatura operuje konceptem, paradoksem i bogatą stylistyką.", 
+        b: ["Jan Chryzostom Pasek - Pamiętniki", "Jan Andrzej Morsztyn - Wybór poezji", "Daniel Naborowski - Krótkość żywota", "Wacław Potocki - Wojna chocimska"],
+        fact: "Polski barok wykształcił unikalny portret trumienny – realistyczne wizerunki zmarłych mocowane do trumien, co było ewenementem na skalę światową."
     },
     osw: { 
-        t: "Oświecenie", m: "Sapere Aude", 
-        d: "Wiek rozumu i reform. Powstanie KEN i pierwszej nowoczesnej konstytucji w Europie.", 
-        b: ["Ignacy Krasicki - Satyry i Bajki", "Józef Wybicki - Mazurek Dąbrowskiego"],
-        fact: "Polska Komisja Edukacji Narodowej była pierwszym ministerstwem oświaty w Europie."
+        t: "Oświecenie", 
+        m: "Sapere Aude (Odważ się być mądrym)", 
+        d: "Wiek rozumu i reform. Próba ratowania państwa przez edukację (KEN) i kulturę. Powstanie teatru narodowego, czas publicystyki i pierwszej nowoczesnej konstytucji w Europie.", 
+        b: ["Ignacy Krasicki - Satyry i Bajki", "Julian Ursyn Niemcewicz - Powrót posła", "Józef Wybicki - Mazurek Dąbrowskiego"],
+        fact: "Polska Komisja Edukacji Narodowej (1773) była pierwszym ministerstwem oświaty w całej Europie."
     },
     rom: { 
-        t: "Romantyzm", m: "Miej serce i patrzaj w serce", 
-        d: "Walka o wolność, mesjanizm i prymat czucia nad rozumem. Literatura siłą narodu.", 
-        b: ["Adam Mickiewicz - Dziady cz. III", "Juliusz Słowacki - Kordian"],
-        fact: "Mickiewicz pisał 'Pana Tadeusza', by uciec od kłótni polskiej emigracji."
+        t: "Romantyzm", 
+        m: "Miej serce i patrzaj w serce", 
+        d: "Epoka walki o wolność, mesjanizmu i prymatu czucia nad rozumem. Literatura staje się duchową siłą narodu pozbawionego państwa, kształtując polską tożsamość narodową przez kolejne dekady.", 
+        b: ["Adam Mickiewicz - Dziady cz. III", "Adam Mickiewicz - Pan Tadeusz", "Juliusz Słowacki - Kordian", "Cyprian Kamil Norwid - Vade-mecum"],
+        fact: "Adam Mickiewicz napisał 'Pana Tadeusza' w Paryżu, tęskniąc za krajem i chcąc uciec od kłótni panujących wśród polskiej emigracji."
     },
     poz: { 
-        t: "Pozytywizm", m: "Praca u podstaw", 
-        d: "Czas pracy organicznej po klęsce powstania. Realizm służący analizie społeczeństwa.", 
-        b: ["Bolesław Prus - Lalka", "Henryk Sienkiewicz - Potop"],
-        fact: "Sienkiewicz pisał 'Trylogię' w odcinkach, na które ludzie czekali jak na serial."
+        t: "Pozytywizm", 
+        m: "Praca u podstaw i praca organiczna", 
+        d: "Czas pracy u podstaw i pracy organicznej po klęsce powstania styczniowego. Realizm i naturalizm służące analizie społeczeństwa, scjentyzm oraz wiara w postęp techniczny i edukację.", 
+        b: ["Bolesław Prus - Lalka", "Eliza Orzeszkowa - Nad Niemnem", "Henryk Sienkiewicz - Potop", "Maria Konopnicka - Mendel Gdański"],
+        fact: "Henryk Sienkiewicz pisał 'Trylogię' w odcinkach do gazet, co sprawiało, że ludzie czekali na nie jak na odcinki współczesnego serialu."
     },
     mp:  { 
-        t: "Młoda Polska", m: "Sztuka dla sztuki", 
-        d: "Modernizm, symbolizm i dekadentyzm. Kult sztuki i badanie mroków duszy.", 
-        b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi"],
-        fact: "Akcja 'Wesela' oparta jest na prawdziwym weselu, na którym był Wyspiański."
+        t: "Młoda Polska", 
+        m: "Sztuka dla sztuki (Modernizm)", 
+        d: "Modernizm w polskim wydaniu. Symbolizm, neoromantyzm, kult sztuki i badanie mroków duszy (dekadentyzm). Czas cyganerii artystycznej, fascynacji ludowością i kryzysu wartości mieszczańskich.", 
+        b: ["Stanisław Wyspiański - Wesele", "Władysław Reymont - Chłopi", "Stefan Żeromski - Ludzie bezdomni"],
+        fact: "Dramat 'Wesele' Wyspiańskiego opisuje prawdziwe wydarzenie – wesele poety Lucjana Rydla, na którym autor był gościem."
     },
     d20: { 
-        t: "Dwudziestolecie", m: "Odzyskany śmietnik", 
-        d: "Odzyskanie niepodległości, rozkwit awangardy i eksperymentu literackiego.", 
-        b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe"],
-        fact: "Polska awangarda lat 20. była jedną z najciekawszych w Europie."
+        t: "Dwudziestolecie", 
+        m: "Odzyskany śmietnik (wolność i lęk)", 
+        d: "Odzyskanie niepodległości, rozkwit awangardy i eksperymentu. Zderzenie optymizmu wolności z lękiem przed nadchodzącym katastrofizmem. Nowoczesność miesza się z poszukiwaniem nowej formy.", 
+        b: ["Witold Gombrowicz - Ferdydurke", "Bruno Schulz - Sklepy cynamonowe", "Zofia Nałkowska - Granica"],
+        fact: "W tej epoce polska awangarda literacka i szkoła matematyczna były jednymi z najbardziej nowatorskich w całej Europie."
     },
     woj: { 
-        t: "Wojna i Okupacja", m: "Pokolenie Kolumbów", 
-        d: "Czas 'apokalipsy spełnionej'. Tragiczne świadectwo literatury w obliczu zagłady.", 
-        b: ["Tadeusz Borowski - Opowiadania", "Krzysztof Kamil Baczyński - Poezje"],
-        fact: "Kamil Baczyński zginął w 4. dniu Powstania Warszawskiego."
+        t: "Wojna i Okupacja", 
+        m: "Pokolenie Kolumbów", 
+        d: "Czas 'apokalipsy spełnionej'. Zagłada wartości humanistycznych i próba ich ocalenia poprzez tragiczne świadectwo literatury. Poezja i proza stają się formą oporu i dokumentem cierpienia.", 
+        b: ["Tadeusz Borowski - Opowiadania", "Krzysztof Kamil Baczyński - Poezje", "Gustaw Herling-Grudziński - Inny świat"],
+        fact: "Krzysztof Kamil Baczyński zginął w czwartym dniu Powstania Warszawskiego mając zaledwie 23 lata."
     },
     wsp: { 
-        t: "Współczesność", m: "Postmodernizm", 
-        d: "Literatura powojenna, emigracyjna i wolność po 1989 roku. Czas Noblistów.", 
-        b: ["Wisława Szymborska - Poezje", "Olga Tokarczuk - Bieguni"],
-        fact: "Polska posiada aż pięciu laureatów Literackiej Nagrody Nobla."
+        t: "Współczesność", 
+        m: "Postmodernizm i globalna wioska", 
+        d: "Od 1945 roku. Literatura zmagająca się z systemem komunistycznym, traumą wojenną, emigracją, aż po postmodernistyczną wolność po 1989 roku. Czas wielkich sukcesów polskich Noblistów.", 
+        b: ["Sławomir Mrożek - Tango", "Wisława Szymborska - Poezje", "Czesław Miłosz - Traktat moralny", "Olga Tokarczuk - Bieguni"],
+        fact: "Polska literatura współczesna stoi Noblami – w ostatnich dekadach nagrodę odebrali Wisława Szymborska (1996) i Olga Tokarczuk (2018)."
     }
 };
 
-// DEFINICJA POŁĄCZEŃ (Góra -> Środek oraz Dół -> Środek)
 const CONNECTIONS = [
-    // ŚREDNIOWIECZE
     ['g2-boguro', 'g2-sre'], 
-
-    // RENESANS
-    ['g2-druk', 'g2-ren'],      // Góra -> Środek
-    ['g2-kochan', 'g2-ren'],     // Dół -> Środek
-    ['g2-columb', 'g2-ren'],
-
-    // BAROK
+    ['g2-druk', 'g2-ren'], ['g2-kochan', 'g2-ren'], ['g2-columb', 'g2-ren'],
     ['g2-pasek', 'g2-bar'],
-
-    // OŚWIECENIE
     ['g2-newton', 'g2-osw'],
-
-    // ROMANTYZM
     ['g2-mick', 'g2-rom'],
-
-    // POZYTYWIZM
     ['g2-watt', 'g2-poz'],
-
-    // MŁODA POLSKA
     ['g2-wesele', 'g2-mp'],
-
-    // DWUDZIESTOLECIE
-    ['g2-einstein', 'g2-d20'],   // Góra -> Środek
-    ['g2-schulz', 'g2-d20'],     // Dół -> Środek
-
-    // WOJNA
+    ['g2-einstein', 'g2-d20'], ['g2-schulz', 'g2-d20'],
     ['g2-einstein', 'g2-woj'],
-
-    // WSPÓŁCZESNOŚĆ
-    ['g2-moon', 'g2-wsp'],       // Góra -> Środek
-    ['g2-tokar', 'g2-wsp']       // Dół -> Środek
+    ['g2-moon', 'g2-wsp'], ['g2-tokar', 'g2-wsp']
 ];
 
 const Asyn = () => {
@@ -130,9 +116,10 @@ const Asyn = () => {
         setPaths(newPaths);
     };
 
-    useEffect(() => {
-        const timer = setTimeout(drawConnections, 400);
+    useLayoutEffect(() => {
+        drawConnections();
         window.addEventListener('resize', drawConnections);
+        const timer = setTimeout(drawConnections, 100);
         return () => {
             window.removeEventListener('resize', drawConnections);
             clearTimeout(timer);
@@ -150,7 +137,7 @@ const Asyn = () => {
                     <span className="highlight">Kultury</span>
                 </h1>
                 <div className="subtitle-box">
-                    <p>Tysiąc lat historii zamknięte na jednej osi. Odkryj powiązania między polskim słowem a światową nauką.</p>
+                    <p>Interaktywny przewodnik po dziedzictwie polskiej literatury i sztuki. Wybierz epokę, aby poznać jej najważniejsze dzieła i fakty.</p>
                 </div>
             </header>
 
