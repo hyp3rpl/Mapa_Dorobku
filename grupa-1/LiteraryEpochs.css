@@ -44,6 +44,16 @@
   }
 }
 
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ============================================================
    STRONA
    ============================================================ */
@@ -293,6 +303,7 @@
   letter-spacing: 0.04em;
 }
 
+/* Tag pojęcia bez definicji */
 .tag-pojecie {
   padding: 3px 10px;
   border-radius: 20px;
@@ -300,6 +311,20 @@
   font-family: 'Crimson Text', serif;
   letter-spacing: 0.08em;
   background: rgba(255, 255, 255, 0.65);
+  cursor: default;
+}
+
+/* Tag pojęcia z definicją — klikalny */
+.tag-pojecie--klikalny {
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.tag-pojecie--klikalny:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
 }
 
 /* ============================================================
@@ -381,4 +406,80 @@
   background: #C8B898;
   border: 2px solid #F5EFE2;
   box-shadow: 0 0 0 2px #C8B898;
+}
+
+/* ============================================================
+   MODAL — pop-up z definicją pojęcia
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 18, 8, 0.45);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.2s ease;
+}
+
+.modal {
+  background: #FFFDF8;
+  border: 1px solid #DDD0B0;
+  border-radius: 4px;
+  max-width: 460px;
+  width: 100%;
+  padding: 36px 36px 32px;
+  position: relative;
+  animation: modalSlideIn 0.25s ease;
+}
+
+.modal__zamknij {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 18px;
+  color: #C8B898;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s;
+  background: none;
+  border: none;
+  font-family: serif;
+  padding: 4px;
+}
+
+.modal__zamknij:hover {
+  color: #6A5A38;
+}
+
+.modal__epoka {
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 8px;
+}
+
+.modal__pojecie {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 4vw, 30px);
+  font-weight: 700;
+  color: #1A1208;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.modal__separator {
+  height: 1px;
+  background: #DDD0B0;
+  margin-bottom: 16px;
+}
+
+.modal__opis {
+  font-family: 'Crimson Text', serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #3A2E14;
 }
