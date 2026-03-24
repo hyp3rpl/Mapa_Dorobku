@@ -26,25 +26,24 @@ export const KOLOR_IRRACJONALIZM = {
 // ============================================================
 
 export const pojecia = {
-
   // Antyk
-  "Logos": {
+  Logos: {
     epoka: "Antyk",
     opis: "Greckie pojęcie oznaczające rozum, słowo i porządek wszechświata. Dla Heraklita Logos to zasada rządząca kosmosem; dla stoików — boski rozum przenikający świat. W chrześcijaństwie utożsamiony z Bogiem-Słowem.",
   },
-  "Kalokagathia": {
+  Kalokagathia: {
     epoka: "Antyk",
     opis: "Grecki ideał harmonijnego połączenia piękna (kalos) i dobroci (agathos). Oznaczał wzorzec doskonałego człowieka — pięknego ciałem i szlachetnego duchem. Był fundamentem greckiej filozofii wychowawczej.",
   },
-  "Arete": {
+  Arete: {
     epoka: "Antyk",
     opis: "Greckie pojęcie cnoty i doskonałości. Oznaczało najwyższy poziom sprawności w dziedzinie, do której ktoś jest powołany. Dla Arystotelesa arete to złoty środek między skrajnościami charakteru.",
   },
-  "Mimesis": {
+  Mimesis: {
     epoka: "Antyk",
     opis: "Naśladowanie rzeczywistości jako zasada sztuki. Platon uważał ją za oddalanie od prawdy (kopia kopii), Arystoteles — za naturalne działanie człowieka i źródło rozkoszy estetycznej.",
   },
-  "Katharsis": {
+  Katharsis: {
     epoka: "Antyk",
     opis: "Oczyszczenie duszy przez przeżycie silnych emocji w teatrze. Arystoteles opisał katharsis jako cel tragedii — widz, współprzeżywając litość i trwogę, doznaje wyzwolenia od tych uczuć.",
   },
@@ -54,7 +53,7 @@ export const pojecia = {
   },
 
   // Średniowiecze
-  "Teocentryzm": {
+  Teocentryzm: {
     epoka: "Średniowiecze",
     opis: "Pogląd, że Bóg jest centrum i miarą wszystkiego. W Średniowieczu oznaczał podporządkowanie całego życia — sztuki, nauki, polityki — chwale Bożej. Przeciwieństwo renesansowego antropocentryzmu.",
   },
@@ -62,11 +61,11 @@ export const pojecia = {
     epoka: "Średniowiecze",
     opis: "Taniec śmierci — motyw ikonograficzny i literacki przedstawiający korowód śmierci prowadzącej ludzi wszystkich stanów do grobu. Przypominał o równości wobec śmierci i kruchości wszelkiego życia.",
   },
-  "Scholastyka": {
+  Scholastyka: {
     epoka: "Średniowiecze",
     opis: "Filozofia i metoda nauczania dominująca w średniowiecznych uniwersytetach. Polegała na pogodzeniu wiary z rozumem przy pomocy logiki Arystotelesa. Jej szczyt to Tomasz z Akwinu i Summa Theologiae.",
   },
-  "Asceza": {
+  Asceza: {
     epoka: "Średniowiecze",
     opis: "Wyrzeczenie się dóbr materialnych i przyjemności ciała w celu osiągnięcia doskonałości duchowej. W Średniowieczu praktykowana przez mnichów i pustelników jako droga do zbawienia.",
   },
@@ -74,35 +73,35 @@ export const pojecia = {
     epoka: "Średniowiecze",
     opis: "Łacińskie przypomnienie: 'Pamiętaj, że umrzesz'. Motyw obecny w całej sztuce średniowiecznej — czaszki, klepsydry, tańce śmierci — miał skłaniać do pokuty i myślenia o życiu wiecznym.",
   },
-  "Anonimowość": {
+  Anonimowość: {
     epoka: "Średniowiecze",
     opis: "Cecha charakterystyczna twórczości średniowiecznej — autor ukrywał się za dziełem, bo liczyło się Boże natchnienie, nie ludzka chwała. Bogurodzica, Kazania świętokrzyskie — do dziś nie znamy ich autorów.",
   },
 
   // Renesans
-  "Humanizm": {
+  Humanizm: {
     epoka: "Renesans",
     opis: "Prąd renesansowy stawiający człowieka w centrum zainteresowania. Humaniści powracali do starożytności, rozwijali filologię i filozofię. Wierzyli w nieograniczone możliwości ludzkiego rozumu i twórczości.",
   },
-  "Antropocentryzm": {
+  Antropocentryzm: {
     epoka: "Renesans",
     opis: "Człowiek jako miara wszechrzeczy i centrum świata. Renesansowa odpowiedź na średniowieczny teocentryzm — zamiast Boga, w centrum refleksji stanął człowiek z rozumem, wolną wolą i twórczością.",
   },
-  "Horacjanizm": {
+  Horacjanizm: {
     epoka: "Renesans",
     opis: "Nawiązanie do filozofii i poetyki Horacego w literaturze renesansu. Oznaczało pochwałę złotego środka (aurea mediocritas), umiaru, harmonii i cieszenia się życiem zgodnie z naturą.",
   },
-  "Reformacja": {
+  Reformacja: {
     epoka: "Renesans",
     opis: "Ruch religijny XVI wieku zapoczątkowany przez Marcina Lutra. Zakwestionował autorytet papieża i Kościoła, doprowadził do powstania protestantyzmu i wojen religijnych, które wstrząsnęły Europą.",
   },
-  "Fortuna": {
+  Fortuna: {
     epoka: "Renesans",
     opis: "Rzymska bogini losu i szczęścia, przedstawiana z kołem. W renesansie symbol zmienności losu i nieprzewidywalności życia — człowiek musi być gotowy na obroty fortuny, łącząc jej wyzwania z własną virtù.",
   },
 
   // Barok
-  "Vanitas": {
+  Vanitas: {
     epoka: "Barok",
     opis: "Łacińskie 'marność'. Barokowy motyw przemijalności i złudności wszelkich ziemskich wartości, zaczerpnięty z Księgi Koheleta. Wyrażany przez symbole: czaszki, klepsydry, świece, więdnące kwiaty.",
   },
@@ -110,67 +109,67 @@ export const pojecia = {
     epoka: "Barok",
     opis: "Świat jako teatr, a ludzie jako aktorzy grający role wyznaczone przez Boga lub los. Ulubiona metafora baroku, obecna u Calderona i Szekspira, podkreślająca ulotność i pozorność życia.",
   },
-  "Koncept": {
+  Koncept: {
     epoka: "Barok",
     opis: "Wyszukany, zaskakujący pomysł poetycki oparty na niezwykłym zestawieniu obrazów lub myśli. Mistrzostwo konceptu było najwyższą cnotą barokowego poety — Jan Andrzej Morsztyn był jego polskim mistrzem.",
   },
-  "Kontrreformacja": {
+  Kontrreformacja: {
     epoka: "Barok",
     opis: "Odpowiedź Kościoła katolickiego na Reformację. Sobór Trydencki (1545–1563) zdefiniował dogmaty, jezuici prowadzili misje, a sztuka barokowa miała poruszać serca i przyciągać wiernych z powrotem do Kościoła.",
   },
-  "Sarmatyzm": {
+  Sarmatyzm: {
     epoka: "Barok",
     opis: "Ideologia polskiej szlachty przekonanej o swym pochodzeniu od starożytnych Sarmatów. Gloryfikowała tradycję, wolność szlachecką i swojskość, prowadząc zarazem do ksenofobii i oporu przed reformami.",
   },
-  "Marinizm": {
+  Marinizm: {
     epoka: "Barok",
     opis: "Nurt poetycki wywodzący się od włoskiego poety Giambattisty Marina. Cechował go przerost ozdobności, wyszukane metafory, zaskakujące koncepty i dążenie do olśnienia czytelnika za wszelką cenę.",
   },
 
   // Oświecenie
-  "Ratio": {
+  Ratio: {
     epoka: "Oświecenie",
     opis: "Łaciński rozum — naczelna wartość epoki oświecenia. Racjonaliści wierzyli, że rozum jest jedynym pewnym źródłem poznania i narzędziem naprawy świata. Stąd krytyka zabobonu, tradycji i Kościoła.",
   },
-  "Empiryzm": {
+  Empiryzm: {
     epoka: "Oświecenie",
     opis: "Filozofia głosząca, że całe poznanie pochodzi z doświadczenia zmysłowego. John Locke twierdził, że umysł człowieka to niezapisana karta (tabula rasa) — kształtuje go środowisko i wychowanie.",
   },
-  "Deizm": {
+  Deizm: {
     epoka: "Oświecenie",
     opis: "Pogląd, że Bóg stworzył świat jak zegarmistrz zegarek — i odtąd nie ingeruje w jego bieg. Wolter i inni deistowie odrzucali objawienie i cuda, zachowując Boga jako pierwszą przyczynę.",
   },
-  "Encyklopedyzm": {
+  Encyklopedyzm: {
     epoka: "Oświecenie",
     opis: "Ruch skupiony wokół wydania Encyklopedii (1751–1772) przez Diderota i d'Alemberta. Miał zebrać i upowszechnić całą ludzką wiedzę, promując naukę i krytykę dogmatów religijnych i politycznych.",
   },
-  "Klasycyzm": {
+  Klasycyzm: {
     epoka: "Oświecenie",
     opis: "Nurt artystyczny nawiązujący do wzorów antycznych: harmonii, prostoty, porządku i racjonalności. W literaturze oznaczał przestrzeganie gatunkowych reguł, jasność języka i cel dydaktyczny.",
   },
-  "Utylitaryzm": {
+  Utylitaryzm: {
     epoka: "Oświecenie",
     opis: "Pogląd etyczny głoszący, że dobre jest to, co przynosi największe szczęście największej liczbie ludzi. W oświeceniu oznaczał też użyteczność sztuki — literatura miała uczyć i wychowywać.",
   },
 
   // Romantyzm
-  "Mesjanizm": {
+  Mesjanizm: {
     epoka: "Romantyzm",
     opis: "Przekonanie, że Polska jako 'Chrystus narodów' cierpi za grzechy innych i zmartwychwstanie, przynosząc wolność Europie. Idea Mickiewicza z III części Dziadów i Ksiąg narodu polskiego.",
   },
-  "Irracjonalizm": {
+  Irracjonalizm: {
     epoka: "Romantyzm",
     opis: "Przekonanie, że rozum nie jest jedynym ani najważniejszym źródłem poznania. Romantycy cenili uczucie, intuicję, sen i mistyczne doświadczenie jako drogi do głębszej prawdy o świecie.",
   },
-  "Prometeizm": {
+  Prometeizm: {
     epoka: "Romantyzm",
     opis: "Postawa buntu przeciwko Bogu lub losowi w imię dobra ludzkości. Romantyczny bohater prometejski — jak Konrad z Dziadów — gotów walczyć z samym Bogiem o wolność uciśnionego narodu.",
   },
-  "Werteryzm": {
+  Werteryzm: {
     epoka: "Romantyzm",
     opis: "Postawa inspirowana Cierpieniami młodego Wertera Goethego. Oznaczała skrajną wrażliwość, miłosne uniesienie, konflikt z otoczeniem i skłonność do melancholii — bohater niezrozumiany przez świat.",
   },
-  "Ludowość": {
+  Ludowość: {
     epoka: "Romantyzm",
     opis: "Zainteresowanie kulturą, pieśniami i wierzeniami ludu jako źródłem narodowej tożsamości i poetyckiej inspiracji. Mickiewicz w Balladach i romansach czerpał z białoruskich podań i legend.",
   },
@@ -184,29 +183,29 @@ export const pojecia = {
     epoka: "Pozytywizm",
     opis: "Hasło polskich pozytywistów: zamiast zbrojnych powstań — systematyczna praca nad rozwojem gospodarki, oświaty i nauki. Społeczeństwo jak organizm — każda jego część musi być zdrowa i pracować.",
   },
-  "Scjentyzm": {
+  Scjentyzm: {
     epoka: "Pozytywizm",
     opis: "Przekonanie, że jedyną prawdziwą wiedzą jest wiedza naukowa oparta na faktach i doświadczeniu. Nauka miała zastąpić religię i metafizykę jako fundament poznania i postępu społecznego.",
   },
-  "Realizm": {
+  Realizm: {
     epoka: "Pozytywizm",
     opis: "Nurt literacki dążący do wiernego, obiektywnego odtworzenia rzeczywistości. Wielka powieść realistyczna — Prus, Orzeszkowa, Sienkiewicz — portretowała społeczeństwo bez romantycznych upiększeń.",
   },
-  "Emancypacja": {
+  Emancypacja: {
     epoka: "Pozytywizm",
     opis: "Dążenie do równouprawnienia kobiet w edukacji, pracy i życiu publicznym. Orzeszkowa w Marcie i Na prowincji, Prus w Emancypantkach — literatura aktywnie wspierała prawa kobiet.",
   },
-  "Ewolucjonizm": {
+  Ewolucjonizm: {
     epoka: "Pozytywizm",
     opis: "Teoria Darwina o ewolucji gatunków przeniesiona na grunt społeczny (Herbert Spencer). Społeczny darwinizm głosił, że silniejsi wygrywają w walce o byt — co budziło zarówno zachwyt, jak i sprzeciw.",
   },
 
   // Młoda Polska
-  "Dekadentyzm": {
+  Dekadentyzm: {
     epoka: "Młoda Polska",
     opis: "Postawa schyłkowa: poczucie wyczerpania cywilizacji, zmęczenia życiem i beznadziei. Wyraz kryzysu wartości na przełomie XIX i XX w. Dekadent gardził mieszczańskim optymizmem i kultem postępu.",
   },
-  "Symbolizm": {
+  Symbolizm: {
     epoka: "Młoda Polska",
     opis: "Kierunek artystyczny używający symboli do wyrażenia treści nieuchwytnych dla rozumu — stanów duszy, przeczuć, nastrojów. Poezja symbolistyczna była muzyczna, wieloznaczna i odchodziła od dosłowności.",
   },
@@ -218,37 +217,37 @@ export const pojecia = {
     epoka: "Młoda Polska",
     opis: "Sztuka dla sztuki — hasło głoszące, że sztuka jest wartością samą w sobie i nie powinna służyć żadnym celom dydaktycznym ani społecznym. Bunt przeciwko pozytywistycznej użyteczności literatury.",
   },
-  "Secesja": {
+  Secesja: {
     epoka: "Młoda Polska",
     opis: "Styl artystyczny przełomu XIX i XX w. charakteryzujący się organicznymi, płynącymi liniami, motywami roślinnymi i ornamentalnością. W Polsce zdominował architekturę Krakowa i grafikę Wyspiańskiego.",
   },
-  "Nietzscheanizm": {
+  Nietzscheanizm: {
     epoka: "Młoda Polska",
     opis: "Wpływ filozofii Fryderyka Nietzschego na literaturę. Idea nadczłowieka, wola mocy, odrzucenie moralności chrześcijańskiej jako 'moralności niewolników' — fascynowały i prowokowały młodopolskich twórców.",
   },
 
   // 20-lecie
-  "Awangarda": {
+  Awangarda: {
     epoka: "20-lecie międzywojenne",
     opis: "Ruchy artystyczne zrywające z tradycją i szukające nowych form. Krakowska Awangarda (Peiper, Przyboś) głosiła: miasto, masa, maszyna. Poezja miała być zwięzła, metaforyczna i nowoczesna.",
   },
-  "Skamander": {
+  Skamander: {
     epoka: "20-lecie międzywojenne",
     opis: "Grupa poetycka (Tuwim, Lechoń, Słonimski, Wierzyński, Iwaszkiewicz) odcinająca się od romantycznego patosu. Głosiła radość życia, codzienność i prostotę — poezja miała być bliska zwykłemu człowiekowi.",
   },
-  "Futuryzm": {
+  Futuryzm: {
     epoka: "20-lecie międzywojenne",
     opis: "Awangardowy ruch gloryfikujący prędkość, technikę i miasto. Polscy futuryści (Jasieński, Stern) eksperymentowali z ortografią i typografią, chcąc całkowicie zerwać z literacką tradycją.",
   },
-  "Katastrofizm": {
+  Katastrofizm: {
     epoka: "20-lecie międzywojenne",
     opis: "Nurt przepowiadający nieuchronną zagładę cywilizacji europejskiej. Witkacy, Miłosz, Czechowicz czuli nadchodzącą katastrofę — II wojna światowa potwierdziła te przeczucia w tragiczny sposób.",
   },
-  "Ekspresjonizm": {
+  Ekspresjonizm: {
     epoka: "20-lecie międzywojenne",
     opis: "Nurt wyrażający subiektywne, intensywne stany emocjonalne przez deformację i przesadę. W literaturze oznaczał krzyk, bunt i protest przeciwko rzeczywistości — silny zwłaszcza w dramacie.",
   },
-  "Surrealizm": {
+  Surrealizm: {
     epoka: "20-lecie międzywojenne",
     opis: "Ruch artystyczny czerpiący z podświadomości i snów. Wywodzący się od Bretona surrealizm dążył do uwolnienia wyobraźni od kontroli rozumu. W Polsce bliski mu był oniryczny świat Brunona Schulza.",
   },
@@ -258,11 +257,11 @@ export const pojecia = {
     epoka: "Literatura II Wojny Światowej",
     opis: "Roczniki 1918–1926, które wchodziły w dorosłość w czasie II wojny światowej. Odkryli wolną Polskę, by zaraz walczyć o jej przetrwanie. Baczyński, Gajcy, Stroiński — większość zginęła przed 25. rokiem życia.",
   },
-  "Holokaust": {
+  Holokaust: {
     epoka: "Literatura II Wojny Światowej",
     opis: "Zagłada Żydów europejskich przez nazistowskie Niemcy — 6 milionów ofiar. Literatura Holokaustu (Borowski, Nałkowska, Levi) próbuje dać świadectwo temu, co wymykało się wszelkim pojęciom i językom.",
   },
-  "Świadectwo": {
+  Świadectwo: {
     epoka: "Literatura II Wojny Światowej",
     opis: "Funkcja literatury wojennej: zapisanie prawdy o tym, co się wydarzyło, by ocalić od zapomnienia. Borowski, Nałkowska, Herling-Grudziński czuli moralny obowiązek świadczenia — nawet za cenę spokoju ducha.",
   },
@@ -270,25 +269,25 @@ export const pojecia = {
     epoka: "Literatura II Wojny Światowej",
     opis: "Literatura obozowa opisująca doświadczenie życia w nazistowskich obozach koncentracyjnych lub sowieckich łagrach. Cechuje ją zimny, rzeczowy styl — bo tylko tak można oddać nieludzką rzeczywistość.",
   },
-  "Apokalipsa": {
+  Apokalipsa: {
     epoka: "Literatura II Wojny Światowej",
     opis: "Motyw literacki końca świata, obecny intensywnie w poezji wojennej. Baczyński pisał o 'pokoleniu apokalipsy', dla którego zniszczenie i śmierć stały się codziennością — i który musiał tworzyć pośród zgliszcz.",
   },
-  "Konspiracja": {
+  Konspiracja: {
     epoka: "Literatura II Wojny Światowej",
     opis: "Podziemna działalność kulturalna i literacka w czasie okupacji. W Warszawie działały tajne komplety, wydawnictwa, teatry. Literatura konspiracyjna była aktem oporu — słowo jako broń przeciwko okupantowi.",
   },
 
   // PRL
-  "Socrealizm": {
+  Socrealizm: {
     epoka: "Literatura PRL",
     opis: "Oficjalny styl artystyczny narzucony przez komunistów po 1949 roku. Literatura miała gloryfikować partię, klasę robotniczą i budownictwo socjalizmu. Artyści, którzy mu ulegli, często żałowali tego do końca życia.",
   },
-  "Cenzura": {
+  Cenzura: {
     epoka: "Literatura PRL",
     opis: "Instytucjonalna kontrola treści wydawanych w PRL przez Główny Urząd Kontroli Prasy. Cenzorzy mogli usuwać, zmieniać lub zakazywać publikacji. Pisarze uczyli się pisać 'między wierszami'.",
   },
-  "Emigracja": {
+  Emigracja: {
     epoka: "Literatura PRL",
     opis: "Literatura tworzona poza Polską przez pisarzy, którzy nie mogli lub nie chcieli wracać do kraju rządzonego przez komunistów. Paryska Kultura Giedroycia była oknem na świat dla polskiej inteligencji.",
   },
@@ -300,33 +299,33 @@ export const pojecia = {
     epoka: "Literatura PRL",
     opis: "Pokolenie poetów lat 60./70. (Barańczak, Zagajewski, Kornhauser) odrzucające nowomowę i żądające mówienia wprost o rzeczywistości PRL. Ich manifest 'Świat nie przedstawiony' był literackim aktem oporu.",
   },
-  "Opór": {
+  Opór: {
     epoka: "Literatura PRL",
     opis: "Postawa wielu pisarzy PRL-u wobec systemu komunistycznego — od subtelnej aluzji do jawnego protestu. Herbert, Miłosz, Szymborska — każdy na swój sposób zachowywał godność i niezależność ducha.",
   },
 
   // Współczesna
-  "Postmodernizm": {
+  Postmodernizm: {
     epoka: "Literatura współczesna",
     opis: "Nurt kwestionujący wielkie narracje i prawdy absolutne. Literatura postmodernistyczna bawi się konwencjami, miesza style, ironizuje i podkreśla, że każda opowieść to tylko jedna z możliwych wersji rzeczywistości.",
   },
-  "Nobel": {
+  Nobel: {
     epoka: "Literatura współczesna",
     opis: "Nagroda Nobla w dziedzinie literatury przyznana Polakom: Henryk Sienkiewicz (1905), Władysław Reymont (1924), Czesław Miłosz (1980), Wisława Szymborska (1996), Olga Tokarczuk (2018).",
   },
-  "Feminizm": {
+  Feminizm: {
     epoka: "Literatura współczesna",
     opis: "Nurt literacki i krytyczny badający reprezentację kobiet w kulturze i walczący o ich równouprawnienie. Tokarczuk, Masłowska, Gretkowska — polskie pisarki redefiniują kobiece doświadczenie w literaturze.",
   },
-  "Ekokrytyka": {
+  Ekokrytyka: {
     epoka: "Literatura współczesna",
     opis: "Badanie związków między literaturą a środowiskiem naturalnym. Tokarczuk w Prowadź swój pług przez kości umarłych czyni z ekologii temat moralny i polityczny — prawa zwierząt jako kwestia humanizmu.",
   },
-  "Tożsamość": {
+  Tożsamość: {
     epoka: "Literatura współczesna",
     opis: "Centralne zagadnienie współczesnej prozy: kim jestem, skąd pochodzę, do jakiej wspólnoty należę? Tokarczuk bada tożsamość przez podróż i granice; Stasiuk przez prowincję i Europę Środkową.",
   },
-  "Globalizacja": {
+  Globalizacja: {
     epoka: "Literatura współczesna",
     opis: "Procesy integracji gospodarczej i kulturowej świata jako temat i kontekst literatury współczesnej. Polscy pisarze coraz częściej piszą do globalnej publiczności, a świat czyta polską literaturę w przekładach.",
   },
@@ -349,8 +348,22 @@ export const epoki = [
     shiftNote: "chaos i teocentryzm zastąpiły antyczny porządek",
     description:
       "Epoka starożytna to fundament całej kultury europejskiej. Grecja stworzyła filozofię, teatr, demokrację i kanony piękna — Rzym przejął i rozprzestrzenił te wzorce na cały kontynent. W literaturze dominowały eposy Homera (Iliada, Odyseja), tragedie Sofoklesa i Ajschylosa, liryka Safony i Horacego. Filozofia Platona i Arystotelesa kształtuje myśl zachodnią do dziś. Ideał kalokagathii — piękna i dobra w jedności — wyznaczał wzorzec człowieczeństwa.",
-    keywords: ["Logos", "Kalokagathia", "Arete", "Mimesis", "Katharsis", "Carpe diem"],
-    authors: ["Homer", "Sofokles", "Platon", "Wergiliusz", "Horacy", "Owidiusz"],
+    keywords: [
+      "Logos",
+      "Kalokagathia",
+      "Arete",
+      "Mimesis",
+      "Katharsis",
+      "Carpe diem",
+    ],
+    authors: [
+      "Homer",
+      "Sofokles",
+      "Platon",
+      "Wergiliusz",
+      "Horacy",
+      "Owidiusz",
+    ],
   },
   {
     id: "sredniowiecze",
@@ -364,8 +377,21 @@ export const epoki = [
     shiftNote: "człowiek na nowo odkrywa samego siebie",
     description:
       "Epoka zdominowana przez teocentryzm — Bóg stał w centrum wszelkiej refleksji i twórczości. Kościół był jedyną instytucją scalającą Europę po upadku Cesarstwa. Literatura miała charakter anonimowy i służebny wobec religii: kroniki, hagiografie, pieśni maryjne. W Polsce: Bogurodzica, Kronika Galla Anonima, Kazania świętokrzyskie. Dante Alighieri Boską Komedią stworzył syntezę średniowiecznego myślenia o zaświatach.",
-    keywords: ["Teocentryzm", "Danse macabre", "Scholastyka", "Asceza", "Memento mori", "Anonimowość"],
-    authors: ["Gall Anonim", "Wincenty Kadłubek", "Dante Alighieri", "François Villon", "Jan Długosz"],
+    keywords: [
+      "Teocentryzm",
+      "Danse macabre",
+      "Scholastyka",
+      "Asceza",
+      "Memento mori",
+      "Anonimowość",
+    ],
+    authors: [
+      "Gall Anonim",
+      "Wincenty Kadłubek",
+      "Dante Alighieri",
+      "François Villon",
+      "Jan Długosz",
+    ],
   },
   {
     id: "renesans",
@@ -379,8 +405,21 @@ export const epoki = [
     shiftNote: "zwątpienie, przepych i vanitas zastąpiły renesansowy optymizm",
     description:
       "Odrodzenie przyniosło radykalne odwrócenie perspektywy — z teocentryzmu ku antropocentryzmowi. Człowiek stał się miarą wszechrzeczy. W Polsce złoty wiek literatury: Jan Kochanowski stworzył arcydzieła (Fraszki, Treny, Pieśni), Mikołaj Rej jako pierwszy pisał po polsku z dumą. Humanizm, carpe diem i stoicka zgoda na los przenikały wszystkie dziedziny sztuki. Erazm z Rotterdamu sławił mądrość, Szekspir dał literaturze najdoskonalsze dramaty wszech czasów.",
-    keywords: ["Humanizm", "Carpe diem", "Antropocentryzm", "Horacjanizm", "Reformacja", "Fortuna"],
-    authors: ["Jan Kochanowski", "Mikołaj Rej", "A. Frycz Modrzewski", "Szekspir", "Erazm z Rotterdamu"],
+    keywords: [
+      "Humanizm",
+      "Carpe diem",
+      "Antropocentryzm",
+      "Horacjanizm",
+      "Reformacja",
+      "Fortuna",
+    ],
+    authors: [
+      "Jan Kochanowski",
+      "Mikołaj Rej",
+      "A. Frycz Modrzewski",
+      "Szekspir",
+      "Erazm z Rotterdamu",
+    ],
   },
   {
     id: "barok",
@@ -394,8 +433,21 @@ export const epoki = [
     shiftNote: "rozum i nauka zwyciężają nad dogmatem i emocją",
     description:
       "Epoka paradoksów i kontrastów — między przepychem a nicością, wiarą a zwątpieniem. Vanitas vanitatum — wszystko jest marnością. Kontrreformacja przywróciła potęgę Kościoła, lecz religijność stała się pełna dramatyzmu. W Polsce: Jan Andrzej Morsztyn (mistrz konceptu), Wacław Potocki (Transakcja wojny chocimskiej), Daniel Naborowski. Sarmatyzm kształtował polską szlachecką tożsamość.",
-    keywords: ["Vanitas", "Theatrum mundi", "Koncept", "Kontrreformacja", "Sarmatyzm", "Marinizm"],
-    authors: ["Jan Andrzej Morsztyn", "Wacław Potocki", "Daniel Naborowski", "Calderon", "Molier"],
+    keywords: [
+      "Vanitas",
+      "Theatrum mundi",
+      "Koncept",
+      "Kontrreformacja",
+      "Sarmatyzm",
+      "Marinizm",
+    ],
+    authors: [
+      "Jan Andrzej Morsztyn",
+      "Wacław Potocki",
+      "Daniel Naborowski",
+      "Calderon",
+      "Molier",
+    ],
   },
   {
     id: "oswiecenie",
@@ -405,12 +457,26 @@ export const epoki = [
     type: "racjonalistyczna",
     ...KOLOR_RACJONALIZM,
     icon: "△",
-    shift: "Rewolucja Francuska, rozbiory Polski, romantyczne przebudzenie narodów",
+    shift:
+      "Rewolucja Francuska, rozbiory Polski, romantyczne przebudzenie narodów",
     shiftNote: "uczucie i naród zastępują rozum i kosmopolityzm",
     description:
       "Wiek rozumu, encyklopedystów i rewolucji. Wolter, Rousseau, Monteskiusz kwestionowali autorytet Kościoła i gloryfikowali naukę. W Polsce czasy stanisławowskie: Teatr Narodowy, reformy Kołłątaja. Ignacy Krasicki pisał zjadliwe satyry i bajki. Konstytucja 3 Maja (1791) — najpiękniejszy owoc oświeceniowych idei — i początkiem końca niepodległości.",
-    keywords: ["Ratio", "Empiryzm", "Deizm", "Encyklopedyzm", "Klasycyzm", "Utylitaryzm"],
-    authors: ["Ignacy Krasicki", "Julian U. Niemcewicz", "Stanisław Staszic", "Wolter", "Jean-Jacques Rousseau"],
+    keywords: [
+      "Ratio",
+      "Empiryzm",
+      "Deizm",
+      "Encyklopedyzm",
+      "Klasycyzm",
+      "Utylitaryzm",
+    ],
+    authors: [
+      "Ignacy Krasicki",
+      "Julian U. Niemcewicz",
+      "Stanisław Staszic",
+      "Wolter",
+      "Jean-Jacques Rousseau",
+    ],
   },
   {
     id: "romantyzm",
@@ -424,8 +490,21 @@ export const epoki = [
     shiftNote: "zrywy zbrojne zastąpiono pracą organiczną i scjentyzmem",
     description:
       "Bunt przeciwko rozumowi — romantyzm gloryfikował uczucie, wyobraźnię i wolność. W Polsce epoka mesjanizmu: trzej wieszcze — Mickiewicz, Słowacki, Krasiński — stali się duchowymi przywódcami narodu pod zaborami. Dziady, Kordian i Nie-Boska komedia to arcydzieła niezrównanej siły. Norwid wyprzedził epokę o sto lat. Romantyczny bajroniczny bohater to indywidualista w konflikcie z losem i historią.",
-    keywords: ["Mesjanizm", "Irracjonalizm", "Prometeizm", "Werteryzm", "Ludowość", "Walka za wolność"],
-    authors: ["Adam Mickiewicz", "Juliusz Słowacki", "Zygmunt Krasiński", "Cyprian K. Norwid", "George Byron"],
+    keywords: [
+      "Mesjanizm",
+      "Irracjonalizm",
+      "Prometeizm",
+      "Werteryzm",
+      "Ludowość",
+      "Walka za wolność",
+    ],
+    authors: [
+      "Adam Mickiewicz",
+      "Juliusz Słowacki",
+      "Zygmunt Krasiński",
+      "Cyprian K. Norwid",
+      "George Byron",
+    ],
   },
   {
     id: "pozytywizm",
@@ -439,8 +518,21 @@ export const epoki = [
     shiftNote: "sztuka dla sztuki zastępuje sztukę użyteczną",
     description:
       "Po klęsce powstania styczniowego pozytywiści odrzucili zbrojne zrywy na rzecz pracy organicznej i pracy u podstaw. Hasła: emancypacja kobiet, edukacja ludu, solidaryzm społeczny. Bolesław Prus (Lalka, Faraon), Eliza Orzeszkowa (Nad Niemnem), Henryk Sienkiewicz (Trylogia, Quo vadis — Nobel 1905) stworzyli wielką powieść realistyczną.",
-    keywords: ["Praca organiczna", "Scjentyzm", "Realizm", "Utylitaryzm", "Emancypacja", "Ewolucjonizm"],
-    authors: ["Bolesław Prus", "Eliza Orzeszkowa", "H. Sienkiewicz", "Maria Konopnicka", "A. Dygasiński"],
+    keywords: [
+      "Praca organiczna",
+      "Scjentyzm",
+      "Realizm",
+      "Utylitaryzm",
+      "Emancypacja",
+      "Ewolucjonizm",
+    ],
+    authors: [
+      "Bolesław Prus",
+      "Eliza Orzeszkowa",
+      "H. Sienkiewicz",
+      "Maria Konopnicka",
+      "A. Dygasiński",
+    ],
   },
   {
     id: "mlodapolska",
@@ -454,8 +546,21 @@ export const epoki = [
     shiftNote: "wolna Polska rodzi nową, entuzjastyczną literaturę",
     description:
       "Fin de siècle przyniósł dekadentyzm i kryzys wartości. Młodopolanie odrzucili kult nauki na rzecz hasła sztuka dla sztuki. Wyspiański w Weselu rozrachował się z polskim charakterem narodowym. Żeromski piętnował niesprawiedliwość, Reymont uwiecznił wieś polską w Chłopach (Nobel 1924). Tetmajer opiewał Tatry, Staff szukał siły witalnej. Secesja, symbolizm i impresjonizm zdominowały estetykę.",
-    keywords: ["Dekadentyzm", "Symbolizm", "Fin de siècle", "L'art pour l'art", "Secesja", "Nietzscheanizm"],
-    authors: ["Stanisław Wyspiański", "K. Przerwa-Tetmajer", "Leopold Staff", "Stefan Żeromski", "W. Reymont"],
+    keywords: [
+      "Dekadentyzm",
+      "Symbolizm",
+      "Fin de siècle",
+      "L'art pour l'art",
+      "Secesja",
+      "Nietzscheanizm",
+    ],
+    authors: [
+      "Stanisław Wyspiański",
+      "K. Przerwa-Tetmajer",
+      "Leopold Staff",
+      "Stefan Żeromski",
+      "W. Reymont",
+    ],
   },
   {
     id: "miedzywojenne",
@@ -469,8 +574,21 @@ export const epoki = [
     shiftNote: "literatura staje się świadectwem i oskarżeniem",
     description:
       "Niepodległa Polska po 123 latach zaborów — eksplozja kulturalna. Skamandryci (Tuwim, Lechoń, Wierzyński) postawili na radość życia. Bruno Schulz w Sklepach cynamonowych stworzył poetykę mitologizacji prowincji; Gombrowicz w Ferdydurke badał formę i niedojrzałość; Leśmian budował oniryczny świat neologizmów. Katastrofizm (Witkacy, Miłosz) przepowiadał nadchodzącą zagładę — trafnie.",
-    keywords: ["Awangarda", "Skamander", "Futuryzm", "Katastrofizm", "Ekspresjonizm", "Surrealizm"],
-    authors: ["Julian Tuwim", "Bruno Schulz", "Witold Gombrowicz", "Bolesław Leśmian", "Witkacy"],
+    keywords: [
+      "Awangarda",
+      "Skamander",
+      "Futuryzm",
+      "Katastrofizm",
+      "Ekspresjonizm",
+      "Surrealizm",
+    ],
+    authors: [
+      "Julian Tuwim",
+      "Bruno Schulz",
+      "Witold Gombrowicz",
+      "Bolesław Leśmian",
+      "Witkacy",
+    ],
   },
   {
     id: "wwii",
@@ -484,8 +602,21 @@ export const epoki = [
     shiftNote: "literatura walczy z cenzurą i totalitaryzmem",
     description:
       "Druga wojna światowa stworzyła literaturę o skali cierpienia nieznanej w historii. Baczyński zginął w Powstaniu Warszawskim mając 23 lata. Borowski w Proszę państwa do gazu dał wstrząsające świadectwo Auschwitz — pisane zimnym stylem, co czyni je jeszcze straszliwszym. Herling-Grudziński opisał łagry w Innym świecie. Nałkowska w Medalionach zapisała relacje ocalałych.",
-    keywords: ["Pokolenie Kolumbów", "Holokaust", "Świadectwo", "Lagrowa proza", "Apokalipsa", "Konspiracja"],
-    authors: ["K.K. Baczyński", "Tadeusz Borowski", "G. Herling-Grudziński", "Zofia Nałkowska", "Cz. Miłosz"],
+    keywords: [
+      "Pokolenie Kolumbów",
+      "Holokaust",
+      "Świadectwo",
+      "Lagrowa proza",
+      "Apokalipsa",
+      "Konspiracja",
+    ],
+    authors: [
+      "K.K. Baczyński",
+      "Tadeusz Borowski",
+      "G. Herling-Grudziński",
+      "Zofia Nałkowska",
+      "Cz. Miłosz",
+    ],
   },
   {
     id: "prl",
@@ -499,8 +630,21 @@ export const epoki = [
     shiftNote: "pluralizm i wolność słowa otwierają nową epokę",
     description:
       "Powojenna literatura rozwijała się pod komunistyczną cenzurą i socrealistyczną doktryną. Mimo represji powstawały arcydzieła: Herbert w wierszach o Panu Cogito stawiał opór złu przez godność; Mrożek w Tangu i Emigrantach demaskował absurdy systemu; Białoszewski rewolucjonizował język codzienności w Pamiętniku z Powstania Warszawskiego. Szymborska obserwowała świat z filozoficzną ironią. Miłosz w Zniewolonym umyśle analizował mechanizm totalitaryzmu (Nobel 1980).",
-    keywords: ["Socrealizm", "Cenzura", "Emigracja", "Ezopowy język", "Nowa Fala", "Opór"],
-    authors: ["Zbigniew Herbert", "Wisława Szymborska", "Sławomir Mrożek", "Tadeusz Różewicz", "M. Białoszewski"],
+    keywords: [
+      "Socrealizm",
+      "Cenzura",
+      "Emigracja",
+      "Ezopowy język",
+      "Nowa Fala",
+      "Opór",
+    ],
+    authors: [
+      "Zbigniew Herbert",
+      "Wisława Szymborska",
+      "Sławomir Mrożek",
+      "Tadeusz Różewicz",
+      "M. Białoszewski",
+    ],
   },
   {
     id: "wspolczesna",
@@ -514,8 +658,21 @@ export const epoki = [
     shiftNote: null,
     description:
       "Po 1989 roku polska literatura weszła w epokę pluralizmu — bez cenzury, z wolnym rynkiem idei. Olga Tokarczuk w Biegunach i Księgach Jakubowych stworzyła epicki świat podróży i tożsamości (Nobel 2018 — drugi noblista w 22 lata po Szymborskiej). Dorota Masłowska Wojną polsko-ruską wkroczyła brawurowo głosem ulicy. Jacek Dukaj uprawia spekulatywną science-fiction najwyższej próby. Twórczość Tokarczuk, Stasiuka i Myśliwskiego podbija świat w przekładach.",
-    keywords: ["Postmodernizm", "Nobel", "Feminizm", "Ekokrytyka", "Tożsamość", "Globalizacja"],
-    authors: ["Olga Tokarczuk", "Wisława Szymborska", "Andrzej Stasiuk", "Jacek Dukaj", "Dorota Masłowska"],
+    keywords: [
+      "Postmodernizm",
+      "Nobel",
+      "Feminizm",
+      "Ekokrytyka",
+      "Tożsamość",
+      "Globalizacja",
+    ],
+    authors: [
+      "Olga Tokarczuk",
+      "Wisława Szymborska",
+      "Andrzej Stasiuk",
+      "Jacek Dukaj",
+      "Dorota Masłowska",
+    ],
   },
 ];
 
@@ -532,7 +689,7 @@ export const epoki = [
 //   import { epokiZHistoryData as epoki, ... } from "./epoki.js"
 // ============================================================
 
-import { historyData } from "./historyData.js";
+import { historyData } from "../data/historyData";
 
 // Mapowanie nazwy epoki na motyw kolorystyczny
 const MOTYWY = {
@@ -542,8 +699,12 @@ const MOTYWY = {
 
 // Epoki racjonalistyczne — na podstawie nazwy
 const EPOKI_RACJONALISTYCZNE = new Set([
-  "antyk", "renesans", "oświecenie", "pozytywizm",
-  "20-lecie", "literatura współczesna",
+  "antyk",
+  "renesans",
+  "oświecenie",
+  "pozytywizm",
+  "20-lecie",
+  "literatura współczesna",
 ]);
 
 function wyznaczMotyw(nazwa) {
