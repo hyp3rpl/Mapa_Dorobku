@@ -871,7 +871,7 @@ export const historyData = [
       { author: "Julian Tuwim", text: "Miej serce i patrzaj w serce!" },
       { author: "Bruno Schulz", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
       { author: "Witold Gombrowicz", text: "Z ruin i zgliszcz powstanie Polska nowa." },
-      { author: "Bolesław Leśmian", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+      { author: "Bolesław Leśmian", text: "Świat się zmniejszył na zawsze o twą drobną postać,"<br>"I zmalał cały świat!" }
     ],
   },
 ]
