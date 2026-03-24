@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { epoki, pojecia, KOLOR_RACJONALIZM, KOLOR_IRRACJONALIZM } from "./epoki.js";
+import { epokiZHistoryData as epoki, pojecia, KOLOR_RACJONALIZM, KOLOR_IRRACJONALIZM } from "./epoki.js";
 import "./LiteraryEpochs.css";
 
 // ============================================================
