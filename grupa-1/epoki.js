@@ -518,3 +518,68 @@ export const epoki = [
     authors: ["Olga Tokarczuk", "Wisława Szymborska", "Andrzej Stasiuk", "Jacek Dukaj", "Dorota Masłowska"],
   },
 ];
+
+// ============================================================
+// ADAPTER — konwertuje epoki z historyData.js do formatu
+// używanego przez LiteraryEpochs
+//
+// Używa wpisów z historyData które mają id kończące się na "-3"
+// (czyli epoki zdefiniowane dla grupy 3).
+//
+// Aby przełączyć źródło danych w LiteraryEpochs, zamień:
+//   import { epoki, ... } from "./epoki.js"
+// na:
+//   import { epokiZHistoryData as epoki, ... } from "./epoki.js"
+// ============================================================
+
+import { historyData } from "./historyData.js";
+
+// Mapowanie nazwy epoki na motyw kolorystyczny
+const MOTYWY = {
+  racjonalistyczna: { ...KOLOR_RACJONALIZM, type: "racjonalistyczna" },
+  irracjonalistyczna: { ...KOLOR_IRRACJONALIZM, type: "irracjonalistyczna" },
+};
+
+// Epoki racjonalistyczne — na podstawie nazwy
+const EPOKI_RACJONALISTYCZNE = new Set([
+  "antyk", "renesans", "oświecenie", "pozytywizm",
+  "20-lecie", "literatura współczesna",
+]);
+
+function wyznaczMotyw(nazwa) {
+  const lower = nazwa.toLowerCase();
+  for (const klucz of EPOKI_RACJONALISTYCZNE) {
+    if (lower.includes(klucz)) return MOTYWY.racjonalistyczna;
+  }
+  return MOTYWY.irracjonalistyczna;
+}
+
+// Konwertuje pojedynczy wpis z historyData do formatu LiteraryEpochs
+function adaptujEpoke(wpis) {
+  const motyw = wyznaczMotyw(wpis.name);
+
+  return {
+    id: wpis.id,
+    name: wpis.name,
+    period: wpis.period ?? "",
+    duration: "",
+    ...motyw,
+    icon: wpis.icon ?? "◉",
+    shift: wpis.shift ?? null,
+    shiftNote: wpis.shiftNote ?? null,
+    description: wpis.description ?? "",
+
+    // keywords w historyData to tablica obiektów { name, desc }
+    // LiteraryEpochs potrzebuje tablicy stringów
+    keywords: (wpis.keywords ?? []).map((k) =>
+      typeof k === "string" ? k : k.name
+    ),
+
+    authors: wpis.authors ?? [],
+  };
+}
+
+// Gotowa lista epok z historyData (tylko wpisy kończące się na "-3")
+export const epokiZHistoryData = historyData
+  .filter((wpis) => wpis.id?.endsWith("-3"))
+  .map(adaptujEpoke);
