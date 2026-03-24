@@ -111,7 +111,7 @@ body {
 
 .eu-ch {
   color: var(--eu);
-  padding-left: 40px;
+  padding: 12px 32px;
 }
 
 /* ── Two columns ───────────────────────────────────────────── */
@@ -131,6 +131,8 @@ body {
 
 .pl-col {
   border-right: 2px solid var(--border);
+  padding-right: 72px;
+  padding-left: 32px;
 }
 
 /* Vertical timeline line */
@@ -169,6 +171,7 @@ body {
 }
 .eu-col {
   padding-left: 72px;
+  padding-right: 32px;
 }
 
 /* ── Entries list ──────────────────────────────────────────── */
@@ -206,8 +209,8 @@ body {
 /* Image box */
 .entry-img {
   flex-shrink: 0;
-  width: 110px;
-  height: 82px;
+  width: 140px;
+  height: 180px;
   border-radius: 4px;
   overflow: hidden;
   border: 1.5px solid var(--border);
@@ -329,7 +332,8 @@ body {
   }
   .pl-ch {
     border-right: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    padding: 12px 32px;
   }
   .entry-img {
     width: 80px;

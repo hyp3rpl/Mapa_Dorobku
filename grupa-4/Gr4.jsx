@@ -1,6 +1,6 @@
 import Layout from "./components/Layout.jsx";
 import Entry from "./components/Wpisy.jsx";
-import { historyData } from "./data/historyData.js";
+import { historyData } from "../data/historyData.js";
 
 function Gr4() {
   const poland = historyData.filter((item) =>
