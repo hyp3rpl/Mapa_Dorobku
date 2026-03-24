@@ -873,5 +873,5 @@ export const historyData = [
       { author: "Witold Gombrowicz", text: "Z ruin i zgliszcz powstanie Polska nowa." },
       { author: "Bolesław Leśmian", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
     ],
-  }
+  },
 ]
