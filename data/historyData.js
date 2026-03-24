@@ -683,11 +683,11 @@ export const historyData = [
     shift: "Upadek Cesarstwa Zachodniorzymskiego",
     shiftNote: "Koniec porządku pogańskiego i przejście do uniwersalizmu chrześcijańskiego.",
     quotes: [
-      { author: "Homer", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
-      { author: "Sofokles", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
-      { author: "Platon", text: "Poznaj samego siebie." },
-      { author: "Horacy", text: "Carpe diem – chwytaj dzień." },
-      { author: "Arystoteles", text: "Carpe diem – chwytaj dzień." }
+      { author: "Homer", text: "Na ziemi nie ma słabszego stworzenia niż człowiek." },
+      { author: "Sofokles", text: "Słowami świadczyć miłość - to nie miłość." },
+      { author: "Platon", text: "Bezmyślnym życiem żyć człowiekowi nie warto." },
+      { author: "Horacy", text: "Co ma być niech będzie." },
+      { author: "Arystoteles", text: "Namyśleć się trzeba powoli." }
     ],
   },
   {
@@ -707,10 +707,10 @@ export const historyData = [
     shift: "Wynalazek druku Gutenberga",
     shiftNote: "Rewolucja w przepływie informacji, koniec ery rękopisów.",
     quotes: [
-      { author: "Dante Alighieri", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
-      { author: "Św. Augustyn", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
-      { author: "Gall Anonim", text: "Poznaj samego siebie." },
-      { author: "Wincenty Kadłubek", text: "Carpe diem – chwytaj dzień." },
+      { author: "Dante Alighieri", text: "Niech wam wystarczy wierzyć, że tak jest, a nie dociekać, dlaczego jest." },
+      { author: "Św. Augustyn", text: "Błądzenie jest rzeczą ludzką, ale dobrowolne trwanie w błędzie jest rzeczą diabelską." },
+      { author: "Gall Anonim", text: "I tak wielką owego dnia złączyli się miłością, że cesarz mianował go bratem i sprzymierzeńcem narodu rzymskiego." },
+      { author: "Wincenty Kadłubek", text: "Nigdy bowiem ludzie doskonali złem za złe nie odpłacają." },
     ],
   },
   {
@@ -730,10 +730,10 @@ export const historyData = [
     shift: "Kryzys ideałów humanizmu",
     shiftNote: "Wojny religijne i narastający niepokój egzystencjalny kończą złoty wiek odrodzenia.",
     quotes: [
-      { author: "Jan Kochanowski", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
-      { author: "Mikołaj Rej", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
-      { author: "William Szekspir", text: "Poznaj samego siebie." },
-      { author: "Mikołaj Kopernik", text: "Carpe diem – chwytaj dzień." },
+      { author: "Jan Kochanowski", text: "Że rozum wart jest więcej niźli złota skrzynie; Tego, niestety, żadnej nie wmówisz dziewczynie." },
+      { author: "Mikołaj Rej", text: "Kto nie rozważa, mądrych słów słuchając, Jako wół lutniej słucha, trąby zając." },
+      { author: "William Szekspir", text: "Miłość w swej prostej i nieśmiałej mowie; Powie najwięcej, kiedy najmniej powie." },
+      { author: "Mikołaj Kopernik", text: "A cóż piękniejszego nad niebo, które przecież ogarnia wszystko co piękne? " },
     ],
   },
   {
@@ -753,10 +753,10 @@ export const historyData = [
     shift: "Oświeceniowa wiara w rozum",
     shiftNote: "Krytyka zabobonów baroku na rzecz wiedzy opartej na dowodach.",
     quotes: [
-      { author: "Jan Andrzej Morsztyn", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
-      { author: "Wacław Potocki", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
-      { author: "Daniel Naborowski", text: "Poznaj samego siebie." },
-      { author: "Molier", text: "Carpe diem – chwytaj dzień." },
+      { author: "Jan Andrzej Morsztyn", text: "Ty nic nie czujesz, ja cierpię srodze. Tyś jak lód, a jam w piekielnej śrzeżodze." },
+      { author: "Wacław Potocki", text: "Zdrowy nic mi nie dajesz; po tobie dziedziczę, Jeśliś niegłupi, możesz wiedzieć, czegoć życzę." },
+      { author: "Daniel Naborowski", text: "Bogaczu hardy, próżno śmiejesz się z nagiego: Nago wychodzim na ten świat, nago pójdziemy z niego." },
+      { author: "Molier", text: "W słowach wszyscy mężczyźni podobni są do siebie; czyny dopiero odsłaniają różnice" },
     ],
   },
   {
@@ -776,10 +776,10 @@ export const historyData = [
     shift: "Rewolucja Francuska",
     shiftNote: "Wybuch emocji narodowych i społecznych, których rozum nie potrafił opanować.",
     quotes: [
-      { author: "Ignacy Krasicki", text: "Ciężko jest walczyć z losem, lecz jeszcze ciężej mu ulec." },
-      { author: "Wolter", text: "Wiele jest mocy strasznych, lecz nie ma nad człowieka nic straszniejszego." },
-      { author: "Jean-Jacques Rousseau", text: "Poznaj samego siebie." },
-      { author: "Adam Naruszewicz", text: "Carpe diem – chwytaj dzień." },
+      { author: "Ignacy Krasicki", text: "Miej ty sobie pałace, ja mój domek ciasny. Prawda, nie jest wspaniały: szczupły, ale własny." },
+      { author: "Wolter", text: "Co to takiego optymizm? spytał Kakambo. – Ach, odparł Kandyd, to obłęd dowodzenia, że wszystko jest dobrze, kiedy nam się dzieje źle." },
+      { author: "Jean-Jacques Rousseau", text: "Nie znajdziecie takiego zła w moralności i polityce, w które nie byłby zamieszany pieniądz." },
+      { author: "Adam Naruszewicz", text: "Bo w Polsce złota wolność pewnych reguł strzeże: Chłopa na pal, panu nic, szlachcica na wieże." },
     ],
   },
   {
@@ -799,10 +799,10 @@ export const historyData = [
     shift: "Klęska Powstania Styczniowego",
     shiftNote: "Tragiczny koniec powstańczych marzeń i narodziny trzeźwego pozytywizmu.",
     quotes: [
-      { author: "Adam Mickiewicz", text: "Miej serce i patrzaj w serce!" },
-      { author: "Juliusz Słowacki", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
-      { author: "Zygmunt Krasiński", text: "Z ruin i zgliszcz powstanie Polska nowa." },
-      { author: "Cyprian Kamil Norwid", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+      { author: "Adam Mickiewicz", text: "Bo kto nie był ni razu człowiekiem, temu człowiek nic nie pomoże." },
+      { author: "Juliusz Słowacki", text: "Otom ja sam jak drzewo zwarzone od kiści, Sto we mnie żądz, sto uczuć, sto uwiędłych liści." },
+      { author: "Zygmunt Krasiński", text: "Jestem tu – jestem – ale wy mnie sądzić nie będziecie. Ja się już wybrałem w drogę – ja stąpam ku sądowi Boga." },
+      { author: "Cyprian Kamil Norwid", text: "Niewolnicy wszędzie i zawsze niewolnikami będą – daj im skrzydła u ramion, a zamiatać pójdą ulice skrzydłami." }
     ],
   },
   {
@@ -822,10 +822,10 @@ export const historyData = [
     shift: "Dekadentyzm końca wieku",
     shiftNote: "Rozczarowanie brakiem postępu duchowego i pesymizm.",
     quotes: [
-      { author: "Bolesław Prus", text: "Miej serce i patrzaj w serce!" },
-      { author: "Eliza Orzeszkowa", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
-      { author: "Henryk Sienkiewicz", text: "Z ruin i zgliszcz powstanie Polska nowa." },
-      { author: "Maria Konopnicka", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+      { author: "Bolesław Prus", text: "Najgorszą samotnością nie jest tak, która otacza człowieka, ale ta pustka w nim samym." },
+      { author: "Eliza Orzeszkowa", text: "Podobno bratem bliźniaczym mądrości bywa u ludzi smutek." },
+      { author: "Henryk Sienkiewicz", text: "Jeśli ktoś Kalemu zabrać krowy to jest zły uczynek. Dobry, to jak Kali zabrać komuś krowy." },
+      { author: "Maria Konopnicka", text: "A gdy serce twe przytłoczy Myśl, że żyć nie warto, Z łez ocieraj cudze oczy, Chociaż twoich nie otarto." }
     ],
   },
   {
@@ -845,10 +845,10 @@ export const historyData = [
     shift: "Odzyskanie niepodległości 1918",
     shiftNote: "Nagle wolny kraj potrzebuje nowej literatury.",
     quotes: [
-      { author: "Stanisław Wyspiański", text: "Miej serce i patrzaj w serce!" },
-      { author: "Kazimierz Przerwa-Tetmajer", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
-      { author: "Stefan Żeromski", text: "Z ruin i zgliszcz powstanie Polska nowa." },
-      { author: "Władysław Reymont", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+      { author: "Stanisław Wyspiański", text: "Wyście sobie, a my sobie, każden sobie rzepkę skrobie." },
+      { author: "Kazimierz Przerwa-Tetmajer", text: "I chociaż życie nasze nic niewarte, evviva l'arte!" },
+      { author: "Stefan Żeromski", text: "Każdy ma swoje miejsce ulubione w dzieciństwie. To jest ojczyzna duszy." },
+      { author: "Władysław Reymont", text: "Człowiek nie może żyć tylko dla siebie - nie wolno mu tego pod grozą własnego nieszczęścia." }
     ],
   },
   {
@@ -868,10 +868,10 @@ export const historyData = [
     shift: "II Wojna Światowa",
     shiftNote: "Koniec cywilizowanego świata i wielka trauma.",
     quotes: [
-      { author: "Julian Tuwim", text: "Miej serce i patrzaj w serce!" },
-      { author: "Bruno Schulz", text: "Chodzi mi o to, aby język giętki powiedział wszystko, co pomyśli głowa." },
-      { author: "Witold Gombrowicz", text: "Z ruin i zgliszcz powstanie Polska nowa." },
-      { author: "Bolesław Leśmian", text: "Przeszłość – to jest dziś, tylko cokolwiek dalej." }
+      { author: "Julian Tuwim", text: "Błogosławieni ci, którzy nie mając nic do powiedzenia, nie oblekają tego faktu w słowa." },
+      { author: "Bruno Schulz", text: "Bo czyż pod stołem, który nas dzieli, nie trzymamy się wszyscy tajnie za ręce?" },
+      { author: "Witold Gombrowicz", text: "Człowiek jest najgłębiej uzależniony od swojego odbicia w duszy drugiego człowieka." },
+      { author: "Bolesław Leśmian", text: "Świat się zmniejszył na zawsze o twą drobną postać, I zmalał cały świat!" }
     ],
-  }
+  },
 ]

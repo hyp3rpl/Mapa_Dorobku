@@ -1,0 +1,342 @@
+/* ── Reset & vars ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pl: #c0392b;
+  --eu: #1a56db;
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --border: #d0ccc4;
+  --text: #1a1a1a;
+  --muted: #888078;
+  --line-w: 3px;
+  --dot-size: 14px;
+  --font-h: "DM Serif Display", Georgia, serif;
+  --font-b: "Source Sans 3", Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-b);
+  font-size: 16px;
+}
+
+/* ── Page ──────────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.page-header {
+  text-align: center;
+  padding: 40px 24px 28px;
+  border-bottom: 2px solid var(--border);
+  background: var(--surface);
+}
+
+.page-header h1 {
+  font-family: var(--font-h);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.page-header h1 .pl {
+  color: var(--pl);
+}
+.page-header h1 .eu {
+  color: var(--eu);
+}
+.page-header h1 .sep {
+  color: var(--border);
+  font-weight: 300;
+}
+
+.page-header p {
+  margin-top: 10px;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.page-header code {
+  background: #eee;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-style: normal;
+  font-size: 0.85rem;
+}
+
+/* ── Column headers ────────────────────────────────────────── */
+.col-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 2px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.ch {
+  padding: 12px 32px;
+  font-size: 20px;
+  font-family: var(--font-h);
+  letter-spacing: 0.25em;
+  font-weight: 700;
+}
+
+.pl-ch {
+  color: var(--pl);
+  border-right: 2px solid var(--border);
+}
+
+.eu-ch {
+  color: var(--eu);
+  padding: 12px 32px;
+}
+
+/* ── Two columns ───────────────────────────────────────────── */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  align-items: start;
+}
+
+/* ── Single column ─────────────────────────────────────────── */
+.col {
+  position: relative;
+  padding: 48px 32px 80px;
+  min-height: 100%;
+}
+
+.pl-col {
+  border-right: 2px solid var(--border);
+  padding-right: 72px;
+  padding-left: 32px;
+}
+
+/* Vertical timeline line */
+.col-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--line-w);
+  border-radius: 2px;
+}
+
+.pl-col .col-line {
+  right: 32px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--pl) 5%,
+    var(--pl) 95%,
+    transparent
+  );
+  opacity: 0.35;
+}
+.pl-col {
+  padding-right: 72px;
+}
+.eu-col .col-line {
+  left: 32px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--eu) 5%,
+    var(--eu) 95%,
+    transparent
+  );
+  opacity: 0.35;
+}
+.eu-col {
+  padding-left: 72px;
+  padding-right: 32px;
+}
+
+/* ── Entries list ──────────────────────────────────────────── */
+.entries {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* ── Single entry ──────────────────────────────────────────── */
+.entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  animation: fadeIn 0.4s ease both;
+}
+
+.entry-desc {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image box */
+.entry-img {
+  flex-shrink: 0;
+  width: 140px;
+  height: 180px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  background: #eee;
+}
+
+.entry-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-style: italic;
+  background: #f0ede8;
+  border: 1.5px dashed var(--border);
+  border-radius: 4px;
+}
+
+/* Text content */
+.entry-text {
+  flex: 1;
+  padding-top: 2px;
+}
+
+.entry-year {
+  font-family: var(--font-h);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+.pl .entry-year {
+  color: var(--pl);
+  opacity: 0.7;
+}
+.eu .entry-year {
+  color: var(--eu);
+  opacity: 0.7;
+}
+
+.entry-title {
+  font-family: var(--font-h);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.entry-desc {
+  font-family: var(--font-b);
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ── Placeholder ───────────────────────────────────────────── */
+.entry-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1.5px dashed var(--border);
+  border-radius: 6px;
+  opacity: 0.6;
+}
+
+.ph-img {
+  width: 110px;
+  height: 82px;
+  background: #f0ede8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--border);
+  flex-shrink: 0;
+}
+
+.ph-text code {
+  font-size: 0.75rem;
+  background: #eee;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ph-text p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+  .pl-col {
+    border-right: none;
+    border-bottom: 2px solid var(--border);
+  }
+  .col-headers {
+    grid-template-columns: 1fr;
+  }
+  .pl-ch {
+    border-right: none;
+    border-bottom: 2px solid var(--border);
+    padding: 12px 32px;
+  }
+  .entry-img {
+    width: 80px;
+    height: 60px;
+  }
+}

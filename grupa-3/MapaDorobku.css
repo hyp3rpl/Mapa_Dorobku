@@ -1,51 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
 
+/* GŁÓWNY KONTENER */
 .projekt-kontener {
   min-height: 100vh;
   padding: 40px;
   font-family: 'Lora', serif;
   color: #2c2c2c;
+  transition: background 0.8s ease;
 }
 
 .naglowek-glowny { text-align: center; margin-bottom: 40px; }
 .nadtytul { font-size: 0.7rem; letter-spacing: 4px; color: #888; text-transform: uppercase; }
 .naglowek-glowny h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 10px 0 30px; }
 
-/* PRZYCISKI EPOK */
+/* PRZYCISKI EPOK W NAGŁÓWKU */
 .nawigacja-epok { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .przycisk-epoki {
   padding: 8px 18px; border: 1px solid #ddd; background: #fff; cursor: pointer;
   border-radius: 20px; font-size: 0.85rem; transition: 0.3s;
 }
-.przycisk-epoki.aktywny { background: var(--kolor-akcentu); color: #fff; border-color: var(--kolor-akcentu); transform: scale(1.05); }
+.przycisk-epoki.aktywny { 
+    background: var(--kolor-akcentu); 
+    color: #fff; 
+    border-color: var(--kolor-akcentu); 
+    transform: scale(1.05); 
+}
 
 /* OBSZAR OSI CZASU */
 .pomaranczowa-ramka {
-  border: 4px solid transparent; /* Kolor ustawiany przez JSX */
+  border: 4px solid var(--kolor-epoki); 
   border-radius: 25px;
   background: rgba(255,255,255,0.8);
   padding: 60px 20px;
   max-width: 1100px;
   margin: 0 auto 50px;
   position: relative;
+  transition: border-color 0.8s ease;
 }
 
-/* Linia przechodząca przez środek kropek */
 .linia-osi-tlo {
   position: absolute;
   height: 2px;
-  /* Kolor tła ustawiany przez JSX */
+  background-color: var(--kolor-epoki);
   width: 90%;
   top: 55%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+  transition: background-color 0.8s ease;
 }
 
 .rzed-epok {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end; /* Wyrównanie elementów do dołu kolumny */
+  align-items: flex-end;
   position: relative;
   z-index: 2;
 }
@@ -58,9 +66,7 @@
   transition: transform 0.3s ease;
 }
 
-.wezel-epoki.aktywny {
-  transform: translateY(-5px);
-}
+.wezel-epoki.aktywny { transform: translateY(-5px); }
 
 .ikona-nad-kropka {
   font-size: 2.2rem;
@@ -88,6 +94,7 @@
 .kropka-osi.wybrana {
   transform: scale(1.3);
   border: 3px solid #fff;
+  box-shadow: 0 0 0 5px var(--tlo-epoki);
 }
 
 .etykieta-daty {
@@ -105,32 +112,48 @@
 }
 .karta-glowna, .karta-boczna { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
 
+.tytul-epoki { color: var(--kolor-epoki); transition: color 0.3s; }
 .info-czasowe { color: #888; font-style: italic; margin-bottom: 20px; font-size: 1rem; }
 .opis-tekstowy { font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 30px; }
 
-.sekcja-danych h4 { font-size: 0.7rem; letter-spacing: 2px; color: #aaa; margin-bottom: 15px; }
+.sekcja-danych h4 { font-size: 0.7rem; letter-spacing: 2px; color: #aaa; margin-bottom: 15px; text-transform: uppercase; }
 .chmura-tagow { display: flex; flex-wrap: wrap; gap: 8px; }
 
-.tag-autora { padding: 5px 14px; border-radius: 6px; color: #fff; font-size: 0.9rem; font-weight: 600; }
-
-/* POJĘCIA I DYMKI */
-.kontener-pojecia { position: relative; display: inline-block; }
-.tag-pojecia { 
-    display: inline-block; padding: 6px 14px; border: 1px solid #eee; 
-    border-radius: 20px; color: #666; font-size: 0.85rem; 
-    cursor: help; transition: all 0.3s ease;
+/* WSPÓLNY STYL DLA PASTYLEK (TAGÓW) */
+.tag-pojecia, .tag-klikany {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    color: #666;
+    font-size: 0.85rem;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s ease;
 }
-.tag-pojecia:hover {
-    background: var(--kolor-aktywny);
+
+.tag-pojecia:hover, .tag-klikany:hover {
+    background: var(--kolor-epoki);
     color: #fff;
-    border-color: var(--kolor-aktywny);
+    border-color: var(--kolor-epoki);
     transform: translateY(-2px);
 }
+
+.tag-klikany.aktywny {
+    background: var(--kolor-epoki);
+    color: #fff;
+    border-color: var(--kolor-epoki);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* DYMKI OPISOWE */
+.kontener-pojecia { position: relative; display: inline-block; }
 .dymek-opisowy {
     position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%);
     width: 220px; background: #2c2c2c; color: #fff; padding: 14px;
     border-radius: 10px; font-size: 0.8rem; line-height: 1.5;
     z-index: 100; box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    border-top: 3px solid var(--kolor-epoki);
     animation: wjazdZdolu 0.3s ease-out;
 }
 
@@ -139,21 +162,20 @@
     to { opacity: 1; transform: translate(-50%, 0); }
 }
 
-.pole-przelomu { padding: 25px; margin-top: 35px; border-radius: 0 12px 12px 0; }
-
-.sekcja-cytatu {
-  margin-top: 30px;
+/* BLOK PRZEŁOMU */
+.pole-przelomu { 
+    padding: 25px; 
+    margin-top: 35px; 
+    border-radius: 0 12px 12px 0; 
+    border-left: 4px solid var(--kolor-epoki);
+    background: rgba(0,0,0, 0.03); /* Bardzo delikatne tło */
 }
 
-.sekcja-cytatu h4 {
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  color: #aaa;
-  margin-bottom: 12px;
-  text-transform: uppercase;
+/* SEKCJA CYTATU */
+.sekcja-cytatu { 
+  margin-top: 30px; 
 }
-
-.sekcja-cytatu blockquote {
+.cytat-blok {
   margin: 0;
   padding: 15px 20px;
   background: #fdfdfd;
@@ -162,9 +184,10 @@
   color: #555;
   line-height: 1.5;
   border-radius: 0 8px 8px 0;
+  border-left: 3px solid var(--kolor-epoki);
 }
 
-.sekcja-cytatu blockquote footer {
+.cytat-blok footer {
   margin-top: 10px;
   font-size: 0.85rem;
   color: #999;
