@@ -88,6 +88,14 @@ const MapaDorobku = () => {
           <h2 className="tytul-epoki">{aktywnaEpoka.name}</h2>
           <div className="info-czasowe">{aktywnaEpoka.period}</div>
           <p className="opis-tekstowy">{aktywnaEpoka.description}</p>
+          <div className="sekcja-kontekstu">
+          <h4>KONTEKST HISTORYCZNY I NAUKOWY:</h4>
+          <ul>
+              {aktywnaEpoka.historicalContext && aktywnaEpoka.historicalContext.map((fakt, index) => (
+              <li key={index}>{fakt}</li>
+          ))}
+          </ul>
+        </div>
           
           <div className="sekcja-danych">
             <h4>KLUCZOWI TWÓRCY: <small>(Kliknij autora, by zobaczyć cytat)</small></h4>
@@ -133,7 +141,7 @@ const MapaDorobku = () => {
 
           {wyswietlanyCytat && (
             <div className="sekcja-cytatu" key={wyswietlanyCytat.author}>
-               <h4>CYTAT DNIA / AUTORA:</h4>
+               <h4>CYTAT AUTORA:</h4>
                <blockquote className="cytat-blok">
                   "{wyswietlanyCytat.text}"
                   <footer>— {wyswietlanyCytat.author}</footer>

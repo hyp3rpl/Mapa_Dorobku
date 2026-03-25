@@ -687,8 +687,13 @@ export const historyData = [
       { author: "Sofokles", text: "Słowami świadczyć miłość - to nie miłość." },
       { author: "Platon", text: "Bezmyślnym życiem żyć człowiekowi nie warto." },
       { author: "Horacy", text: "Co ma być niech będzie." },
-      { author: "Arystoteles", text: "Namyśleć się trzeba powoli." }
-    ],
+      { author: "Arystoteles", text: "Namyśleć się trzeba powoli." },
+      ],
+      historicalContext: [
+        "Wzniesienie ateńskiego Partenonu (V w. p.n.e.)",
+        "Pierwsze starożytne igrzyska olimpijskie (776 r. p.n.e.)",
+        "Powstanie i ekspansja Imperium Rzymskiego"
+      ],
   },
   {
     id: "sredniowiecze-3",
@@ -712,6 +717,11 @@ export const historyData = [
       { author: "Gall Anonim", text: "I tak wielką owego dnia złączyli się miłością, że cesarz mianował go bratem i sprzymierzeńcem narodu rzymskiego." },
       { author: "Wincenty Kadłubek", text: "Nigdy bowiem ludzie doskonali złem za złe nie odpłacają." },
     ],
+      historicalContext: [
+        "Wielka schizma wschodnia i podział chrześcijaństwa",
+        "Bitwa pod Grunwaldem (1410 r.)",
+        "Epidemia 'Czarnej Śmierci' w Europie"
+    ]
   },
   {
     id: "renesans-3",
@@ -734,6 +744,11 @@ export const historyData = [
       { author: "Mikołaj Rej", text: "Kto nie rozważa, mądrych słów słuchając, Jako wół lutniej słucha, trąby zając." },
       { author: "William Szekspir", text: "Miłość w swej prostej i nieśmiałej mowie; Powie najwięcej, kiedy najmniej powie." },
       { author: "Mikołaj Kopernik", text: "A cóż piękniejszego nad niebo, które przecież ogarnia wszystko co piękne? " },
+    ],
+      historicalContext: [
+        "Odkrycie Ameryki przez Krzysztofa Kolumba (1492 r.)",
+        "Mikołaj Kopernik publikuje teorię heliocentryczną",
+        "Wystąpienie Marcina Lutra i początek Reformacji"
     ],
   },
   {
@@ -758,6 +773,11 @@ export const historyData = [
       { author: "Daniel Naborowski", text: "Bogaczu hardy, próżno śmiejesz się z nagiego: Nago wychodzim na ten świat, nago pójdziemy z niego." },
       { author: "Molier", text: "W słowach wszyscy mężczyźni podobni są do siebie; czyny dopiero odsłaniają różnice" },
     ],
+      historicalContext: [
+        "Galileusz potwierdza budowę Układu Słonecznego",
+        "Wojna trzydziestoletnia w Europie",
+        "Budowa pałacu w Wersalu – symbolu absolutyzmu"
+      ],
   },
   {
     id: "oswiecenie-3",
@@ -781,6 +801,11 @@ export const historyData = [
       { author: "Jean-Jacques Rousseau", text: "Nie znajdziecie takiego zła w moralności i polityce, w które nie byłby zamieszany pieniądz." },
       { author: "Adam Naruszewicz", text: "Bo w Polsce złota wolność pewnych reguł strzeże: Chłopa na pal, panu nic, szlachcica na wieże." },
     ],
+      historicalContext: [
+        "Wybuch Rewolucji Francuskiej (1789 r.)",
+        "James Watt opatentowuje maszynę parową",
+        "Uchwalenie Konstytucji 3 Maja w Polsce"
+      ]
   },
   {
     id: "romantyzm-3",
@@ -802,8 +827,13 @@ export const historyData = [
       { author: "Adam Mickiewicz", text: "Bo kto nie był ni razu człowiekiem, temu człowiek nic nie pomoże." },
       { author: "Juliusz Słowacki", text: "Otom ja sam jak drzewo zwarzone od kiści, Sto we mnie żądz, sto uczuć, sto uwiędłych liści." },
       { author: "Zygmunt Krasiński", text: "Jestem tu – jestem – ale wy mnie sądzić nie będziecie. Ja się już wybrałem w drogę – ja stąpam ku sądowi Boga." },
-      { author: "Cyprian Kamil Norwid", text: "Niewolnicy wszędzie i zawsze niewolnikami będą – daj im skrzydła u ramion, a zamiatać pójdą ulice skrzydłami." }
+      { author: "Cyprian Kamil Norwid", text: "Niewolnicy wszędzie i zawsze niewolnikami będą – daj im skrzydła u ramion, a zamiatać pójdą ulice skrzydłami." },
     ],
+      historicalContext: [
+        "Wybuch Powstania Listopadowego w Polsce (1830 r.)",
+        "Wiosna Ludów – seria zrywów rewolucyjnych w Europie",
+        "Wojny napoleońskie zmieniające mapę kontynentu"
+      ],
   },
   {
     id: "pozytywizm-3",
@@ -825,8 +855,13 @@ export const historyData = [
       { author: "Bolesław Prus", text: "Najgorszą samotnością nie jest tak, która otacza człowieka, ale ta pustka w nim samym." },
       { author: "Eliza Orzeszkowa", text: "Podobno bratem bliźniaczym mądrości bywa u ludzi smutek." },
       { author: "Henryk Sienkiewicz", text: "Jeśli ktoś Kalemu zabrać krowy to jest zły uczynek. Dobry, to jak Kali zabrać komuś krowy." },
-      { author: "Maria Konopnicka", text: "A gdy serce twe przytłoczy Myśl, że żyć nie warto, Z łez ocieraj cudze oczy, Chociaż twoich nie otarto." }
-    ],
+      { author: "Maria Konopnicka", text: "A gdy serce twe przytłoczy Myśl, że żyć nie warto, Z łez ocieraj cudze oczy, Chociaż twoich nie otarto." },
+     ],
+      historicalContext: [
+        "Karol Darwin publikuje teorię ewolucji",
+        "Otwarcie Kolei Warszawsko-Wiedeńskiej",
+        "Powstanie Styczniowe i okres rusyfikacji/germanizacji"
+      ],
   },
   {
     id: "mlodapolska-3",
@@ -848,8 +883,13 @@ export const historyData = [
       { author: "Stanisław Wyspiański", text: "Wyście sobie, a my sobie, każden sobie rzepkę skrobie." },
       { author: "Kazimierz Przerwa-Tetmajer", text: "I chociaż życie nasze nic niewarte, evviva l'arte!" },
       { author: "Stefan Żeromski", text: "Każdy ma swoje miejsce ulubione w dzieciństwie. To jest ojczyzna duszy." },
-      { author: "Władysław Reymont", text: "Człowiek nie może żyć tylko dla siebie - nie wolno mu tego pod grozą własnego nieszczęścia." }
+      { author: "Władysław Reymont", text: "Człowiek nie może żyć tylko dla siebie - nie wolno mu tego pod grozą własnego nieszczęścia." },
     ],
+      historicalContext: [
+        "Maria Skłodowska-Curie odkrywa polon i rad",
+        "Wybuch I Wojny Światowej (1914 r.)",
+        "Bracia Lumière prezentują pierwszy publiczny pokaz kinowy"
+      ],
   },
   {
     id: "20lecie-3",
@@ -862,7 +902,7 @@ export const historyData = [
     keywords: [
       { name: "Awangarda", desc: "Zerwanie z tradycją i stworzenie nowego języka sztuki." },
       { name: "Futuryzm", desc: "Fascynacja prędkością, maszyną i odrzucenie przeszłości." },
-      { name: "Katastrofizm", desc: "Przekonanie o bliskim upadku cywilizacji europejskiej." },
+      { name: "Katastrofizm", desc: "Przeczucie nadchodzącej zagłady cywilizacji." },
       { name: "Psychologizm", desc: "Badanie skomplikowanych mechanizmów ludzkiej psychiki." }
     ],
     shift: "II Wojna Światowa",
@@ -872,6 +912,11 @@ export const historyData = [
       { author: "Bruno Schulz", text: "Bo czyż pod stołem, który nas dzieli, nie trzymamy się wszyscy tajnie za ręce?" },
       { author: "Witold Gombrowicz", text: "Człowiek jest najgłębiej uzależniony od swojego odbicia w duszy drugiego człowieka." },
       { author: "Bolesław Leśmian", text: "Świat się zmniejszył na zawsze o twą drobną postać, I zmalał cały świat!" }
+    ],
+    historicalContext: [
+      "Odzyskanie niepodległości przez Polskę (1918 r.)",
+      "Wielki Kryzys gospodarczy na świecie",
+      "Powstanie portu i miasta Gdynia"
     ],
   },
 ]
