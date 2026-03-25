@@ -196,3 +196,61 @@
   font-style: normal;
   display: block;
 }
+.sekcja-kontekstu {
+  margin: 30px 0;
+}
+
+.podtytul-sekcji {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #aaa;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+.lista-faktow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fakt-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.02); /* Bardzo delikatne tło */
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.fakt-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateX(5px);
+}
+
+/* Kolorowy pasek/kropka przy każdym fakcie */
+.fakt-marker {
+  width: 4px;
+  height: 24px;
+  background-color: var(--kolor-epoki); /* Dynamiczny kolor Twojej epoki */
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.fakt-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+  font-family: 'Lora', serif;
+}
+
+/* Dopasowanie marginesów dla autorów poniżej */
+.sekcja-danych {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #eee; /* Delikatne oddzielenie od kontekstu */
+}

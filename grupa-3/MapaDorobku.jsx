@@ -89,13 +89,17 @@ const MapaDorobku = () => {
           <div className="info-czasowe">{aktywnaEpoka.period}</div>
           <p className="opis-tekstowy">{aktywnaEpoka.description}</p>
           <div className="sekcja-kontekstu">
-          <h4>KONTEKST HISTORYCZNY I NAUKOWY:</h4>
-          <ul>
+            <h4 className="podtytul-sekcji">Kontekst Historyczny i Naukowy</h4>
+              <div className="lista-faktow">
               {aktywnaEpoka.historicalContext && aktywnaEpoka.historicalContext.map((fakt, index) => (
-              <li key={index}>{fakt}</li>
-          ))}
-          </ul>
-        </div>
+                <div key={index} className="fakt-item">
+                  <span className="fakt-marker"></span>
+                  <p>{fakt}</p>
+              </div>
+              ))}
+          </div>
+</div>
+
           
           <div className="sekcja-danych">
             <h4>KLUCZOWI TWÓRCY: <small>(Kliknij autora, by zobaczyć cytat)</small></h4>
