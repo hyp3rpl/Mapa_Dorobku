@@ -76,35 +76,38 @@ const DATA = {
 
 const CONNECTIONS = [
     ['g2-boguro', 'g2-sre'], 
-    ['g2-druk', 'g2-ren'], ['g2-kochan', 'g2-ren'], ['g2-columb', 'g2-ren'],
+    ['g2-druk', 'g2-ren'], ['g2-columb', 'g2-ren'], ['g2-kochan', 'g2-ren'],
     ['g2-pasek', 'g2-bar'],
     ['g2-newton', 'g2-osw'],
     ['g2-mick', 'g2-rom'],
-    ['g2-watt', 'g2-poz'],
+    ['g2-watt', 'g2-poz'], ['g2-darwin', 'g2-poz'],
     ['g2-wesele', 'g2-mp'],
     ['g2-einstein', 'g2-d20'], ['g2-schulz', 'g2-d20'],
-    ['g2-einstein', 'g2-woj'],
-    ['g2-moon', 'g2-wsp'], ['g2-tokar', 'g2-wsp']
+    ['g2-einstein', 'g2-woj'], ['g2-atom', 'g2-woj'],
+    ['g2-moon', 'g2-wsp'], ['g2-tokar', 'g2-wsp'], ['g2-internet', 'g2-wsp']
 ];
 
 const Asyn = () => {
     const [selectedEpoch, setSelectedEpoch] = useState(null);
     const [activeId, setActiveId] = useState(null);
+    const [filter, setFilter] = useState('all'); // NOWE: Stan filtra
     const [paths, setPaths] = useState([]);
     const chartRef = useRef(null);
 
     const drawConnections = () => {
         if (!chartRef.current) return;
         const rect = chartRef.current.getBoundingClientRect();
+        const scrollX = chartRef.current.scrollLeft;
+
         const newPaths = CONNECTIONS.map(conn => {
             const e1 = document.getElementById(conn[0]);
             const e2 = document.getElementById(conn[1]);
             if (e1 && e2) {
                 const r1 = e1.getBoundingClientRect();
                 const r2 = e2.getBoundingClientRect();
-                const x1 = r1.left + r1.width / 2 - rect.left;
+                const x1 = r1.left + r1.width / 2 - rect.left + scrollX;
                 const y1 = r1.top + r1.height / 2 - rect.top;
-                const x2 = r2.left + r2.width / 2 - rect.left;
+                const x2 = r2.left + r2.width / 2 - rect.left + scrollX;
                 const y2 = r2.top + r2.height / 2 - rect.top;
                 return {
                     d: `M ${x1} ${y1} C ${x1} ${(y1 + y2) / 2}, ${x2} ${(y1 + y2) / 2}, ${x2} ${y2}`,
@@ -124,7 +127,7 @@ const Asyn = () => {
             window.removeEventListener('resize', drawConnections);
             clearTimeout(timer);
         };
-    }, []);
+    }, [filter]); // NOWE: Przelicz przy zmianie filtra
 
     const currentEpochData = selectedEpoch ? DATA[selectedEpoch.replace('g2-', '')] : null;
 
@@ -141,6 +144,13 @@ const Asyn = () => {
                 </div>
             </header>
 
+            {/* NOWE: Menu filtrów */}
+            <div className="filter-menu">
+                <button className={`filter-btn ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>Wszystko</button>
+                <button className={`filter-btn ${filter === 'global' ? 'active' : ''}`} onClick={() => setFilter('global')}>Nauka & Świat</button>
+                <button className={`filter-btn ${filter === 'text' ? 'active' : ''}`} onClick={() => setFilter('text')}>Literatura Polska</button>
+            </div>
+
             <div className="legend">
                 <div className="legend-item">
                     <span className="l-dot" style={{background: 'var(--accent)'}}></span> Przełomy Globalne
@@ -150,7 +160,7 @@ const Asyn = () => {
                 </div>
             </div>
 
-            <main className="infographic-area" ref={chartRef}>
+            <main className="infographic-area" ref={chartRef} onScroll={drawConnections}>
                 <svg id="svg-layer">
                     {paths.map((path, idx) => (
                         <path
@@ -164,12 +174,15 @@ const Asyn = () => {
                 <div className="axis-container">
                     <div className="axis-header">Świat: Nauka i Przełomy</div>
                     <div className="base-line"></div>
-                    <Dot id="g2-druk" left="14%" label="1450: Wynalazek Druku" onActive={setActiveId} type="global" />
-                    <Dot id="g2-columb" left="22%" label="1492: Odkrycie Ameryki" onActive={setActiveId} type="global" />
-                    <Dot id="g2-newton" left="35%" label="1687: Dynamika Newtona" onActive={setActiveId} type="global" />
-                    <Dot id="g2-watt" left="45%" label="1769: Maszyna Parowa" onActive={setActiveId} type="global" />
-                    <Dot id="g2-einstein" left="65%" label="1905: Teoria Względności" onActive={setActiveId} type="global" />
-                    <Dot id="g2-moon" left="85%" label="1969: Lądowanie na Księżycu" onActive={setActiveId} type="global" />
+                    <Dot id="g2-druk" left="14%" label="1450: Wynalazek Druku" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-columb" left="22%" label="1492: Odkrycie Ameryki" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-newton" left="35%" label="1687: Dynamika Newtona" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-watt" left="45%" label="1769: Maszyna Parowa" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-darwin" left="54%" label="1859: Teoria Ewolucji" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-einstein" left="65%" label="1905: Teoria Względności" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-atom" left="72%" label="1945: Bomba Atomowa" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-moon" left="85%" label="1969: Lądowanie na Księżycu" onActive={setActiveId} type="global" filter={filter} />
+                    <Dot id="g2-internet" left="94%" label="1991: Publiczny Internet" onActive={setActiveId} type="global" filter={filter} />
                 </div>
 
                 <div className="axis-container main-axis">
@@ -183,34 +196,34 @@ const Asyn = () => {
                     <Epoch id="g2-poz" left="53%" width="6%" title="POZYTYW." sub="1864" onOpen={setSelectedEpoch} onActive={setActiveId} />
                     <Epoch id="g2-mp"  left="59%" width="7%" title="MŁODA PL" sub="1890" onOpen={setSelectedEpoch} onActive={setActiveId} />
                     <Epoch id="g2-d20" left="66%" width="5%" title="20-LECIE" sub="1918" onOpen={setSelectedEpoch} onActive={setActiveId} />
-                    <Epoch id="g2-woj" left="71%" width="4%" title="WOJNA" sub="" onOpen={setSelectedEpoch} onActive={setActiveId} />
+                    <Epoch id="g2-woj" left="71%" width="4%" title="WOJNA" sub="1939" onOpen={setSelectedEpoch} onActive={setActiveId} />
                     <Epoch id="g2-wsp" left="75%" width="25%" title="WSPÓŁCZESNOŚĆ" sub="Od 1945" onOpen={setSelectedEpoch} onActive={setActiveId} />
                 </div>
 
                 <div className="axis-container">
                     <div className="axis-header">Polska: Kluczowe Teksty</div>
                     <div className="base-line"></div>
-                    <Dot id="g2-boguro" left="5%" label="Bogurodzica" onActive={setActiveId} type="text" />
-                    <Dot id="g2-kochan" left="18%" label="Kochanowski: Treny" onActive={setActiveId} type="text" />
-                    <Dot id="g2-pasek" left="28%" label="Pasek: Pamiętniki" onActive={setActiveId} type="text" />
-                    <Dot id="g2-mick" left="47%" label="Mickiewicz: Dziady" onActive={setActiveId} type="text" />
-                    <Dot id="g2-wesele" left="60%" label="Wyspiański: Wesele" onActive={setActiveId} type="text" />
-                    <Dot id="g2-schulz" left="68%" label="Schulz: Sklepy cynamonowe" onActive={setActiveId} type="text" />
-                    <Dot id="g2-tokar" left="90%" label="Tokarczuk: Bieguni" onActive={setActiveId} type="text" />
+                    <Dot id="g2-boguro" left="5%" label="Bogurodzica" onActive={setActiveId} type="text" filter={filter} />
+                    <Dot id="g2-kochan" left="18%" label="Kochanowski: Treny" onActive={setActiveId} type="text" filter={filter} />
+                    <Dot id="g2-pasek" left="28%" label="Pasek: Pamiętniki" onActive={setActiveId} type="text" filter={filter} />
+                    <Dot id="g2-mick" left="47%" label="Mickiewicz: Dziady" onActive={setActiveId} type="text" filter={filter} />
+                    <Dot id="g2-wesele" left="60%" label="Wyspiański: Wesele" onActive={setActiveId} type="text" filter={filter} />
+                    <Dot id="g2-schulz" left="68%" label="Schulz: Sklepy cynamonowe" onActive={setActiveId} type="text" filter={filter} />
+                    <Dot id="g2-tokar" left="90%" label="Tokarczuk: Bieguni" onActive={setActiveId} type="text" filter={filter} />
                 </div>
 
                 <div className="timeline-footer">
-                    <div className="year-tag" style={{ left: '0%' }} data-info="Początek Średniowiecza (Chrzest Polski)">966</div>
+                    <div className="year-tag first" style={{ left: '0%' }} data-info="Początek Średniowiecza (Chrzest Polski)">966</div>
                     <div className="year-tag" style={{ left: '14%' }} data-info="Koniec Średniowiecza / Początek Renesansu">1500</div>
                     <div className="year-tag" style={{ left: '24%' }} data-info="Koniec Renesansu / Początek Baroku">1620</div>
                     <div className="year-tag" style={{ left: '36%' }} data-info="Koniec Baroku / Początek Oświecenia">1764</div>
                     <div className="year-tag" style={{ left: '44%' }} data-info="Koniec Oświecenia / Początek Romantyzmu">1822</div>
                     <div className="year-tag" style={{ left: '53%' }} data-info="Koniec Romantyzmu / Początek Pozytywizmu">1864</div>
                     <div className="year-tag" style={{ left: '59%' }} data-info="Koniec Pozytywizmu / Początek Młodej Polski">1890</div>
-                    <div className="year-tag" style={{ left: '66%' }} data-info="Koniec Młodej Polski / Początek 20-lecia">1918</div>
+                    <div className="year-tag shift-down" style={{ left: '66%' }} data-info="Koniec Młodej Polski / Początek 20-lecia">1918</div>
                     <div className="year-tag" style={{ left: '71%' }} data-info="Koniec 20-lecia / Wybuch II Wojny Światowej">1939</div>
-                    <div className="year-tag" style={{ left: '75%' }} data-info="Koniec Wojny / Początek Współczesności">1945</div>
-                    <div className="year-tag" style={{ left: '100%' }} data-info="Współczesność - Epoka trwająca">DZIŚ</div>
+                    <div className="year-tag shift-down" style={{ left: '75%' }} data-info="Koniec Wojny / Początek Współczesności">1945</div>
+                    <div className="year-tag last" style={{ left: '100%' }} data-info="Współczesność - Epoka trwająca">DZIŚ</div>
                 </div>
             </main>
 
@@ -246,11 +259,15 @@ const Epoch = ({ id, left, width, title, sub, onOpen, onActive }) => (
     </div>
 );
 
-const Dot = ({ id, left, label, onActive, type }) => (
-    <div className={`dot ${type}`} id={id} style={{ left }} data-label={label}
-        onMouseEnter={() => onActive(id)} onMouseLeave={() => onActive(null)}>
-        <div className="dot-pulse"></div>
-    </div>
-);
+const Dot = ({ id, left, label, onActive, type, filter }) => {
+    // NOWE: Logika przyciemniania
+    const isDimmed = filter !== 'all' && filter !== type;
+    return (
+        <div className={`dot ${type} ${isDimmed ? 'dimmed' : ''}`} id={id} style={{ left }} data-label={label}
+            onMouseEnter={() => onActive(id)} onMouseLeave={() => onActive(null)}>
+            <div className="dot-pulse"></div>
+        </div>
+    );
+};
 
 export default Asyn;
