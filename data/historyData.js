@@ -852,7 +852,7 @@ export const historyData = [
     shift: "Dekadentyzm końca wieku",
     shiftNote: "Rozczarowanie brakiem postępu duchowego i pesymizm.",
     quotes: [
-      { author: "Bolesław Prus", text: "Najgorszą samotnością nie jest tak, która otacza człowieka, ale ta pustka w nim samym." },
+      { author: "Bolesław Prus", text: "Najgorszą samotnością nie jest ta, która otacza człowieka, ale ta pustka w nim samym." },
       { author: "Eliza Orzeszkowa", text: "Podobno bratem bliźniaczym mądrości bywa u ludzi smutek." },
       { author: "Henryk Sienkiewicz", text: "Jeśli ktoś Kalemu zabrać krowy to jest zły uczynek. Dobry, to jak Kali zabrać komuś krowy." },
       { author: "Maria Konopnicka", text: "A gdy serce twe przytłoczy Myśl, że żyć nie warto, Z łez ocieraj cudze oczy, Chociaż twoich nie otarto." },
